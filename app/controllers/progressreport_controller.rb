@@ -46,7 +46,7 @@ class ProgressreportController < ApplicationController
   
   # GET /progressreport/1/admin
   def admin
-	@allUserGoals = Goal.find_by_sql("select t.user_id, u.name ,
+	@allUserGoals = Goal.find_by_sql("select g.user_id, u.name ,
 										count(distinct g.id) as totalGoals,
 										count(distinct t.id) as totalTasks,
 										sum(g.is_complete) as completedGoals ,

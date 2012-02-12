@@ -12,7 +12,7 @@ ADMIN REPORT
 	</tr>
 <% @allUserGoals.each do |userid,name,totalGoals,totalTasks,completedGoals,completedTasks| %>
 	<tr>
-		<td class="column1"><%=user_id%></td>
+		<td class="column1"><%=userid%></td>
 		<td class="column2"><%=name%></td>
 		<td class="column3"><%=totalGoals.to_i%></td>
 		<td class="column4"><%=totalTasks.to_i%></td>

@@ -155,4 +155,5 @@ class GoalsController < ApplicationController
       format.json { head :ok }
     end
   end
+
 end

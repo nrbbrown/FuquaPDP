@@ -38,6 +38,7 @@ dojo.ready(Score.init);
 
 <%if @isme %>
     <div class="editdeletecontainer">
+	<%= link_to 'progress', :controller=>'progress', :action=>'index', :id=>goal.id %>
     <%if @complete != '1' %>
         <%= link_to 'edit', edit_goal_path(goal) %>
     <% end %>

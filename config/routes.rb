@@ -1,5 +1,7 @@
 Epdp::Application.routes.draw do
 
+  resources "progress"
+
   get "progressreport/index"
   get "progressreport/admin"
   resources :goals do

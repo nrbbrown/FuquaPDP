@@ -1,0 +1,71 @@
+<div id="outer-container" >
+	<div class="reportOuterBox">
+		<div class="reportBox">
+			<div class="leftTaskBox">
+				<div class="dateRow">
+					<div class="firstDateColumn"></div>
+					<div class="oneDateColumn"><%=@minDate.month%>/<%=@minDate.day%></div>
+					<% @startWeekDate = @minDate
+					while @startWeekDate < @maxDate
+						@startWeekDate += 7
+						if(@startWeekDate > @maxDate)
+							break
+						end
+					%>
+						<div class="oneDateColumn"><%=@startWeekDate.month%>/<%=@startWeekDate.day%></div>
+					<%end%>
+					<div class="oneDateColumn"><%=@maxDate.month%>/<%=@maxDate.day%></div>
+				</div>
+				<div class="taskRow">
+					<%@goal.tasks.each do |onetask|%>
+						<div class="oneTaskRow">
+							<div class="oneTaskName"><%=onetask.task%></div>
+							<%
+							@taskStartDate = Date.parse(onetask.startdue.strftime("%d %b %Y"))
+							@taskEndDate = Date.parse(onetask.due.strftime("%d %b %Y"))
+							@taskComplete = onetask.is_complete?
+							%>
+							<div class="oneDateColumn">
+								<%if @minDate < @taskStartDate %>
+									--
+								<%elsif @minDate >= @taskStartDate and @minDate <= @taskEndDate and !@taskComplete %>
+									<img src="/images/tu_off.png">
+								<%else%>
+									<img src="/images/tu_blank.png">
+								<%end%>
+							</div>
+							<% @startWeekDate = @minDate
+							while @startWeekDate < @maxDate
+								@startWeekDate += 7
+								if(@startWeekDate > @maxDate)
+									break
+								end%>
+								<div class="oneDateColumn">
+									<%if @startWeekDate < @taskStartDate %>
+										--
+									<%elsif @startWeekDate >= @taskStartDate and @startWeekDate <= @taskEndDate and !@taskComplete %>
+										<img src="/images/tu_off.png">
+									<%else%>
+										<img src="/images/tu_blank.png">
+									<%end%>
+								</div>
+							<%end%>
+							<div class="oneDateColumn">
+								<%if @maxDate < @taskStartDate %>
+									--
+								<%elsif @maxDate >= @taskStartDate and @maxDate <= @taskEndDate and !@taskComplete %>
+									<img src="/images/tu_off.png">
+								<%else%>
+									<img src="/images/tu_blank.png">
+								<%end%>
+							</div>
+						</div>
+					<%end%>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+dojo.removeClass('dim','hidediv');
+</script>

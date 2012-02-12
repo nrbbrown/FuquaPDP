@@ -20,10 +20,14 @@ Percent Goal Completed: <%=@percentGoalCompleted%>
 				</div>
 			</div>
 		<%end%>
+		<div class="singleBar">
+			<div class="catLabel">Overall Progress</div> 
+			<div class="catBarEmpty">
+				<div class="filledGraph" style="width:<%=320*@overallCompleted.to_i/100%>px;"></div>
+				<div class="percentFilled"><%=@overallCompleted.to_i%>%</div>
+			</div>
+		</div>
 	</div>
-</div>
-<div class="overallCompletion">
-	Overall Completed: <%=@overallCompleted%>
 </div>
 
 </div>

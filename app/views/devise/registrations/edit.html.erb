@@ -1,0 +1,59 @@
+<div id="homewrapper">
+
+<div>
+<%- flash.each do |name, msg| -%>
+<%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+<%- end -%>
+</div>
+
+
+<div id="centercontainer">
+    <div id="largebird"></div>
+    <div id="rightcontainer">
+        <div id="mimtitlelg">
+            <span>mim</span>
+            <span class="mimsubtitle">measurable intent memos</span>
+        </div>
+        <div id="signincontainer">
+            <div id="signinarea">
+                <div class="bluetext">update my account</div>
+                <div class="areaform">
+
+                    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+
+                    <div><%= f.text_field :name, :placeholder => 'name' %></div>
+
+                    <div><%= f.email_field :email, :placeholder => 'email' %></div>
+
+                    <div><%= f.password_field :password, :placeholder => 'new password' %></div>
+
+                    <div><%= f.password_field :password_confirmation, :placeholder => 'confirm password' %></div>
+
+                    <p><%= f.password_field :current_password, :placeholder => 'current password' %></p>
+
+                    <div><%= f.submit "Update", :class => 'formupdate' %></div>
+                    <% end %>
+                    <div class="forgotpassword">for assistance, please contact the admin: 
+                    <span class="bluehighlight">measurable.intent.memos</span>&lt;<span class="darkbluehighlight">@</span>&gt;<span class="bluehighlight">gmail.com</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="signuparea">
+                <div class="redtext">cancel my account</div>
+                <div class="areaform">
+
+                    <p><%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure? This cannot be undone.", :method => :delete, :class => 'formsignin' %></p>
+
+
+                </div>
+                <div class="greentext">back to goals</div>
+                <div class="areaform">
+                    <p><%= link_to "Back", goals_path, :class => 'formsignup' %></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>

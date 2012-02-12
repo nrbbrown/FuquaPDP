@@ -1,0 +1,632 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree . 
+*/
+
+ul.hmenu {
+  list-style: none;	
+  margin: 0 0 2em;
+  padding: 0;
+}
+ul.hmenu li {
+  display: inline;  
+}
+#flash_notice, #flash_alert {
+  padding: 5px 8px;
+  margin: 10px 0;
+  float: right;
+  font-size:16x;
+}
+#flash_notice {
+  color: #46B79B;
+}
+#flash_alert {
+  color: #fe4837;
+}
+
+
+
+/* MIM */
+
+body { background:#e2e2e2; color: #333; overflow-x:hidden; }
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a { color: #000; }
+a:visited { color: #666; }
+a:hover { color: #fff; }
+
+input{
+	border:1px solid #ddd;
+	color:#666;
+	font-size:12px;
+	padding:2px;
+}
+
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+#notice {
+    color: #46b79b;
+}
+
+.field_with_errors>input[type=password] {
+  /*padding: 2px;*/
+  /*background-color: red;*/
+  /*display: table;*/
+    border:1px solid #b41100 !important;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+.spacer{
+    height:40px;
+
+}
+#topbar{
+	position:absolute;
+	top:0px;
+	left:0px;
+	background:url('/images/background_topbar.png');
+	width:100%;
+	height:45px;
+	border-bottom: 2px solid #666;
+	z-index:100;
+}
+#searchdiv{
+	background:url('/images/header_magnify.png') 5px 5px no-repeat;
+	width:250px;
+	height:45px;
+	line-height:45px;
+	padding-left:45px;
+	float:left;
+    font-size:14px;
+    color:#fff  ;
+    text-shadow:1px 1px 1px #000;
+    cursor:pointer;
+    font-size:18px;
+}
+#searchdiv>a{
+    text-decoration:none;
+    color:#eee;
+    text-transform:lowercase;
+}
+#searchdiv>a:hover{
+    background:none;
+    text-decoration:underline;
+}
+#logoutdiv{
+    float:right;
+	color:#ccc;
+	height:45px;
+	line-height:45px;
+	padding-right:20px;
+}
+#logoutdiv>a{
+    color:#999;
+    text-decoration:none;
+    text-transform:lowercase;
+    font-size:14px;
+    text-shadow:1px 1px 1px #000;
+    padding-left:15px;
+}
+#logoutdiv>a:hover{
+    color:#eee;
+}
+#goalbackleft{
+	background:url('/images/background_main_left.png') 0 0 repeat-x; 
+	height:535px;
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:390px;
+	z-index:-100;
+}
+#goalbackright{
+	background:url('/images/background_main_right.png') 0 0 repeat-x; 
+	height:535px;
+	position:absolute;
+	top:0px;
+	right:0px;
+	width:390px;
+	z-index:-100;
+}
+#goalbacktile{
+	background:url('/images/background_main_tile.png') 0 0 repeat-x; 
+	height:535px;
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	z-index:-100;
+}
+#goalcontainer{
+	min-height:200px;
+	margin-top:45px;
+	margin-left:-9px;
+	width:100%;
+	padding-right:16px;
+	z-index:100;
+}
+.catarrow{
+    position:absolute;
+    margin-left:10px;
+}
+.categoryfield{
+    width:100px;
+    text-transform:lowercase;
+    font-size:14px;
+    color:#444;
+    text-align:right;
+}
+.goalsubcontainer{
+    width:605px;
+    margin:auto;
+}
+.newgoalleft{
+    position:absolute;
+    width:160px;
+    margin-left:-180px;
+    margin-top:-10px;
+}
+.newgoalright{
+    width:605px;
+}
+.newgoal a{
+    font-family: 'Rock Salt';
+    font-size:45px;
+    color:#fe4837;
+    margin-bottom:60px;
+    text-decoration:none;
+}
+#editgoalheader{
+    font-family: 'Rock Salt';
+    font-size:30px;
+    color:#666;
+    margin-bottom:6px;
+    text-decoration:none;
+}
+#listcontainer{
+	background: url('/images/background_base.png') 0 0 repeat-x; 
+	width:100%;
+	margin-left:-9px;
+	padding: 30px 6px 137px 11px;
+}
+.valuesbox{
+    width:500px;
+}
+.accountabilitybox{
+    width:441px;
+}
+.goalbox{
+    font-size:25px;
+    padding:4px;
+    color:#555;
+    width:558px;
+}
+#activecontainer{
+    margin:auto;
+    width:700px;
+    padding:20px 0px;
+}
+#activecontainer>div{
+    display:inline;
+}
+#activecontainer>div a{
+    text-decoration:none;
+    font-size:20px;
+    color:#999;
+    font-family:arial;
+}
+#activecontainer>div.selected a,#activecontainer>div a:hover{
+    color:#fe7c6f;
+    cursor:pointer;
+    background:transparent;
+}
+.goalitem{
+    margin:auto;
+    width:700px;
+    min-height:200px;
+    border:1px solid #ddd;
+    background:#fff;
+    padding:10px;
+    padding-bottom:30px;
+    margin-bottom:20px;
+}
+.goaldesc{
+    font-size:25px;
+    color:#555;
+    margin:20px 0 20px 40px;
+}
+.goalcategory,.goalaccountability, .goalvalues{
+    color:#999;
+}
+.goalvalues{
+    margin:0 0 10px 40px;
+}
+.goalaccountability{
+    margin:10px 0 0 40px;
+}
+.goalaccountability a{
+    color:#52B0CB;
+    text-decoration:none;
+}
+.goalaccountability a:hover{
+    color:#1c94b7;
+}
+.goalsubtitle{
+    color:#444;
+    font-size:16px;
+    text-transform:lowercase;
+    margin-right:5px;
+    font-style:italic;
+}
+.tasksubtitle{
+    color:#666;
+    font-size:16px;
+    text-transform:lowercase;
+    font-style:italic;
+    margin-right:5px;
+}
+.tasktext{
+    width:276px;
+}
+.taskarea,.displaytaskarea{
+    background:#eee;
+    padding:13px 0px 13px 13px;
+    border:1px solid #ccc;
+    margin-left:-12px;
+    width:725px;
+}
+.displaytaskarea{
+    margin-left:27px;
+    width:630px;
+}
+.taskrowoff{
+    display:none;
+}
+.tasktdA{
+    width:45px;
+}
+.tasktdB{
+    width:275px;
+}
+.tasktdC{
+    width:28px;
+}
+.tasktdD{
+    width:210px;
+}
+.submitgoal{
+	background:url('/images/submit_arrow_gray.png') 0 0 no-repeat;
+    width:150px;
+    height:160px;
+    border:none;
+    color:transparent;
+}
+.submitgoal:hover{
+	background:url('/images/clickarrow.png') 0 0 no-repeat;
+    cursor:pointer;
+}
+#submitgoalbox{
+    position:absolute;
+    margin-left:550px;
+    margin-top:-55px;
+}
+#mimitem{
+    position:fixed;
+    bottom:-220px;
+    left:0px;
+    width:100%;
+    z-index:2000; 
+}
+.infomimcontainer{
+    width:700px;
+    margin:auto;
+}
+#mimbird{
+    position:absolute;
+    background:url('/images/mim_magpieicon.png') 0 0 no-repeat;
+    width:60px;
+    height:80px;
+    margin-top:-80px;
+    margin-left:71px;
+    cursor:pointer;
+}
+#infomim{
+    position:absolute;
+    margin-top:-65px;
+    margin-left:-11px;
+	background:url('/images/mim_tab_blank.png') 0 0 no-repeat;
+	width:153px;
+	height:132px;
+	padding:35px 0 0 42px;
+	font-size:38px;
+	font-family: Arial;
+	color:#fff;
+    cursor:pointer;
+}
+#infomimbottomcrest{
+    color:#666;   
+    background:#fff;
+    width:330px;
+    height:200px;
+    padding:7px;
+    border:1px solid #ddd;
+    box-shadow: 3px -3px 10px #fff;
+}
+.bottomcresttitle{
+    margin:14px 0 0 105px;
+    font-size:16px;
+    font-style:italic;
+}
+.bottomcrestcontent{
+    margin:15px 0 0 15px;
+    font-size:10px;
+}
+.bottomcrestcontent ul{
+    font-size:10px;
+}
+.crestfooter{
+    font-size:8px;
+    text-transform:uppercase;
+    float:right;
+    margin-right:10px;
+}
+.centercontainer{
+	margin:auto;
+	width:600px;
+	height:300px;
+	padding-top:30px;
+}
+.goal-tasks{
+	background:#eee;
+	border:1px solid #ddd;
+	width:580px;
+	height:30px;
+	padding:10px;
+	font-size:14px;
+	color:#777;
+	font-style:italic;
+	margin: 5px 0;
+}
+span.form-item{
+	font-size:14px;
+	color:#444;
+	padding-left:15px;
+	line-height:30px;
+}
+.values-item{
+	width:505px;
+}
+.accountability-item{
+	width:453px;
+}
+.goal-item{
+	font-size:20px;
+	width:557px;
+	margin-left:10px;
+	padding:3px;
+}
+.categorylistcontainer{
+    width:620px;
+    margin:auto;
+}
+#categorylist{
+    position:absolute;
+    margin-left:-230px;
+}
+#categorylist>div{
+    font-size:24px;
+    color:#666;
+    font-family:arial;
+    line-height:30px;
+    width:150px;
+    text-align:right;
+}
+#categorylist>div.selected,#categorylist>div:hover{
+    color:#fe4837;
+    cursor:pointer;
+}
+.truetaskcheck0,.truetaskcheck1:hover,.falsetaskcheck0{
+    background:url('/images/check_off.png');
+    width:30px;
+    height:32px;
+}
+.truetaskcheck0:hover,.truetaskcheck1,.falsetaskcheck1{
+    background:url('/images/check_on.png');   
+    width:30px;
+    height:32px;
+}
+.truetaskcheck0:hover,.truetaskcheck1{
+    cursor:pointer;
+}
+.editdeletecontainer{
+    float:right;
+}
+.editdeletecontainer>a{
+    font-size:14px;
+    text-decoration:none;
+    background:none;
+    color:#ccc;
+}
+.editdeletecontainer>a:hover{
+    color:#999;
+}
+.goalscore{
+    float:right;
+    color:#46b79b;
+    font-size:16px;
+    font-family:arial;
+    margin-right:45px;
+    margin-top:-15px;
+    font-weight:bold;
+}
+#scoreitem{
+    position:fixed;
+    bottom:-112px;
+    width:100%;
+    z-index:2001;
+}
+.infoscorecontainer{
+    margin:auto;
+    width:700px;f
+}
+.iteminactive{
+    opacity:0.4;
+}
+.iteminactive:hover{
+    opacity:1.0;
+}
+#infoscore{
+	background:url('/images/score_tab.png') 0 0 no-repeat;
+    margin-left:545px;
+    margin-top:-185px;
+	width:167px;
+	height:144px;
+	color:#fff;
+	padding:45px 0 0 40px;
+	font-size:24px;
+	font-family: 'Rock Salt', cursive;
+    position:fixed;
+    cursor:pointer;
+}
+#scoreplusminus{
+    background:url('/images/score_plusminus.png') 0 0 no-repeat;
+    width:224px;
+    height:100px;
+    margin-left:345px;
+    margin-top:-180px;
+    position:fixed;
+}
+.hidediv{
+    display:none;
+}
+#bottomscorecontent{
+    position:fixed;
+    border:1px solid #ddd;
+    box-shadow: 3px -3px 10px #fff;
+    height:300px;
+    width:330px;
+    background:#fff;
+    padding:7px;
+    margin-top:-110px;
+    margin-left:350px;
+}
+.scoredesc{
+    color:#333;
+    font-size:14px;
+    padding:0px 50px 0px 32px;
+}
+.scorenum{
+    text-align:right;
+    font-weight:bold;
+    color:#46b79b;
+    font-size:16px;
+    font-family:Arial;
+    width:50px;
+}
+.bottomscoretitle{
+    margin:14px 0 20px 30px;
+    font-size:16px;
+    font-style:italic;
+    color:#666;
+}
+.goallistingbottompadding{
+    height:0px;
+}
+#userlistdiv{
+    position:absolute;
+    left:40px;
+    top:0px;
+    min-width:300px;
+    background:#fff;
+    padding:3px;
+    border:1px solid #eee;
+    box-shadow:0px 0px 10px #fff;
+    z-index:3000;
+}
+.userentry{
+    padding:7px 12px;
+    height:20px;
+}
+.userentry a{
+    color:#52B0CB;
+    text-decoration:none;
+}
+.userentry:hover a, .userentry a:hover{
+    color:#1c94b7;
+    font-size:16px;
+}
+
+#userdirectory{
+    height:18px;
+    padding:13px 12px;
+    cursor:pointer;
+    color:#777;
+    font-size:16px;
+    background:#eee;
+}
+.markme{
+    color:#46b79b;
+    height:20px;
+    font-family:'Rock Salt';
+}
+#dim,#dimuser{
+    background:#000;
+    opacity:0.4;
+    width:100%;
+    height:100%;
+    position:fixed;
+    top:0px;
+    left:0px; 
+}
+#dim{
+    z-index:1000;
+}
+#dimuser{
+    z-index:2002;
+}
+.floatLeft{
+    float:left;
+}
+.floatRight{
+    float:right;
+}

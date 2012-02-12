@@ -1,0 +1,29 @@
+<div id="outer-container" >
+Total Goals: <%=@allGoals.length%><br>
+
+<br>
+Tasks: <%=@completeTasks%>
+<br>
+<br>
+Percent Goal Completed: <%=@percentGoalCompleted%>
+<br>
+
+<br>
+<div class="domainContainer">
+	<div class="domainLevelReport">
+		<%@categoryComplete.each do |onecat,c| %>
+			<div class="singleBar">
+				<div class="catLabel"><%=onecat%></div> 
+				<div class="catBarEmpty">
+					<div class="filledGraph" style="width:<%=320*c.to_i/100%>px;"></div>
+					<div class="percentFilled"><%=c.to_i%>%</div>
+				</div>
+			</div>
+		<%end%>
+	</div>
+</div>
+<div class="overallCompletion">
+	Overall Completed: <%=@overallCompleted%>
+</div>
+
+</div>

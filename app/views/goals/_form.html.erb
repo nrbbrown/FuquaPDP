@@ -1,0 +1,68 @@
+<div id="goalcontainer">
+
+<%= form_for(@goal) do |f| %>
+<div class="goalsubcontainer">
+    <div class="newgoalleft">
+        <div id="editgoalheader"><% if @isedit %>edit<% else %>&nbsp;<% end %></div>
+        <div class="newgoal"><%= link_to 'goal', :controller=>'goals', :action=>'index', :filter=>@filter %></div>
+    </div>
+
+    <div class="newgoalright">
+        <% if @goal.errors.any? %>
+            <div id="error_explanation">
+            <h2><%= pluralize(@goal.errors.count, "error") %> prohibited this goal from being saved:</h2>
+
+            <ul>
+                <% @goal.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+                <% end %>
+            </ul>
+            </div>
+        <% end %>
+
+        <div class="field">
+            <%= f.text_field :goal, :placeholder => 'describe your goal', :class => 'goalbox' %>
+        </div>
+        <div class="field">
+            <span class="goalsubtitle"><%= f.label :values %></span> 
+            <%= f.text_field :values, :placeholder => 'what values underpin the goal?', :class => 'valuesbox' %>
+        </div>
+        <div class="field taskarea">
+        <table>
+        <% s=1; r='on' %>
+        <%= f.fields_for :tasks do |t| %>
+            <tr class="taskrow<%=r%>">
+                <td><span class="tasksubtitle">task</span></td>
+                <td><%= t.text_field :task, :allow_blank => true, :class => 'tasktext', :id => 'taskrow'+s.to_s(), :placeholder => 'break it down into concrete tasks' %></td>
+                <td><img src="/images/goal_clock.png"/></td>
+                <td>
+                    <%= t.date_select :startdue, :use_month_numbers => true, :order => [:month, :day, :year] %> -
+                    <%= t.date_select :due, :use_month_numbers => true, :order => [:month, :day, :year] %>
+
+                    <%= t.hidden_field :is_complete %>
+                    <%= t.hidden_field :user_id, :value => current_user.id %>
+                </td>
+            </tr>
+        <% s=s+1; if s>1 then r='off' end %>
+        <% end %>
+        </table>
+        </div>
+        <div class="field">
+            <span class="goalsubtitle"><%= f.label :accountability %></span> 
+            <%= f.text_field :accountability, :placeholder => 'who will hold you accountable?', :class => 'accountabilitybox' %>
+        </div>
+        <div class="field">
+            <%= f.hidden_field :is_complete, :value => 0 %>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+            <%= f.hidden_field :category, :value => @filter %>
+        </div>
+    </div>
+<div class="actions" id="submitgoalbox">
+<%= f.submit 'create', :class => 'submitgoal' %>
+</div>
+</div>
+<% end %>
+
+
+
+</div>

@@ -1,0 +1,23 @@
+<div id="outer-container" >
+ADMIN REPORT
+<br><br>
+<table id="adminScoreTable" width="100%" style="text-align:center;">
+	<tr class="headRow">
+		<td class="column1">User ID</td>
+		<td class="column2">Name</td>
+		<td class="column3">Goals Entered</td>
+		<td class="column4">Tasks Entered</td>
+		<td class="column5">Goals Completed</td>
+		<td class="column6">Tasks Comepleted</td>
+	</tr>
+<% @allUserGoals.each do |ong| %>
+	<tr>
+		<td class="column1"><%=ong.user_id%></td>
+		<td class="column2"><%=ong.name%></td>
+		<td class="column3"><%=ong.totalGoals.to_i%></td>
+		<td class="column4"><%=ong.totalTasks.to_i%></td>
+		<td class="column5"><%=ong.completedGoals.to_i%></td>
+		<td class="column6"><%=ong.completedTasks.to_i%></td>
+	</tr>
+<%end%>
+</div>

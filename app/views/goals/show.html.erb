@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Goal:</b>
+  <%= @goal.goal %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @goal.category %>
+</p>
+
+<p>
+  <b>Due:</b>
+  <%= @goal.due %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%= @goal.created_at %>
+</p>
+
+<p>
+  <b>Updated at:</b>
+  <%= @goal.updated_at %>
+</p>
+
+<p>
+  <b>Values:</b>
+  <%= @goal.values %>
+</p>
+
+<p>
+  <b>Accountability:</b>
+  <%= @goal.accountability %>
+</p>
+
+<p>
+  <b>Is complete:</b>
+  <%= @goal.is_complete %>
+</p>
+
+
+<%= link_to 'Edit', edit_goal_path(@goal) %> |
+<%= link_to 'Back', goals_path %>

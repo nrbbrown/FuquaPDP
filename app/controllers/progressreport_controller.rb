@@ -57,7 +57,7 @@ class ProgressreportController < ApplicationController
 									join users u
 									on u.id=g.user_id
 									where 1=1
-									group by g.user_id
+									group by g.user_id,u.name
 									")
   end
 end

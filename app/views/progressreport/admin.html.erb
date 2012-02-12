@@ -10,14 +10,14 @@ ADMIN REPORT
 		<td class="column5">Goals Completed</td>
 		<td class="column6">Tasks Comepleted</td>
 	</tr>
-<% @allUserGoals.each do |ong| %>
+<% @allUserGoals.each do |userid,name,totalGoals,totalTasks,completedGoals,completedTasks| %>
 	<tr>
-		<td class="column1"><%=ong.user_id%></td>
-		<td class="column2"><%=ong.name%></td>
-		<td class="column3"><%=ong.totalGoals.to_i%></td>
-		<td class="column4"><%=ong.totalTasks.to_i%></td>
-		<td class="column5"><%=ong.completedGoals.to_i%></td>
-		<td class="column6"><%=ong.completedTasks.to_i%></td>
+		<td class="column1"><%=user_id%></td>
+		<td class="column2"><%=name%></td>
+		<td class="column3"><%=totalGoals.to_i%></td>
+		<td class="column4"><%=totalTasks.to_i%></td>
+		<td class="column5"><%=completedGoals.to_i%></td>
+		<td class="column6"><%=completedTasks.to_i%></td>
 	</tr>
 <%end%>
 </div>

@@ -16,7 +16,7 @@ class ProgressreportController < ApplicationController
 	end
 	@allGoals.each do |onegoal|
 		if (onegoal.is_complete?) 
-			@completeGoals[onegoal.category]+=1
+			@completeGoals[onegoal.category] = @completeGoals[onegoal.category].to_i + 1
 		end
 		@completedTask = 0
 		onegoal.tasks.each do |onetask|

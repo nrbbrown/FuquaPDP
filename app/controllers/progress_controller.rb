@@ -6,6 +6,10 @@ class ProgressController < ApplicationController
 	  @goal = Goal.find(params[:id])
 	  @minDate =  Date.parse(Task.minimum('startdue', :conditions => "goal_id = #{:id}").strftime("%d %b %Y"))
 	  @maxDate =  Date.parse(Task.maximum('due', :conditions => "goal_id = #{:id}").strftime("%d %b %Y"))
+	  respond_to do |format|
+		format.html {render :layout => false} # show.html.erb
+      format.json { render json: @goal }
+	  end
   end
   
   # GET /progress/new

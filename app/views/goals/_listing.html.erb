@@ -35,10 +35,13 @@ dojo.ready(Score.init);
 <% @goals.each do |goal| %>
 <div class="goalitem goalcat<%= goal.category %>" style="display:none">
 <div class="goalcontent">
-
+	<div class="progressBoard" id="progressBoard_<%=goal.id%>" style="display:none;">
+		<div class="closeBtn" onclick="javascript:closeProgressBox(<%=goal.id%>)"><img src="/images/BlueClose_off.png"></div>
+		<div id="progress_ajax_<%=goal.id%>"></div>
+	</div>
 <%if @isme %>
     <div class="editdeletecontainer">
-	<%= link_to 'progress', :controller=>'progress', :action=>'index', :id=>goal.id %>
+	<a href="javascript:getGoalTaskProgress(<%=goal.id%>)">progress</a>
     <%if @complete != '1' %>
         <%= link_to 'edit', edit_goal_path(goal) %>
     <% end %>

@@ -65,14 +65,35 @@ function calculateWeeklyScore(){
 		}else{
 			dojo.byId('week-score-'+i).innerHTML = (upCount*100/(upCount+downCount)) + '%';
 		}
-		console.log(upCount/(upCount+downCount));
-		console.log('11111111111111');
-		/*for(onethumb in allThumbs){
-			//console.log(onethumb);
-		}
-		console.log(allThumbs);
-		*/
 	}
+}
+
+function getGoalTaskProgress(goalid){
+	var goalid = goalid;
+	
+	var xhrArgs = {
+	url:'/progress',
+	content:{
+		id:goalid
+	},
+	headers:{
+		'X-CSRF-Token':''          
+	},
+	load:function(data){
+		dojo.byId('progress_ajax_'+goalid).innerHTML = data;
+		dojo.byId('progressBoard_'+goalid).style.display = 'block';
+		dojo.removeClass('dim','hidediv');
+		calculateWeeklyScore();
+	},
+	error:function(data) {
+		alert('failed to complete task');
+	}
+	};
+	new dojo.xhrGet(xhrArgs);
+}
+function closeProgressBox(goalid) {
+	dojo.byId('progressBoard_'+goalid).style.display = 'none';
+	dojo.addClass('dim','hidediv');
 }
 var Mim = {
     

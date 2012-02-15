@@ -630,3 +630,72 @@ span.form-item{
 .floatRight{
     float:right;
 }
+
+.reportBox {
+	background: none repeat scroll 0 0 #FFFFFF;
+	border: 1px solid #DDDDDD;
+	box-shadow: 3px -3px 10px #FFFFFF;
+	color: #666666;
+	padding: 7px;
+	float:left;
+	width: 750px;
+}
+.reportOuterBox {
+	z-index:1001;
+}
+.leftTaskBox {
+	float:left;
+}
+.oneTaskName {
+	height: 30px;
+	padding: 5px;
+	text-align: left;
+	line-height:30px;
+	float:left;
+	width:90px;
+}
+.firstDateColumn {
+	float:left;
+	width:100px;
+	height:30px;
+}
+.oneDateColumn {
+	float:left;
+	width:100px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	padding-top:8px;
+}
+.dateRow {
+	float:left;
+	width:100%;
+}
+.taskRow {
+	width:100%;
+	float:left;
+}
+.oneTaskRow {
+	float:left;
+	width:100%;
+}
+.thumbsOff {
+	cursor:pointer;
+}
+#startWeek, #endWeek {
+	display:none;
+}
+.progressBoard {
+	float: left;
+	margin: -260px auto 0px -50px;
+	position: absolute;
+	z-index:1002;
+}
+.closeBtn {
+	float: right;
+	margin-left: 730px;
+	margin-top: -16px;
+	position: absolute;
+	z-index: 100000;
+	cursor:pointer;
+}

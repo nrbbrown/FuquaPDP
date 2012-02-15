@@ -66,8 +66,10 @@ dojo.ready(Score.init);
                 <%= goal.tasks[s].startdue.strftime("%m.%d.%Y") %> 
                 -
             <% end %>
-            <%= goal.tasks[s].due.strftime("%m.%d.%Y") %></td>
-        <td class="tasktdE"><div title="goal<%= goal.id %>" id="taskid<%= goal.tasks[s].id%>" 
+            <%= goal.tasks[s].due.strftime("%m.%d.%Y") %>
+		</td>
+        <td class="tasktdE">
+			<div title="goal<%= goal.id %>" id="taskid<%= goal.tasks[s].id%>" 
             class="<%=@isme%>taskcheck<%= goal.tasks[s].is_complete %>"></div>
         </td>
     </tr>

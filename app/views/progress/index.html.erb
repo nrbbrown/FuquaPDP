@@ -4,17 +4,16 @@
 			<div class="leftTaskBox">
 				<div class="dateRow">
 					<div class="firstDateColumn"></div>
-					<div class="oneDateColumn"><%=@minDate.month%>/<%=@minDate.day%></div>
-					<% @startWeekDate = @minDate
-					while @startWeekDate < @maxDate
-						@startWeekDate += 7
-						if(@startWeekDate > @maxDate)
+					<div class="oneDateColumn">Week <%=@minDate.cweek%></div>
+					<% @startWeek= @minDate.cweek
+					while @startWeek < @maxDate.cweek
+						@startWeek += 1
+						if(@startWeek > @maxDate.cweek)
 							break
 						end
 					%>
-						<div class="oneDateColumn"><%=@startWeekDate.month%>/<%=@startWeekDate.day%></div>
+						<div class="oneDateColumn">Week <%=@startWeek%></div>
 					<%end%>
-					<div class="oneDateColumn"><%=@maxDate.month%>/<%=@maxDate.day%></div>
 				</div>
 				<div class="taskRow">
 					<%@goal.tasks.each do |onetask|%>
@@ -24,48 +23,88 @@
 							@taskStartDate = Date.parse(onetask.startdue.strftime("%d %b %Y"))
 							@taskEndDate = Date.parse(onetask.due.strftime("%d %b %Y"))
 							@taskComplete = onetask.is_complete?
+							@count = 1
+							@tlen = onetask.tasksprogresses.length
+							@showThumbsUp = false
+							onetask.tasksprogresses.each do |oneprogress|
+								@dateprogressed = Date.parse(oneprogress.date.strftime("%d %b %Y"))
+								if @dateprogressed.cweek == @minDate.cweek
+									@showThumbsUp = true
+									break
+								end
+							end
 							%>
-							<div class="oneDateColumn">
-								<%if @minDate < @taskStartDate %>
+							<div class="oneDateColumn group<%=@minDate.cweek%>" data-group="<%=@minDate.cweek%>">
+								<%if @showThumbsUp == true %>
+									<img src="/images/tu_on.png">
+								<%elsif @minDate.cweek < @taskStartDate.cweek %>
 									--
-								<%elsif @minDate >= @taskStartDate and @minDate <= @taskEndDate and !@taskComplete %>
-									<img src="/images/tu_off.png">
+								<%elsif @minDate.cweek <= @taskEndDate.cweek and !@taskComplete %>
+									<img class="thumbsOff" id="thumbs_<%=@count%>" src="/images/tu_off.png" 
+										onclick="javascript:markTaskProgress(<%=onetask.id%>,<%=onetask.is_complete%>,<%=@count%>,<%=@minDate.cweek%>,<%=@minDate.year%>)"
+										onmouseout="removegreen(<%=@count%>)" onmouseover="showgreen(<%=@count%>)">
 								<%else%>
 									<img src="/images/tu_blank.png">
 								<%end%>
 							</div>
-							<% @startWeekDate = @minDate
-							while @startWeekDate < @maxDate
-								@startWeekDate += 7
-								if(@startWeekDate > @maxDate)
+							<% @startWeek = @minDate.cweek
+							
+							while @startWeek < @maxDate.cweek
+								@startWeek += 1
+								if(@startWeek > @maxDate.cweek)
 									break
-								end%>
-								<div class="oneDateColumn">
-									<%if @startWeekDate < @taskStartDate %>
+								end
+								@count = @count + 1
+								@showThumbsUp = false
+								onetask.tasksprogresses.each do |oneprogress|
+									@dateprogressed = Date.parse(oneprogress.date.strftime("%d %b %Y"))
+									if @dateprogressed.cweek == @startWeek
+										@showThumbsUp = true
+										break
+									end
+								end
+							
+								%>
+								<div class="oneDateColumn group<%=@startWeek%>" data-group="<%=@startWeek%>">
+									<%if @showThumbsUp == true %>
+										<img src="/images/tu_on.png">
+									<%elsif @startWeek < @taskStartDate.cweek or @startWeek > @taskEndDate.cweek %>
 										--
-									<%elsif @startWeekDate >= @taskStartDate and @startWeekDate <= @taskEndDate and !@taskComplete %>
-										<img src="/images/tu_off.png">
+									<%elsif @startWeek > Date.today.cweek %>
+										<img id="thumbs_<%=@count%>" src="/images/tu_blank.png">
+									<%elsif @startWeek <= @taskEndDate.cweek and !@taskComplete %>
+										<img class="thumbsOff" id="thumbs_<%=@count%>" src="/images/tu_off.png" 
+										onclick="javascript:markTaskProgress(<%=onetask.id%>,<%=onetask.is_complete%>,<%=@count%>,<%=@startWeek%>,<%=@minDate.year%>)"
+										onmouseout="removegreen(<%=@count%>)" onmouseover="showgreen(<%=@count%>)">
 									<%else%>
-										<img src="/images/tu_blank.png">
+										<img id="thumbs_<%=@count%>" src="/images/tu_blank.png">
 									<%end%>
 								</div>
 							<%end%>
-							<div class="oneDateColumn">
-								<%if @maxDate < @taskStartDate %>
-									--
-								<%elsif @maxDate >= @taskStartDate and @maxDate <= @taskEndDate and !@taskComplete %>
-									<img src="/images/tu_off.png">
-								<%else%>
-									<img src="/images/tu_blank.png">
-								<%end%>
-							</div>
+							
 						</div>
 					<%end%>
 				</div>
+				<div class="scoreRow">
+					<div class="firstDateColumn"></div>
+					<div id="week-score-<%=@minDate.cweek%>" class="oneDateColumn"></div>
+					<% @startWeek= @minDate.cweek
+					while @startWeek < @maxDate.cweek
+						@startWeek += 1
+						if(@startWeek > @maxDate.cweek)
+							break
+						end
+					%>
+						<div id="week-score-<%=@startWeek%>" class="oneDateColumn"></div>
+					<%end%>
+				</div>
+				<div id="startWeek"><%=@minDate.cweek%></div>
+				<div id="endWeek"><%=@maxDate.cweek%></div>
 			</div>
 		</div>
 	</div>
 </div>
 <script>
 dojo.removeClass('dim','hidediv');
+calculateWeeklyScore();
 </script>

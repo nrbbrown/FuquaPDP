@@ -8,14 +8,81 @@
 //= require jquery_ujs
 //= require_tree .
 
+function showgreen(id){
+	dojo.byId('thumbs_'+id).src = '/images/tu_on.png'
+}
+function removegreen(id){
+	dojo.byId('thumbs_'+id).src = '/images/tu_off.png'
+}
+function removethumbevents(id){
+	dojo.byId('thumbs_'+id).onmouseout = '';
+	dojo.byId('thumbs_'+id).onmouseover = '';
+}
+function markTaskProgress(taskId,isComplete,id,week,year){
+	var taskid = taskId;
+	var is_complete = isComplete;
+	
+	var xhrArgs = {
+	url:'/progress/new',
+	content:{
+		taskid:taskid,
+		iscomplete:is_complete,
+		week:week,
+		year:year
+	},
+	headers:{
+		'X-CSRF-Token':''          
+	},
+	load:function(data){
+		showgreen(id);
+		removethumbevents(id);
+		calculateWeeklyScore();
+	},
+	error:function(data) {
+		alert('failed to complete task');
+		removegreen(id);
+	}
+	};
+	new dojo.xhrGet(xhrArgs);
+}
 
+function calculateWeeklyScore(){
+	var start = parseInt(dojo.byId('startWeek').innerHTML);
+	var end = parseInt(dojo.byId('endWeek').innerHTML);
+	for(var i=start;i<=end;i++){
+		var allThumbs = dojo.query('.group'+i+' img');
+		var upCount = 0;
+		var downCount = 0;
+		allThumbs.forEach(function(node) {
+			if(node.src.indexOf('tu_on.png') != -1){
+				upCount = upCount + 1;
+			}else if(node.src.indexOf('tu_off.png') != -1){
+				downCount = downCount + 1;
+			}
+		})
+		if(upCount+downCount == 0){
+			dojo.byId('week-score-'+i).innerHTML = '-';
+		}else{
+			dojo.byId('week-score-'+i).innerHTML = (upCount*100/(upCount+downCount)) + '%';
+		}
+		console.log(upCount/(upCount+downCount));
+		console.log('11111111111111');
+		/*for(onethumb in allThumbs){
+			//console.log(onethumb);
+		}
+		console.log(allThumbs);
+		*/
+	}
+}
 var Mim = {
     
     up: -1,
     
     init: function(){
-        dojo.connect(dojo.byId('infomim'),'onclick',{},Mim.toggleInfo);  
-        dojo.connect(dojo.byId('mimbird'),'onclick',{},Mim.toggleInfo); 
+		if(dojo.byId('infomim')){
+			dojo.connect(dojo.byId('infomim'),'onclick',{},Mim.toggleInfo);  
+			dojo.connect(dojo.byId('mimbird'),'onclick',{},Mim.toggleInfo); 
+		}
     },
     
     toggleInfo: function(){

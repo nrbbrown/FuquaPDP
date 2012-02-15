@@ -38,6 +38,7 @@
 	height:30px;
 	line-height:30px;
 	text-align:center;
+	padding-top:8px;
 }
 .dateRow {
 	float:left;
@@ -53,4 +54,10 @@
 }
 #dim {
 	top:45px;
+}
+.thumbsOff {
+	cursor:pointer;
+}
+#startWeek, #endWeek {
+	display:none;
 }

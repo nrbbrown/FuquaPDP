@@ -1,4 +1,4 @@
 class Task < ActiveRecord::Base
-    has_many :tasksprogress
+    has_many :tasksprogresses
 	belongs_to :goal
 end

@@ -182,3 +182,4 @@ DEPENDENCIES
   rspec-rails (>= 2.6.1)
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)
+  warden (>= 1.1.1)

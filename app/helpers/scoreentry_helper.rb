@@ -1,0 +1,2 @@
+module ScoreentryHelper
+end

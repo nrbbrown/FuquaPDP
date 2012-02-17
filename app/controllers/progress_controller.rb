@@ -17,16 +17,30 @@ class ProgressController < ApplicationController
   def new
 	  @task = Task.find(params[:taskid])
 	  @dateup = Date.commercial(params[:year].to_i, params[:week].to_i, 1)
-	
-	  @taskProgress = Tasksprogress.new(:task_id =>params[:taskid],:date =>@dateup, :created_at =>DateTime.now, :updated_at =>DateTime.now)
-	  respond_to do |format|
-		if @taskProgress.save
-			format.html { render :nothing => true }
-			format.json { head :ok }
+	  @isComplete = params[:iscomplete].to_i
+	  if @isComplete == 1
+		@taskProgress = Tasksprogress.new(:task_id =>params[:taskid],:date =>@dateup, :created_at =>DateTime.now, :updated_at =>DateTime.now)
+		respond_to do |format|
+			if @taskProgress.save
+				format.html { render :nothing => true }
+				format.json { head :ok }
 			else
+				format.html { render :nothing => true }
+				format.json { head :ok }
+			end
+		end
+	  elsif
+		@tp = Tasksprogress.where("task_id = ? ",params[:taskid])
+		@tp.each do |onetp| 
+			if Date.parse(onetp.date.strftime("%d %b %Y")).cweek == params[:week].to_i
+				onetp.destroy
+			end
+		end
+		respond_to do |format|
 			format.html { render :nothing => true }
 			format.json { head :ok }
 		end
 	  end
+	  
   end
 end

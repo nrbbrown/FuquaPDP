@@ -41,7 +41,7 @@
 									--
 								<%elsif @minDate.cweek <= @taskEndDate.cweek and !@taskComplete %>
 									<img class="thumbsOff" id="thumbs_<%=@count%>" src="/images/tu_off.png" 
-										onclick="javascript:markTaskProgress(<%=onetask.id%>,<%=onetask.is_complete%>,<%=@count%>,<%=@minDate.cweek%>,<%=@minDate.year%>)"
+										onclick="javascript:markTaskProgress(<%=onetask.id%>,1,<%=@count%>,<%=@minDate.cweek%>,<%=@minDate.year%>)"
 										onmouseout="removegreen(<%=@count%>)" onmouseover="showgreen(<%=@count%>)">
 								<%else%>
 									<img src="/images/tu_blank.png">
@@ -74,7 +74,7 @@
 										<img id="thumbs_<%=@count%>" src="/images/tu_blank.png">
 									<%elsif @startWeek <= @taskEndDate.cweek and !@taskComplete %>
 										<img class="thumbsOff" id="thumbs_<%=@count%>" src="/images/tu_off.png" 
-										onclick="javascript:markTaskProgress(<%=onetask.id%>,<%=onetask.is_complete%>,<%=@count%>,<%=@startWeek%>,<%=@minDate.year%>)"
+										onclick="javascript:markTaskProgress(<%=onetask.id%>,1,<%=@count%>,<%=@startWeek%>,<%=@minDate.year%>)"
 										onmouseout="removegreen(<%=@count%>)" onmouseover="showgreen(<%=@count%>)">
 									<%else%>
 										<img id="thumbs_<%=@count%>" src="/images/tu_blank.png">

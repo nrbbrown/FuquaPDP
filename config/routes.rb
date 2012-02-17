@@ -1,5 +1,6 @@
 Epdp::Application.routes.draw do
 
+  resources "scoreentry"
   resources "progress"
 
   get "progressreport/index"

@@ -1,0 +1,23 @@
+<div id="outer-score-container">
+	<div class="scoreTitle">Score Entry for Week of <%=@dateOfEntry.strftime("%b %e")%></div>
+	<div class="scoreBox">
+		<div class="scoreInnerBox" id="academicBox">
+			<div class="scoreBoxTitle">
+				Academic
+			</div>
+			<div class="goalOuterBox">
+				<%@ggoals = @academicGoals%>
+				<%= render 'onedomain' %>
+			</div>
+		</div>
+		<div class="scoreInnerBox" id="physicalBox">
+			<div class="scoreBoxTitle">
+				Physical
+			</div>
+			<div class="goalOuterBox">
+				<%@ggoals = @physicalGoals%>
+				<%= render 'onedomain' %>
+			</div>
+		</div>
+	</div>
+</div>

@@ -95,6 +95,68 @@ function closeProgressBox(goalid) {
 	dojo.byId('progressBoard_'+goalid).style.display = 'none';
 	dojo.addClass('dim','hidediv');
 }
+
+function updateTaskComplete(taskid,goalid,is_complete){
+	var taskid = taskid;
+	var goalid = goalid;
+	var xhrArgs = {
+	url:'/scoreentry/'+taskid+'/edit',
+	content:{
+		taskid:taskid,
+		is_complete:is_complete
+	},
+	headers:{
+		'X-CSRF-Token':''          
+	},
+	load:function(data){
+		if(is_complete == 1){
+			dojo.addClass('thumbs_img_'+taskid,'checkImageOn');
+			dojo.removeClass('thumbs_img_'+taskid,'checkImageOff');
+			dojo.byId('thumbs_img_'+taskid).onclick = function () { updateTaskComplete(taskid,goalid,0);};
+		}else{
+			dojo.addClass('thumbs_img_'+taskid,'checkImageOff');
+			dojo.removeClass('thumbs_img_'+taskid,'checkImageOn');
+			dojo.byId('thumbs_img_'+taskid).onclick = function () { updateTaskComplete(taskid,goalid,1);};
+		}
+	},
+	error:function(data) {
+		alert('failed to complete task');
+	}
+	};
+	new dojo.xhrGet(xhrArgs);
+}
+function markTaskProgressEntry(taskId,isComplete,id,week,year){
+	var taskid = taskId;
+	var isComplete = isComplete;
+	var xhrArgs = {
+	url:'/progress/new',
+	content:{
+		taskid:taskid,
+		week:week,
+		iscomplete:isComplete,
+		year:year
+	},
+	headers:{
+		'X-CSRF-Token':''          
+	},
+	load:function(data){
+		if(isComplete == 1){
+			dojo.addClass('tu_img_'+taskid,'tupImage');
+			dojo.removeClass('tu_img_'+taskid,'tdownImage');
+			dojo.byId('tu_img_'+taskid).onclick = function () { markTaskProgressEntry(taskid,0,id,week,year);};
+			
+		}else{
+			dojo.addClass('tu_img_'+taskid,'tdownImage');
+			dojo.removeClass('tu_img_'+taskid,'tupImage');
+			dojo.byId('tu_img_'+taskid).onclick = function () { markTaskProgressEntry(taskid,1,id,week,year);};
+		}
+	},
+	error:function(data) {
+		alert('failed to complete task');
+	}
+	};
+	new dojo.xhrGet(xhrArgs);
+}
 var Mim = {
     
     up: -1,

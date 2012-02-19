@@ -1,0 +1,6 @@
+<%@ggoals.each do |onegoal|%>
+	<div class="effortRow effortRow3">
+		<div class="effortRowTitle"><%=onegoal.goal%></div>
+		<div class="effortRowProgress"><%=@goalScore[onegoal.id]%></div>
+	</div>
+<%end%>

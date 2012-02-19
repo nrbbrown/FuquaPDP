@@ -1,0 +1,63 @@
+<div id="outer-score-container">
+	<div class="scoreTitle">
+		<div class="floatLeft">Score Card for Week of <%=@dateOfEntry.strftime("%b %e")%></div>
+		<div class="floatRight weekSelect">
+			Select Week&nbsp;
+			<select id="entry_week_change" onchange="changeReportWeek()" autocomplete="off">
+				<%
+				@startWeek = @minDate.cweek
+				@endWeek = @maxDate.cweek
+				while @startWeek <= @endWeek
+				%>
+					<option class="entryOption" <%if @dateOfEntry.cweek == @startWeek %>selected=""<%end%> value="<%=@startWeek%>">Week <%=@startWeek%></option>
+					<%@startWeek = @startWeek + 1%>
+				<%end%>
+			</select>
+		</div>
+	</div>
+	
+	<div class="effortBox">
+		<div class="effortScoreBox">
+			<div class="effortRow">
+				<div class="effortRowTitle">Overall</div>
+				<div class="effortRowProgress"><%=@overallScore%>%</div>
+			</div>
+			<div class="effortRow effortRow2">
+				<div class="effortRowTitle">Academic</div>
+				<div class="effortRowProgress"><%=@domainScore["academic"]%></div>
+			</div>
+			<%@ggoals = @academicGoals%>
+			<%= render 'goaleffort' %>
+			
+			<div class="effortRow effortRow2">
+				<div class="effortRowTitle">Career</div>
+				<div class="effortRowProgress"><%=@domainScore["career"]%></div>
+			</div>
+			<%@ggoals = @careerGoals%>
+			<%= render 'goaleffort' %>
+			
+			<div class="effortRow effortRow2">
+				<div class="effortRowTitle">Social</div>
+				<div class="effortRowProgress"><%=@domainScore["social"]%></div>
+			</div>
+			<%@ggoals = @socialGoals%>
+			<%= render 'goaleffort' %>
+			
+			<div class="effortRow effortRow2">
+				<div class="effortRowTitle">Personal</div>
+				<div class="effortRowProgress"><%=@domainScore["personal"]%></div>
+			</div>
+			<%@ggoals = @personalGoals%>
+			<%= render 'goaleffort' %>
+			
+			<div class="effortRow effortRow2">
+				<div class="effortRowTitle">Physical</div>
+				<div class="effortRowProgress"><%=@domainScore["physical"]%></div>
+			</div>
+			<%@ggoals = @physicalGoals%>
+			<%= render 'goaleffort' %>
+			
+		</div>
+
+	</div>
+</div>

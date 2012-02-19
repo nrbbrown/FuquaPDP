@@ -101,6 +101,11 @@ function changeEntryWeek(){
 	var selValue = dojo.byId('entry_week_change').options[selIndex].value;
 	window.location = "/scoreentry?week="+selValue;
 }
+function changeReportWeek(){
+	var selIndex = dojo.byId('entry_week_change').selectedIndex;
+	var selValue = dojo.byId('entry_week_change').options[selIndex].value;
+	window.location = "/scorecard?week="+selValue;
+}
 function updateTaskComplete(taskid,goalid,is_complete){
 	var taskid = taskid;
 	var goalid = goalid;

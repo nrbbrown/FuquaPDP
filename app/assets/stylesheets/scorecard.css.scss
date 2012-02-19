@@ -1,0 +1,38 @@
+// Place all the styles related to the scorecard controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.effortBox {
+	width:49%;
+	float:left;
+	border-right:1px solid #999999;
+}
+.effortRowProgress {
+	float:right;
+}
+.effortRowTitle {
+	float:left;
+}
+.effortRow {
+	width:80%;
+	float:left;
+	padding:5px 10px;
+	border:1px solid #999999;
+}
+.effortRow2 {
+	border:1px dashed #999999;
+	border-top:none;
+	width:75%;
+	padding-left:30px;
+}
+.effortScoreBox {
+	float:left;
+	width:90%;
+	padding-left:30px;
+	margin:20px 0px;
+}
+.effortRow3 {
+	border:1px dashed #999999;
+	border-top:none;
+	width:68%;
+	padding-left:59px;
+}

@@ -1,5 +1,6 @@
 Epdp::Application.routes.draw do
 
+  resources "scorecard"
   resources "scoreentry"
   resources "progress"
 

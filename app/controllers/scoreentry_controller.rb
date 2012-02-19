@@ -3,6 +3,7 @@ class ScoreentryController < ApplicationController
 	before_filter :authenticate_user!
 	
   def index
+    @uid = (params[:u] != nil) ? params[:u] : current_user.id
 	@academicGoals = Goal.where("user_id = ? and category = ?", current_user.id, :academic)
 	@careerGoals = Goal.where("user_id = ? and category = ?", current_user.id, :career)
 	@personalGoals = Goal.where("user_id = ? and category = ?", current_user.id, :personal)

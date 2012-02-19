@@ -1,5 +1,20 @@
 <div id="outer-score-container">
-	<div class="scoreTitle">Score Entry for Week of <%=@dateOfEntry.strftime("%b %e")%></div>
+	<div class="scoreTitle">
+		<div class="floatLeft">Score Entry for Week of <%=@dateOfEntry.strftime("%b %e")%></div>
+		<div class="floatRight weekSelect">
+			Select Week&nbsp;
+			<select id="entry_week_change" onchange="changeEntryWeek()" autocomplete="off">
+				<%
+				@startWeek = @minDate.cweek
+				@endWeek = @maxDate.cweek
+				while @startWeek <= @endWeek
+				%>
+					<option class="entryOption" <%if @dateOfEntry.cweek == @startWeek %>selected=""<%end%> value="<%=@startWeek%>">Week <%=@startWeek%></option>
+					<%@startWeek = @startWeek + 1%>
+				<%end%>
+			</select>
+		</div>
+	</div>
 	<div class="scoreBox">
 		<div class="scoreInnerBox" id="academicBox">
 			<div class="scoreBoxTitle">
@@ -7,6 +22,33 @@
 			</div>
 			<div class="goalOuterBox">
 				<%@ggoals = @academicGoals%>
+				<%= render 'onedomain' %>
+			</div>
+		</div>
+		<div class="scoreInnerBox" id="physicalBox">
+			<div class="scoreBoxTitle">
+				Career
+			</div>
+			<div class="goalOuterBox">
+				<%@ggoals = @careerGoals%>
+				<%= render 'onedomain' %>
+			</div>
+		</div>
+		<div class="scoreInnerBox" id="physicalBox">
+			<div class="scoreBoxTitle">
+				Social
+			</div>
+			<div class="goalOuterBox">
+				<%@ggoals = @socialGoals%>
+				<%= render 'onedomain' %>
+			</div>
+		</div>
+		<div class="scoreInnerBox" id="physicalBox">
+			<div class="scoreBoxTitle">
+				Personal
+			</div>
+			<div class="goalOuterBox">
+				<%@ggoals = @personalGoals%>
 				<%= render 'onedomain' %>
 			</div>
 		</div>

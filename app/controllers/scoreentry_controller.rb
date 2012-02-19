@@ -7,8 +7,11 @@ class ScoreentryController < ApplicationController
 	@careerGoals = Goal.where("user_id = ? and category = ?", current_user.id, :career)
 	@personalGoals = Goal.where("user_id = ? and category = ?", current_user.id, :personal)
 	@physicalGoals = Goal.where("user_id = ? and category = ?", current_user.id, :physical)
-	@socialGoals = Goal.where("user_id = ? and category = ?", current_user.id, :social)
-	@dateOfEntry = Date.today
+	@socialGoals = Goal.where("user_id = ? and category = ?", current_user.id, :socialGoals)
+	@thisWeek = (params[:week] != nil) ? params[:week] : Date.today.cweek
+	@dateOfEntry = Date.commercial(Date.today.year.to_i, @thisWeek.to_i, 1)
+	@minDate =  Date.parse(Task.minimum('startdue').strftime("%d %b %Y"))
+	@maxDate =  Date.parse(Task.maximum('due').strftime("%d %b %Y"))
   end
   
   # Get /scoreentry/1

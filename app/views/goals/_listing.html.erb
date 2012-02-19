@@ -41,7 +41,7 @@ dojo.ready(Score.init);
 	</div>
 <%if @isme %>
     <div class="editdeletecontainer">
-	<a href="javascript:getGoalTaskProgress(<%=goal.id%>)">progress</a>
+
     <%if @complete != '1' %>
         <%= link_to 'edit', edit_goal_path(goal) %>
     <% end %>
@@ -71,9 +71,46 @@ dojo.ready(Score.init);
             <% end %>
             <%= goal.tasks[s].due.strftime("%m.%d.%Y") %>
 		</td>
+		<td class="taskdDA">
+			<%
+			@currentDate = Date.today
+			@taskStartdate = Date.parse(goal.tasks[s].startdue.strftime("%d %b %Y"))
+			@taskEnddate = Date.parse(goal.tasks[s].due.strftime("%d %b %Y"))
+			@showThumbsUp = false
+			%>
+			<% goal.tasks[s].tasksprogresses.each do |onevote| %>
+				<%
+				@taskVotedate = Date.parse(onevote.date.strftime("%d %b %Y"))
+				if @taskVotedate.cweek == @currentDate.cweek 
+					@showThumbsUp = true
+					break
+				end
+				%>
+			<%end%>
+			<%if @currentDate < @taskStartdate or @currentDate > @taskEnddate %>
+				<div class="nadiv">
+					--
+				</div>
+			<%elsif @showThumbsUp == true %>
+				<div id="tu_img_<%=goal.tasks[s].id%>" title="thumbsUp" class="tupImage" 
+				onclick="markTaskProgressEntry(<%=goal.tasks[s].id%>,0,<%=goal.tasks[s].goal_id%>,<%=@currentDate.cweek%>,<%=@currentDate.year%>)">
+			<%else%>
+				<div id="tu_img_<%=goal.tasks[s].id%>" title="thumbsUp" class="tdownImage" 
+				onclick="markTaskProgressEntry(<%=goal.tasks[s].id%>,1,<%=goal.tasks[s].goal_id%>,<%=@currentDate.cweek%>,<%=@currentDate.year%>)">
+			<%end%>
+		</td>
         <td class="tasktdE">
-			<div title="goal<%= goal.id %>" id="taskid<%= goal.tasks[s].id%>" 
-            class="<%=@isme%>taskcheck<%= goal.tasks[s].is_complete %>"></div>
+			<%if goal.tasks[s].is_complete? == true %>
+				<div title="goal<%= goal.id %>" id="thumbs_img_<%= goal.tasks[s].id%>" 
+				class="checkImageOn"
+				onclick="updateTaskComplete(<%=goal.tasks[s].id%>,<%=goal.tasks[s].goal_id%>,0)"
+				></div>
+			<%else%>
+				<div title="goal<%= goal.id %>" id="thumbs_img_<%= goal.tasks[s].id%>" 
+				class="checkImageOff"
+				onclick="updateTaskComplete(<%=goal.tasks[s].id%>,<%=goal.tasks[s].goal_id%>,1)"
+				></div>
+			<%end%>
         </td>
     </tr>
     <% end %>

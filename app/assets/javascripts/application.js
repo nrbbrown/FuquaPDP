@@ -96,6 +96,11 @@ function closeProgressBox(goalid) {
 	dojo.addClass('dim','hidediv');
 }
 
+function changeEntryWeek(){
+	var selIndex = dojo.byId('entry_week_change').selectedIndex;
+	var selValue = dojo.byId('entry_week_change').options[selIndex].value;
+	window.location = "/scoreentry?week="+selValue;
+}
 function updateTaskComplete(taskid,goalid,is_complete){
 	var taskid = taskid;
 	var goalid = goalid;
@@ -272,8 +277,8 @@ var Goals = {
             }
             node && dojo.connect(node,'onfocus',{'taskrow':i+1},Goals.shownextTask);
         }
-        dojo.query('.truetaskcheck0').forEach(Goals.connectCompleteTask);
-        dojo.query('.truetaskcheck1').forEach(Goals.connectCompleteTask);
+        //dojo.query('.truetaskcheck0').forEach(Goals.connectCompleteTask);
+        //dojo.query('.truetaskcheck1').forEach(Goals.connectCompleteTask);
         
         Goals.showActiveComplete();
         

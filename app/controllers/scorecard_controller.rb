@@ -22,7 +22,7 @@ class ScorecardController < ApplicationController
 		onegoal.tasks.each do |onetask|
 			@taskstart = Date.parse(onetask.startdue.strftime("%d %b %Y"))
 			@taskend = Date.parse(onetask.due.strftime("%d %b %Y"))
-			if @dateOfEntry.cweek >= @taskstart.cweek and @dateOfEntry >= @taskstart and @dateOfEntry.cweek <= @taskend.cweek 
+			if @dateOfEntry.cweek >= @taskstart.cweek and @dateOfEntry >= @taskstart and @dateOfEntry.cweek <= @taskend.cweek and onetask.is_complete? == false
 				@activetasks = @activetasks + 1
 				@overallActiveTasks = @overallActiveTasks + 1
 				@domainActiveTasks[onegoal.category] = @domainActiveTasks[onegoal.category].to_i + 1

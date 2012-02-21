@@ -53,5 +53,35 @@ class ScorecardController < ApplicationController
 	@personalGoals = Goal.where("user_id = ? and category = ?", current_user.id, :personal)
 	@physicalGoals = Goal.where("user_id = ? and category = ?", current_user.id, :physical)
 	@socialGoals = Goal.where("user_id = ? and category = ?", current_user.id, :socialGoals)
+	
+	@overallCompleteTasks = 0
+	@overallTasks = 0
+	@domainTasks = Hash["academic",0,"career",0,"social",0,"personal",0,"physical",0]
+	@domainCompleteTasks = Hash["academic",0,"career",0,"social",0,"personal",0,"physical",0]
+	@goalCompleteScore = Hash.new
+	@domainCompleteScore = Hash.new
+	@AllGoals.each do |onegoal|
+		@goalCompleteScore[onegoal.id] = 0
+		onegoal.tasks.each do |onetask|
+			@domainTasks[onegoal.category] = @domainTasks[onegoal.category] + 1
+			@overallTasks = @overallTasks + 1
+			if onetask.is_complete? == true
+				@taskCompletedAt = Date.parse(onetask.completed_at.strftime("%d %b %Y"))
+				if @taskCompletedAt.cweek <= @dateOfEntry.cweek
+					@overallCompleteTasks = @overallCompleteTasks + 1
+					@domainCompleteTasks[onegoal.category] = @domainCompleteTasks[onegoal.category] + 1
+					@goalCompleteScore[onegoal.id] = @goalCompleteScore[onegoal.id] + 1 
+				end
+			end
+		end
+	end
+	
+	@domainCompleteScore["academic"] = (@domainTasks["academic"] == 0) ? 'N/A' : "#{@domainCompleteTasks["academic"]*100/@domainTasks["academic"]}%"
+	@domainCompleteScore["career"] = (@domainTasks["career"] == 0) ? 'N/A' : "#{@domainCompleteTasks["career"]*100/@domainTasks["career"]}%"
+	@domainCompleteScore["social"] = (@domainTasks["social"] == 0) ? 'N/A' : "#{@domainCompleteTasks["social"]*100/@domainTasks["social"]}%"
+	@domainCompleteScore["personal"] = (@domainTasks["personal"] == 0) ? 'N/A' : "#{@domainCompleteTasks["personal"]*100/@domainTasks["personal"]}%"
+	@domainCompleteScore["physical"] = (@domainTasks["physical"] == 0) ? 'N/A' : "#{@domainCompleteTasks["physical"]*100/@domainTasks["physical"]}%"
+	@overallCompleteScore = (@overallTasks == 0) ? 'N/A' : (@overallCompleteTasks*100/@overallTasks)
+	
   end
 end

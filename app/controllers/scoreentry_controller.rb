@@ -22,14 +22,14 @@ class ScoreentryController < ApplicationController
     @task = Task.find(params[:taskid])
 	@goal = Goal.find(@task.goal_id)
 	respond_to do |format|
-		@task.update_attribute("is_complete",is_complete)
+		@task.update_attributes(:is_complete => is_complete,:completed_at => Date.today)
 		@goalComplete = 1
 		@goal.tasks.each do |onetask|
 			if onetask.is_complete? == false
 				@goalComplete = 0
 			end
 		end
-		@goal.update_attribute("is_complete",@goalComplete)
+		@goal.update_attributes(:is_complete => @goalComplete,:completed_at => Date.today)
 		format.html { render :nothing => true }
 		format.js { render :json => 1}
 	end

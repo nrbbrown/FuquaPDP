@@ -65,7 +65,7 @@ class ScorecardController < ApplicationController
 		onegoal.tasks.each do |onetask|
 			@domainTasks[onegoal.category] = @domainTasks[onegoal.category] + 1
 			@overallTasks = @overallTasks + 1
-			if onetask.is_complete? == true
+			if onetask.is_complete? == true and onetask.completed_at != nil
 				@taskCompletedAt = Date.parse(onetask.completed_at.strftime("%d %b %Y"))
 				if @taskCompletedAt.cweek <= @dateOfEntry.cweek
 					@overallCompleteTasks = @overallCompleteTasks + 1

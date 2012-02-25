@@ -1,6 +1,11 @@
 <div id="outer-score-container">
 	<div class="scoreTitle">
-		<div class="floatLeft">Score Card for Week of <%=@dateOfEntry.strftime("%b %e")%></div>
+		<div class="floatLeft">
+			Score Card for Week of <%=@dateOfEntry.strftime("%b %e")%>
+			<%if @isCurrentWeek == true %>
+				<span class="currentweekLabel">(current week)</span>
+			<%end%>
+		</div>
 		<div class="floatRight weekSelect">
 			Select Week&nbsp;
 			<select id="entry_week_change" onchange="changeReportWeek()" autocomplete="off">
@@ -18,6 +23,9 @@
 	
 	<div class="effortBox">
 		<div class="effortScoreBox">
+			<div class="titleBoxInner">
+				Effort Score
+			</div>
 			<div class="effortRow">
 				<div class="effortRowTitle">Overall</div>
 				<div class="effortRowProgress"><%=@overallScore%>%</div>
@@ -63,6 +71,9 @@
 	
 	<div class="completeBox">
 		<div class="effortScoreBox">
+			<div class="titleBoxInner">
+				Progress Score
+			</div>
 			<div class="effortRow">
 				<div class="effortRowTitle">Overall</div>
 				<div class="effortRowProgress"><%=@overallCompleteScore%>%</div>

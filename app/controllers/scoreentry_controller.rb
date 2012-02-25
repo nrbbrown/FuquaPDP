@@ -10,6 +10,7 @@ class ScoreentryController < ApplicationController
 	@physicalGoals = Goal.where("user_id = ? and category = ?", current_user.id, :physical)
 	@socialGoals = Goal.where("user_id = ? and category = ?", current_user.id, :socialGoals)
 	@thisWeek = (params[:week] != nil) ? params[:week] : Date.today.cweek
+	@isCurrentWeek = (@thisWeek.to_i == Date.today.cweek.to_i) ? true :	false
 	@dateOfEntry = Date.commercial(Date.today.year.to_i, @thisWeek.to_i, 1)
 	@minDate =  Date.parse(Task.minimum('startdue').strftime("%d %b %Y"))
 	@maxDate =  Date.parse(Task.maximum('due').strftime("%d %b %Y"))

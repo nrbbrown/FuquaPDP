@@ -19,7 +19,7 @@ dojo.ready(Score.init);
 
 <div id="activecontainer">
 <div id="activecomplete0"><%= link_to 'active', :controller=>'goals', :action=>'index', :filter=>@filter, :u=>@uid %></div> 
-<div id="activecomplete1"><%= link_to 'complete', :controller=>'goals', :action=>'index', :complete=>1, :filter=>@filter, :u=>@uid %></div>
+<div id="activecomplete1"><%= link_to 'completed', :controller=>'goals', :action=>'index', :complete=>1, :filter=>@filter, :u=>@uid %></div>
 </div>
 
 <div class="categorylistcontainer">
@@ -31,8 +31,9 @@ dojo.ready(Score.init);
 <div id="cat-physical">physical</div>
 </div>
 </div>
-
+<%@goalCount = 0%>
 <% @goals.each do |goal| %>
+<%@goalCount = @goalCount + 1%>
 <div class="goalitem goalcat<%= goal.category %>" style="display:none">
 <div class="goalcontent">
 	<div class="progressBoard" id="progressBoard_<%=goal.id%>" style="display:none;">
@@ -49,7 +50,7 @@ dojo.ready(Score.init);
     </div>
 <% end %>
 
-<div class="goaldesc"><%= goal.goal == '' ? 'my '+@filter+' goal' : goal.goal %></div>
+<div class="goaldesc"><span class="goalCountLabel"><%=@goalCount%></span>&nbsp;&nbsp;<%= goal.goal == '' ? 'my '+@filter+' goal' : goal.goal %></div>
 <div class="goalvalues"><span class="goalsubtitle">values</span> <%= goal.values == '' ? 'N/A' : goal.values %></div>
 
 <div class="displaytaskarea">
@@ -124,7 +125,7 @@ dojo.ready(Score.init);
 </div>
 
 <div class="goalaccountability">
-    <span class="goalsubtitle">accountability</span>  
+    <span class="goalsubtitle">goal buddy</span>  
     <% found = 0; @users.each do |user| %>
         <% if user.name == goal.accountability %>
             <%= link_to(user.name, goals_path(:u => user.id)) %>
@@ -159,7 +160,8 @@ goals</div>
 
 <div class="goallistingbottompadding"></div>
 
-
+<%
+=begin %>
 <div id="scoreitem">
     <div class="infoscorecontainer">
         <div id="bottomscorecontent">
@@ -177,4 +179,5 @@ goals</div>
         <div id="scoreplusminus" class="hidediv"></div>
     </div>
 </div>
-
+<%
+=end %>

@@ -198,7 +198,7 @@ var Score = {
     fadeoff: 0,
     
     init: function(){
-        dojo.connect(dojo.byId('infoscore'),'onclick',{},Score.toggleInfo);  
+       // dojo.connect(dojo.byId('infoscore'),'onclick',{},Score.toggleInfo);  
     },
     
     toggleInfo: function(){
@@ -282,9 +282,6 @@ var Goals = {
             }
             node && dojo.connect(node,'onfocus',{'taskrow':i+1},Goals.shownextTask);
         }
-        //dojo.query('.truetaskcheck0').forEach(Goals.connectCompleteTask);
-        //dojo.query('.truetaskcheck1').forEach(Goals.connectCompleteTask);
-        
         Goals.showActiveComplete();
         
         

@@ -17,10 +17,12 @@
 }
 
 #largebird{ 
-    background:url('/images/magpie_large.png') -20px -5px no-repeat; 
-    width:320px; 
-    height:400px;
+    background:url('/images/duke.png') 0px 0px no-repeat; 
+    width:303px; 
+    height:297px;
     float:left;
+	margin-top:30px;
+	margin-right:10px;
 }
 
 #rightcontainer{
@@ -150,9 +152,14 @@
     border-radius:15px;
     background:#222;
     opacity:0.9;
+	text-decoration:none;
+}
+.forgotpassword a {
+	text-decoration:none;
 }
 .bluehighlight{
     color:#FE7C6F;
+	text-decoration:none;
 }
 .darkbluehighlight{
     color:#fe4837;

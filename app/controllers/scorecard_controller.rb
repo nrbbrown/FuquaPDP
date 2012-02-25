@@ -2,6 +2,7 @@ class ScorecardController < ApplicationController
   def index
     @uid = (params[:u] != nil) ? params[:u] : current_user.id
 	@thisWeek = (params[:week] != nil) ? params[:week] : Date.today.cweek
+	@isCurrentWeek = (@thisWeek.to_i == Date.today.cweek.to_i) ? true :	false
 	@dateOfEntry = Date.commercial(Date.today.year.to_i, @thisWeek.to_i, 1)
 	@endDateEntry = @dateOfEntry + 6
 	@minDate =  Date.parse(Task.minimum('startdue').strftime("%d %b %Y"))
@@ -14,7 +15,7 @@ class ScorecardController < ApplicationController
 	@goalScore = Hash.new
 	@domainActiveTasks = Hash["academic",0,"career",0,"social",0,"personal",0,"physical",0]
 	@domainProgressedTasks = Hash["academic",0,"career",0,"social",0,"personal",0,"physical",0]
-	
+	@tasksEffortScore = Hash.new
 	@AllGoals.each do |onegoal|
 		@goalScore[onegoal.id] = 0
 		@activetasks = 0
@@ -22,14 +23,17 @@ class ScorecardController < ApplicationController
 		onegoal.tasks.each do |onetask|
 			@taskstart = Date.parse(onetask.startdue.strftime("%d %b %Y"))
 			@taskend = Date.parse(onetask.due.strftime("%d %b %Y"))
-			if @dateOfEntry.cweek >= @taskstart.cweek and @dateOfEntry >= @taskstart and @dateOfEntry.cweek <= @taskend.cweek and onetask.is_complete? == false
+			@tasksEffortScore[onetask.id] = 'N/A'
+			if (@dateOfEntry.cweek >= @taskstart.cweek and @dateOfEntry >= @taskstart and @dateOfEntry.cweek <= @taskend.cweek) 
 				@activetasks = @activetasks + 1
+				@tasksEffortScore[onetask.id] = '0%'
 				@overallActiveTasks = @overallActiveTasks + 1
 				@domainActiveTasks[onegoal.category] = @domainActiveTasks[onegoal.category].to_i + 1
 				onetask.tasksprogresses.each do |onevote|
 					@taskVotedate = Date.parse(onevote.date.strftime("%d %b %Y"))
 					if @taskVotedate.cweek == @dateOfEntry.cweek
 						@tasksProgressed = @tasksProgressed + 1
+						@tasksEffortScore[onetask.id] = '100%'
 						@overallProgressedTasks = @overallProgressedTasks + 1
 						@domainProgressedTasks[onegoal.category] = @domainProgressedTasks[onegoal.category].to_i + 1
 					end

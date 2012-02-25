@@ -3,4 +3,12 @@
 		<div class="effortRowTitle"><%=onegoal.goal%></div>
 		<div class="effortRowProgress"><%=@goalScore[onegoal.id]%></div>
 	</div>
+	<%if @goalScore[onegoal.id] != 'N/A' %>
+		<%onegoal.tasks.each do |onetask|%>
+			<div class="effortRow effortRow4">
+				<div class="effortRowTitle"><%=onetask.task%></div>
+				<div class="effortRowProgress"><%=@tasksEffortScore[onetask.id]%></div>
+			</div>
+		<%end%>
+	<%end%>
 <%end%>

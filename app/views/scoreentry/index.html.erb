@@ -1,6 +1,10 @@
 <div id="outer-score-container">
 	<div class="scoreTitle">
-		<div class="floatLeft">Score Entry for Week of <%=@dateOfEntry.strftime("%b %e")%></div>
+		<div class="floatLeft">
+				Score Entry for Week of <%=@dateOfEntry.strftime("%b %e")%>
+				<%if @isCurrentWeek == true %>
+					<span class="currentweekLabel">(current week)</span>
+				<%end%></div>
 		<div class="floatRight weekSelect">
 			Select Week&nbsp;
 			<select id="entry_week_change" onchange="changeEntryWeek()" autocomplete="off">

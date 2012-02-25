@@ -87,8 +87,10 @@ class GoalsController < ApplicationController
     @goal = Goal.new(params[:goal])
     
     respond_to do |format|
-        # destroy blanx
-      if @goal.save
+	  if @goal.goal == ''
+		format.html { redirect_to goals_url+'?filter='+@goal.category, notice: 'Your goal cannot be empty.' }
+        format.json { render json: @goal, status: :created, location: @goal }
+	  elsif @goal.save
           
           # destroy blank tasks
           blanktasks = Task.where('task = \'\' and goal_id = ?',@goal.id)

@@ -3,6 +3,7 @@ Epdp::Application.routes.draw do
   resources "scorecard"
   resources "scoreentry"
   resources "progress"
+  resources "help"
 
   get "progressreport/index"
   get "progressreport/admin"

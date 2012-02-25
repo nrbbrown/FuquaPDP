@@ -197,7 +197,7 @@ div.field, div.actions {
     text-align:right;
 }
 .goalsubcontainer{
-    width:605px;
+    width:670px;
     margin:auto;
 }
 .newgoalleft{
@@ -207,13 +207,14 @@ div.field, div.actions {
     margin-top:-10px;
 }
 .newgoalright{
-    width:605px;
+    width:710px;
 }
 .newgoal a{
     font-size:45px;
     color:#fe4837;
     margin-bottom:60px;
     text-decoration:none;
+	font-family:'Rock Salt'
 }
 #editgoalheader{
     font-family: 'Rock Salt';
@@ -229,16 +230,16 @@ div.field, div.actions {
 	padding: 30px 6px 137px 11px;
 }
 .valuesbox{
-    width:500px;
+    width:645px;
 }
 .accountabilitybox{
-    width:441px;
+    width:612px;
 }
 .goalbox{
     font-size:25px;
     padding:4px;
     color:#555;
-    width:558px;
+    width:696px;
 }
 #activecontainer{
     margin:auto;
@@ -272,16 +273,16 @@ div.field, div.actions {
 .goaldesc{
     font-size:25px;
     color:#555;
-    margin:20px 0 20px 40px;
+    margin:20px 0 20px 10px;
 }
 .goalcategory,.goalaccountability, .goalvalues{
     color:#999;
 }
 .goalvalues{
-    margin:0 0 10px 40px;
+    margin:0 0 10px 50px;
 }
 .goalaccountability{
-    margin:10px 0 0 40px;
+    margin:10px 0 0 50px;
 }
 .goalaccountability a{
     color:#52B0CB;
@@ -292,16 +293,14 @@ div.field, div.actions {
 }
 .goalsubtitle{
     color:#444;
-    font-size:16px;
+    font-size:14px;
     text-transform:lowercase;
     margin-right:5px;
-    font-style:italic;
 }
 .tasksubtitle{
     color:#666;
-    font-size:16px;
+    font-size:14px;
     text-transform:lowercase;
-    font-style:italic;
     margin-right:5px;
 }
 .tasktext{
@@ -312,11 +311,11 @@ div.field, div.actions {
     padding:13px 0px 13px 13px;
     border:1px solid #ccc;
     margin-left:-12px;
-    width:725px;
+    width:703px;
 }
 .displaytaskarea{
-    margin-left:27px;
-    width:630px;
+    margin-left:36px;
+    width:620px;
 }
 .taskrowoff{
     display:none;
@@ -497,6 +496,7 @@ span.form-item{
     margin-right:45px;
     margin-top:-15px;
     font-weight:bold;
+	display:none;
 }
 #scoreitem{
     position:fixed;
@@ -697,4 +697,21 @@ span.form-item{
 	position: absolute;
 	z-index: 100000;
 	cursor:pointer;
+}
+.currentweekLabel {
+	font-size:12px;
+	color:#555555;
+}
+.goalCountLabel {
+	font-size:32px;
+	color:#BBBBBB;
+}
+.categoryGoalLabel {
+	margin:20px;
+}
+.categoryGoalLabel2 {
+	font-size:12px;
+}
+.categoryGoalLabel3 {
+	font-size:18px;
 }

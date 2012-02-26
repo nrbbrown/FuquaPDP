@@ -1,6 +1,8 @@
 <%@ggoals.each do |onegoal|%>
 	<div class="effortRow effortRow3">
-		<div class="effortRowTitle"><%=onegoal.goal%></div>
-		<div class="effortRowProgress"><%=(@goalCompleteScore[onegoal.id]*100)/onegoal.tasks.length%>%</div>
+		<div class="goalRowBox">
+			<div class="effortRowTitle"><%=onegoal.goal%></div>
+			<div class="effortRowProgress"><%=(@goalCompleteScore[onegoal.id]*100)/onegoal.tasks.length%>%</div>
+		</div>
 	</div>
 <%end%>

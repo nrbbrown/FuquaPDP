@@ -19,11 +19,16 @@ class ScoreentryController < ApplicationController
   # Get /scoreentry/1
   # get /scoreentry/1.json
   def edit
-	is_complete = params[:is_complete]
+	@is_complete = params[:is_complete].to_i
     @task = Task.find(params[:taskid])
 	@goal = Goal.find(@task.goal_id)
+	@dateup = Date.commercial(Date.today.year.to_i, Date.today.cweek.to_i, 1)
 	respond_to do |format|
-		@task.update_attributes(:is_complete => is_complete,:completed_at => Date.today)
+		if @is_complete == 1
+			@taskProgress = Tasksprogress.new(:task_id =>params[:taskid],:date =>@dateup, :created_at =>DateTime.now, :updated_at =>DateTime.now)
+			@taskProgress.save
+		end
+		@task.update_attributes(:is_complete => @is_complete,:completed_at => Date.today)
 		@goalComplete = 1
 		@goal.tasks.each do |onetask|
 			if onetask.is_complete? == false

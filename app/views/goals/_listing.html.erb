@@ -55,7 +55,9 @@ dojo.ready(Score.init);
 
 <div class="displaytaskarea">
 <table>
-    <% cc = 0 %>
+    <% cc = 0 
+	 @activeTasks = 0
+	 @tuTasks = 0 %>
     <% for s in (0..9) %>
     <% if goal.tasks[s] %>
     <% if goal.tasks[s].is_complete == 1 then cc = cc+1 end %>
@@ -93,9 +95,12 @@ dojo.ready(Score.init);
 					--
 				</div>
 			<%elsif @showThumbsUp == true %>
+				<%@tuTasks = @tuTasks + 1%>
+				<%@activeTasks = @activeTasks + 1%>
 				<div id="tu_img_<%=goal.tasks[s].id%>" title="thumbsUp" class="tupImage" 
 				onclick="markTaskProgressEntry(<%=goal.tasks[s].id%>,0,<%=goal.tasks[s].goal_id%>,<%=@currentDate.cweek%>,<%=@currentDate.year%>)">
 			<%else%>
+			<%@activeTasks = @activeTasks + 1%>
 				<div id="tu_img_<%=goal.tasks[s].id%>" title="thumbsUp" class="tdownImage" 
 				onclick="markTaskProgressEntry(<%=goal.tasks[s].id%>,1,<%=goal.tasks[s].goal_id%>,<%=@currentDate.cweek%>,<%=@currentDate.year%>)">
 			<%end%>
@@ -136,7 +141,10 @@ dojo.ready(Score.init);
          <%= goal.accountability == '' ? 'N/A' : goal.accountability %>
     <% end %>
 </div>
-
+<div class="goalScoreSheet">
+	<div class="">Effort Score: &nbsp;<%= ((@tuTasks*100.0)/[@activeTasks*1.0,1].max).round %>%</div>
+	<div class="">Progress Score: &nbsp;<%= ((cc*100.0)/[goal.tasks.length*1.0,1].max).round %>%</div>
+</div>
 <div class="goalscore" id="goalscore<%=goal.id%>"><%= ((cc*100.0)/[goal.tasks.length*1.0,1].max).round %>%</div>
 
 </div>

@@ -12,21 +12,26 @@
 }
 .effortRowProgress {
 	float:right;
+	padding-right:10px;
 }
 .effortRowTitle {
 	float:left;
+	padding-left:5px;
 }
 .effortRow {
-	width:80%;
+	width:79%;
 	float:left;
-	padding:5px 10px;
+	padding:5px 0px 5px 14px;
 	border:1px solid #999999;
 }
 .effortRow2 {
-	border:1px dashed #999999;
+	border:1px solid #999999;
 	border-top:none;
+	border-bottom:none;
 	width:75%;
 	padding-left:30px;
+	padding-bottom:0px;
+	padding-right:0px;
 }
 .effortScoreBox {
 	float:left;
@@ -35,16 +40,19 @@
 	margin:20px 0px;
 }
 .effortRow3 {
-	border:1px dashed #999999;
+	border:1px solid #999999;
 	border-top:none;
+	border-bottom:none;
 	width:68%;
 	padding-left:59px;
 }
 .effortRow4 {
-	border:1px dashed #999999;
+	border:1px solid #999999;
 	border-top:none;
+	border-bottom:none;
 	width:62%;
 	padding-left:83px;
+	padding-top:2px;
 }
 .titleBoxInner {
 	font-size:16px;
@@ -56,4 +64,26 @@
 	float:left;
 	width:100%;
 	margin:0px 0px 10px 0px;
+}
+.categoryRowBox,.goalRowBox,.taskRowBox {
+	border-bottom: 2px solid red;
+	float: left;
+	padding-bottom: 5px;
+	padding-right: 0;
+	width: 100%;
+}
+.goalRowBox {
+	border-bottom: 2px solid blue;
+}
+.taskRowBox {
+	border-bottom: 2px solid #000000;
+	font-size: 11px;
+	padding-bottom: 0;
+	padding-top: 0;
+}
+.overallRow {
+	font-weight:bold;
+}
+.overallRowBottom {
+	border-top:none;
 }

@@ -33,45 +33,59 @@
 			<div class="titleBoxInner">
 				Effort Score
 			</div>
-			<div class="effortRow">
-				<div class="effortRowTitle">Overall</div>
-				<div class="effortRowProgress"><%=@overallScore%>%</div>
+			<div class="effortInnerBox">
+				<div class="effortRow overallRow">
+					<div class="effortRowTitle">Overall</div>
+					<div class="effortRowProgress"><%=@overallScore%>%</div>
+				</div>
+				<div class="effortRow effortRow2">
+					<div class="categoryRowBox">
+						<div class="effortRowTitle">Academic</div>
+						<div class="effortRowProgress"><%=@domainScore["academic"]%></div>
+					</div>
+				</div>
+				<%@ggoals = @academicGoals%>
+				<%= render 'goaleffort' %>
+				
+				<div class="effortRow effortRow2">
+					<div class="categoryRowBox">
+						<div class="effortRowTitle">Career</div>
+						<div class="effortRowProgress"><%=@domainScore["career"]%></div>
+					</div>
+				</div>
+				<%@ggoals = @careerGoals%>
+				<%= render 'goaleffort' %>
+				
+				<div class="effortRow effortRow2">
+					<div class="categoryRowBox">
+						<div class="effortRowTitle">Social</div>
+						<div class="effortRowProgress"><%=@domainScore["social"]%></div>
+					</div>
+				</div>
+				<%@ggoals = @socialGoals%>
+				<%= render 'goaleffort' %>
+				
+				<div class="effortRow effortRow2">
+					<div class="categoryRowBox">
+						<div class="effortRowTitle">Personal</div>
+						<div class="effortRowProgress"><%=@domainScore["personal"]%></div>
+					</div>
+				</div>
+				<%@ggoals = @personalGoals%>
+				<%= render 'goaleffort' %>
+				
+				<div class="effortRow effortRow2">
+					<div class="categoryRowBox">
+						<div class="effortRowTitle">Physical</div>
+						<div class="effortRowProgress"><%=@domainScore["physical"]%></div>
+					</div>
+				</div>
+				<%@ggoals = @physicalGoals%>
+				<%= render 'goaleffort' %>
+				<div class="effortRow overallRowBottom">
+					
+				</div>
 			</div>
-			<div class="effortRow effortRow2">
-				<div class="effortRowTitle">Academic</div>
-				<div class="effortRowProgress"><%=@domainScore["academic"]%></div>
-			</div>
-			<%@ggoals = @academicGoals%>
-			<%= render 'goaleffort' %>
-			
-			<div class="effortRow effortRow2">
-				<div class="effortRowTitle">Career</div>
-				<div class="effortRowProgress"><%=@domainScore["career"]%></div>
-			</div>
-			<%@ggoals = @careerGoals%>
-			<%= render 'goaleffort' %>
-			
-			<div class="effortRow effortRow2">
-				<div class="effortRowTitle">Social</div>
-				<div class="effortRowProgress"><%=@domainScore["social"]%></div>
-			</div>
-			<%@ggoals = @socialGoals%>
-			<%= render 'goaleffort' %>
-			
-			<div class="effortRow effortRow2">
-				<div class="effortRowTitle">Personal</div>
-				<div class="effortRowProgress"><%=@domainScore["personal"]%></div>
-			</div>
-			<%@ggoals = @personalGoals%>
-			<%= render 'goaleffort' %>
-			
-			<div class="effortRow effortRow2">
-				<div class="effortRowTitle">Physical</div>
-				<div class="effortRowProgress"><%=@domainScore["physical"]%></div>
-			</div>
-			<%@ggoals = @physicalGoals%>
-			<%= render 'goaleffort' %>
-			
 		</div>
 
 	</div>
@@ -81,45 +95,56 @@
 			<div class="titleBoxInner">
 				Progress Score
 			</div>
-			<div class="effortRow">
+			<div class="effortRow overallRow">
 				<div class="effortRowTitle">Overall</div>
 				<div class="effortRowProgress"><%=@overallCompleteScore%>%</div>
 			</div>
 			<div class="effortRow effortRow2">
-				<div class="effortRowTitle">Academic</div>
-				<div class="effortRowProgress"><%=@domainCompleteScore["academic"]%></div>
+				<div class="categoryRowBox">
+					<div class="effortRowTitle">Academic</div>
+					<div class="effortRowProgress"><%=@domainCompleteScore["academic"]%></div>
+				</div>
 			</div>
 			<%@ggoals = @academicGoals%>
 			<%= render 'goalcomplete' %>
 			
 			<div class="effortRow effortRow2">
-				<div class="effortRowTitle">Career</div>
-				<div class="effortRowProgress"><%=@domainScore["career"]%></div>
+				<div class="categoryRowBox">
+					<div class="effortRowTitle">Career</div>
+					<div class="effortRowProgress"><%=@domainCompleteScore["career"]%></div>
+				</div>
 			</div>
 			<%@ggoals = @careerGoals%>
 			<%= render 'goalcomplete' %>
 			
 			<div class="effortRow effortRow2">
-				<div class="effortRowTitle">Social</div>
-				<div class="effortRowProgress"><%=@domainScore["social"]%></div>
+				<div class="categoryRowBox">
+					<div class="effortRowTitle">Social</div>
+					<div class="effortRowProgress"><%=@domainCompleteScore["social"]%></div>
+				</div>
 			</div>
 			<%@ggoals = @socialGoals%>
 			<%= render 'goalcomplete' %>
 			
 			<div class="effortRow effortRow2">
-				<div class="effortRowTitle">Personal</div>
-				<div class="effortRowProgress"><%=@domainScore["personal"]%></div>
+				<div class="categoryRowBox">
+					<div class="effortRowTitle">Personal</div>
+					<div class="effortRowProgress"><%=@domainCompleteScore["personal"]%></div>
+				</div>
 			</div>
 			<%@ggoals = @personalGoals%>
 			<%= render 'goalcomplete' %>
 			
 			<div class="effortRow effortRow2">
-				<div class="effortRowTitle">Physical</div>
-				<div class="effortRowProgress"><%=@domainScore["physical"]%></div>
+				<div class="categoryRowBox">
+					<div class="effortRowTitle">Physical</div>
+					<div class="effortRowProgress"><%=@domainCompleteScore["physical"]%></div>
+				</div>
 			</div>
 			<%@ggoals = @physicalGoals%>
 			<%= render 'goalcomplete' %>
-			
+			<div class="effortRow overallRowBottom">				
+			</div>
 		</div>
 	</div>
 </div>

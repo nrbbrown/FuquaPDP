@@ -291,6 +291,7 @@ div.field, div.actions {
 }
 .goalaccountability{
     margin:10px 0 0 50px;
+	width:50%;
 }
 .goalaccountability a{
     color:#52B0CB;
@@ -767,4 +768,11 @@ span.form-item{
 	text-align:right;
 	color:#999999;
 	text-decoration:underline;
+}
+.goalScoreSheet {
+	float: right;
+	font-size: 11px;
+	margin-right: 30px;
+	margin-top: -20px;
+	text-align: right;
 }

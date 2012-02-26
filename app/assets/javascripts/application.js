@@ -8,6 +8,46 @@
 //= require jquery_ujs
 //= require_tree .
 
+function openinstructions(id1,id2){
+	
+	if(dojo.byId(id2)){
+		dojo.removeClass('instructionOuterDiv','hidediv');
+		dojo.removeClass('instructionDiv','hidediv');
+		dojo.byId('instructionInnerDiv').innerHTML = dojo.byId(id2).innerHTML;
+	}
+}
+function closeInstructionBox(){
+	if(dojo.byId('instructionDiv')){
+		dojo.addClass('instructionOuterDiv','hidediv');
+		dojo.addClass('instructionDiv','hidediv');
+	}
+}
+function showUserList(){
+	var v = dojo.byId('search-input').value;
+	
+	if(v == ''){
+		dojo.addClass('userlistdiv','hidediv');
+		dojo.addClass('dimuser','hidediv');
+	}else{
+		dojo.removeClass('userlistdiv','hidediv');
+		dojo.removeClass('dimuser','hidediv');
+		var allUsers = dojo.query('.userentry a');
+		var count = 0;
+		allUsers.forEach(function(node) {	
+			var n = node.innerHTML.toUpperCase();
+			if(n.indexOf(v.toUpperCase()) == 0){
+				dojo.removeClass(node.parentNode,'hidediv');
+				count++;
+			}else{
+				dojo.addClass(node.parentNode,'hidediv');
+			}
+		});
+		if(count == 0){
+			dojo.addClass('userlistdiv','hidediv');
+			dojo.addClass('dimuser','hidediv');
+		}
+	}
+}
 function showgreen(id){
 	dojo.byId('thumbs_'+id).src = '/images/tu_on.png'
 }
@@ -285,15 +325,15 @@ var Goals = {
         Goals.showActiveComplete();
         
         
-        dojo.connect(dojo.byId('searchdiv'),'onclick',{},Goals.showSearch);
-        dojo.connect(dojo.byId('userdirectory'),'onclick',{},Goals.showSearch);
+        //dojo.connect(dojo.byId('searchdiv'),'onclick',{},Goals.showSearch);
+        //dojo.connect(dojo.byId('userdirectory'),'onclick',{},Goals.showSearch);
 
     },
 
     
     showSearch: function(){
         dojo.toggleClass('userlistdiv','hidediv');
-        
+		        
         if(Goals.on < 0){
             dojo.removeClass('dimuser','hidediv');
             dojo.style(dojo.byId('dimuser'), "opacity", "0");

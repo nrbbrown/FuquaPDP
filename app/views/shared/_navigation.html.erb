@@ -1,43 +1,27 @@
 
 <% if user_signed_in? %>
 
-    <% if @users %>
-        <div id="userlistdiv" class="hidediv">
-            <div id="userdirectory">
-                <div class="floatLeft">
-                    user directory
-                </div>
-                <div class="floatRight">
-                    X
-                </div>
-            </div>
-            <% @users.each do |user| %>
-                <div class="userentry">
-                    <div class="floatLeft">
-                        <%= link_to(user.name, goals_path(:u => user.id)) %>
-                    </div>
-                    <div class="floatRight">
-                    <% if @uid.to_i == user.id.to_i %>
-                        <span class="markme">viewing</span>
-                    <% end %>
-                    <% if current_user.id == user.id %>
-                        <span class="markme">me</span>
-                    <% end %>
-                    </div>
-                </div>
-            <% end %>
-        </div>
-    <% end %>
-
 <div id="topbar">
     <% if @users %>
     <div id="searchdiv">
         <% @users.each do |user| %>
             <% if user.id.to_i == @uid.to_i %>
-                <%= user.name %>
+                <%= link_to(user.name, goals_path(:u => user.id),:class => "userentryarticle") %>
             <% end %>
         <% end %>
     </div>
+	<div id="search-input-box">
+		<input id="search-input" onkeyup="javascript:showUserList()" type="text" value="" autocomplete=off placeholder="Search By Name"/>
+		<% if @users %>
+			<div id="userlistdiv" class="hidediv">
+				<% @users.each do |user| %>
+					<div class="userentry">
+						<%= link_to(user.name, goals_path(:u => user.id)) %>
+					</div>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
     <% end %>
     <div id="logoutdiv">
         <%= link_to('Home', goals_path) %> 

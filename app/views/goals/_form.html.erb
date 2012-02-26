@@ -1,5 +1,11 @@
 <div id="goalcontainer">
-
+<div class="instructionLink" onclick="openinstructions('instructionLink','goalInstruction')">
+	Instructions
+</div>
+<div id="goalInstruction" class="hidediv">
+	<div class="">Instructions for Adding New Goals</div>
+	<div class="">New goals instructions goes here</div>
+</div>
 <%= form_for(@goal) do |f| %>
 <div class="goalsubcontainer">
     <div class="newgoalleft">

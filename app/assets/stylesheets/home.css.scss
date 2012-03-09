@@ -18,11 +18,12 @@
 
 #largebird{ 
     background:url('/images/duke.png') 0px 0px no-repeat; 
-    width:303px; 
+    width:221px; 
     height:297px;
     float:left;
 	margin-top:30px;
 	margin-right:10px;
+	margin-left:50px;
 }
 
 #rightcontainer{
@@ -45,6 +46,12 @@
     font-style:italic;
     padding-top:30px;
     padding-left:5px;
+}
+.mimsubtitle2 {
+	color: #BBBBBB;
+	font-style: normal;
+	margin-top: 0;
+	padding-top: 0;
 }
 #signincontainer{
     width:600px;

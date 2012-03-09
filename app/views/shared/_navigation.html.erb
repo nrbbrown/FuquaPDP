@@ -27,7 +27,7 @@
         <%= link_to('Home', goals_path) %> 
 		<% if current_user.id == @uid.to_i %>
 			<%= link_to('Score Entry', scoreentry_index_path) %> 
-			<%= link_to('Score card', scorecard_index_path) %> 
+			<%= link_to('Scorecard', scorecard_index_path) %> 
 		<% end %>
         <%= link_to('Settings', edit_user_registration_path) %>   
         <%= link_to('Help', help_index_path) %> 

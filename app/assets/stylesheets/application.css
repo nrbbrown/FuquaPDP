@@ -11,6 +11,11 @@ ul.hmenu {
   margin: 0 0 2em;
   padding: 0;
 }
+.headtitlein {
+	font-weight:bold;
+	font-size:14px;
+	margin:10px 0px;
+}
 ul.hmenu li {
   display: inline;  
 }

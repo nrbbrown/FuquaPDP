@@ -8,7 +8,7 @@ class ScoreentryController < ApplicationController
 	@careerGoals = Goal.where("user_id = ? and category = ?", current_user.id, :career)
 	@personalGoals = Goal.where("user_id = ? and category = ?", current_user.id, :personal)
 	@physicalGoals = Goal.where("user_id = ? and category = ?", current_user.id, :physical)
-	@socialGoals = Goal.where("user_id = ? and category = ?", current_user.id, :socialGoals)
+	@socialGoals = Goal.where("user_id = ? and category = ?", current_user.id, :social)
 	@thisWeek = (params[:week] != nil) ? params[:week] : Date.today.cweek
 	@isCurrentWeek = (@thisWeek.to_i == Date.today.cweek.to_i) ? true :	false
 	@dateOfEntry = Date.commercial(Date.today.year.to_i, @thisWeek.to_i, 1)

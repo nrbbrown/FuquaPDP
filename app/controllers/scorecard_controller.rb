@@ -56,7 +56,7 @@ class ScorecardController < ApplicationController
 	@careerGoals = Goal.where("user_id = ? and category = ?", current_user.id, :career)
 	@personalGoals = Goal.where("user_id = ? and category = ?", current_user.id, :personal)
 	@physicalGoals = Goal.where("user_id = ? and category = ?", current_user.id, :physical)
-	@socialGoals = Goal.where("user_id = ? and category = ?", current_user.id, :socialGoals)
+	@socialGoals = Goal.where("user_id = ? and category = ?", current_user.id, :social)
 	
 	@overallCompleteTasks = 0
 	@overallTasks = 0

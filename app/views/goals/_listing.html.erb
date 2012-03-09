@@ -98,23 +98,33 @@ dojo.ready(Score.init);
 				<%@tuTasks = @tuTasks + 1%>
 				<%@activeTasks = @activeTasks + 1%>
 				<div id="tu_img_<%=goal.tasks[s].id%>" title="thumbsUp" class="tupImage" 
-				onclick="markTaskProgressEntry(<%=goal.tasks[s].id%>,0,<%=goal.tasks[s].goal_id%>,<%=@currentDate.cweek%>,<%=@currentDate.year%>)">
+				<%if @isme %>
+				onclick="markTaskProgressEntry(<%=goal.tasks[s].id%>,0,<%=goal.tasks[s].goal_id%>,<%=@currentDate.cweek%>,<%=@currentDate.year%>)"
+				<%end%>
+				>
 			<%else%>
 			<%@activeTasks = @activeTasks + 1%>
 				<div id="tu_img_<%=goal.tasks[s].id%>" title="thumbsUp" class="tdownImage" 
-				onclick="markTaskProgressEntry(<%=goal.tasks[s].id%>,1,<%=goal.tasks[s].goal_id%>,<%=@currentDate.cweek%>,<%=@currentDate.year%>)">
+				<%if @isme %>
+				onclick="markTaskProgressEntry(<%=goal.tasks[s].id%>,1,<%=goal.tasks[s].goal_id%>,<%=@currentDate.cweek%>,<%=@currentDate.year%>)"
+				<%end%>
+				>
 			<%end%>
 		</td>
         <td class="tasktdE">
 			<%if goal.tasks[s].is_complete? == true %>
 				<div title="goal<%= goal.id %>" id="thumbs_img_<%= goal.tasks[s].id%>" 
 				class="checkImageOn"
+				<%if @isme %>
 				onclick="updateTaskComplete(<%=goal.tasks[s].id%>,<%=goal.tasks[s].goal_id%>,0)"
+				<%end%>
 				></div>
 			<%else%>
 				<div title="goal<%= goal.id %>" id="thumbs_img_<%= goal.tasks[s].id%>" 
 				class="checkImageOff"
+				<%if @isme %>
 				onclick="updateTaskComplete(<%=goal.tasks[s].id%>,<%=goal.tasks[s].goal_id%>,1)"
+				<%end%>
 				></div>
 			<%end%>
         </td>

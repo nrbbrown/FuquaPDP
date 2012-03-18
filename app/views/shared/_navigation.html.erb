@@ -28,6 +28,7 @@
 		<% if current_user.id == @uid.to_i %>
 			<%= link_to('Score Entry', scoreentry_index_path) %> 
 			<%= link_to('Scorecard', scorecard_index_path) %> 
+			<%= link_to('Reflection', reflection_index_path) %> 
 		<% end %>
         <%= link_to('Settings', edit_user_registration_path) %>   
         <%= link_to('Help', help_index_path) %> 

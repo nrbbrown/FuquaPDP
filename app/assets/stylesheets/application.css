@@ -125,16 +125,19 @@ div.field, div.actions {
 	padding:5px;
 }
 #searchdiv{
-	background:url('/images/header_magnify.png') 5px 5px no-repeat;
+	background:url('/images/homeicon.png') 5px 5px no-repeat;
 	height:45px;
 	line-height:45px;
-	padding-left:45px;
 	float:left;
     font-size:14px;
     color:#fff  ;
     text-shadow:1px 1px 1px #000;
     cursor:pointer;
     font-size:18px;
+}
+#new_goal {
+	width:940px;
+	position:relative;
 }
 #searchdiv>a{
     text-decoration:none;
@@ -191,12 +194,12 @@ div.field, div.actions {
 	z-index:-100;
 }
 #goalcontainer{
-	min-height:200px;
-	margin-top:20px;
-	margin-left:-9px;
-	width:100%;
-	padding-right:16px;
-	z-index:100;
+	margin: auto;
+	min-height: 200px;
+	padding-right: 16px;
+	position: relative;
+	width: 820px;
+	z-index: 100;
 }
 .catarrow{
     position:absolute;
@@ -240,13 +243,13 @@ div.field, div.actions {
 	background: url('/images/background_base.png') 0 0 repeat-x; 
 	width:100%;
 	margin-left:-9px;
-	padding: 30px 6px 137px 11px;
+	padding: 30px 6px 137px 70px;
 }
 .valuesbox{
-    width:645px;
+    width:612px;
 }
 .accountabilitybox{
-    width:612px;
+    width:518px;
 }
 .goalbox{
     font-size:25px;
@@ -328,8 +331,8 @@ div.field, div.actions {
     width:703px;
 }
 .displaytaskarea{
-    margin-left:36px;
-    width:620px;
+    margin-left:10px;
+    width:665px;
 }
 .taskrowoff{
     display:none;
@@ -652,11 +655,12 @@ span.form-item{
 	cursor:pointer;
 }
 .closeButtonBox {
-	width:700px;
+	width:830px;
+	position:relative;
 	margin:100px auto 0 auto;
 }
 #instructionInnerDiv {
-	width:700px;
+	width:800px;
 	margin:0px auto 0 auto;
 	background: url('/images/white.png') repeat;
 	border: 1px solid #DDDDDD;
@@ -664,6 +668,9 @@ span.form-item{
 	color: #666666;
 	padding: 7px;
 	z-index:3000;
+}
+#instructionInnerDiv li {
+	padding:5px 0px;
 }
 #dim{
     z-index:1000;
@@ -763,16 +770,16 @@ span.form-item{
 .userentryarticle {
 	text-transform:none !important;
 }
-.instructionLink:hover {
-	cursor:pointer;
+.instructionLinka:hover {
 	color:#FE4837;
+	cursor:pointer;
 }
 .instructionLink {
-	width:745px;
+	width:840px;
+	text-decoration:underline;
 	margin:10px auto;
 	text-align:right;
 	color:#999999;
-	text-decoration:underline;
 }
 .goalScoreSheet {
 	float: right;

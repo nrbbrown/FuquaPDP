@@ -51,7 +51,7 @@ dojo.ready(Score.init);
 <% end %>
 
 <div class="goaldesc"><span class="goalCountLabel"><%=@goalCount%></span>&nbsp;&nbsp;<%= goal.goal == '' ? 'my '+@filter+' goal' : goal.goal %></div>
-<div class="goalvalues"><span class="goalsubtitle">values</span> <%= goal.values == '' ? 'N/A' : goal.values %></div>
+<div class="goalvalues"><span class="goalsubtitle">description</span> <%= goal.values == '' ? 'N/A' : goal.values %></div>
 
 <div class="displaytaskarea">
 <table>
@@ -128,6 +128,10 @@ dojo.ready(Score.init);
 				></div>
 			<%end%>
         </td>
+		<td class="tasktdF">
+			<div class="commentIconBox">
+			</div>
+		</td>
     </tr>
     <% end %>
     <% end %>
@@ -140,7 +144,7 @@ dojo.ready(Score.init);
 </div>
 
 <div class="goalaccountability">
-    <span class="goalsubtitle">goal buddy</span>  
+    <span class="goalsubtitle">Mentor/Leadership Fellow</span>  
     <% found = 0; @users.each do |user| %>
         <% if user.name == goal.accountability %>
             <%= link_to(user.name, goals_path(:u => user.id)) %>

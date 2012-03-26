@@ -8,7 +8,7 @@
 		</div>
 	</div>
 	<form action="/reflection/new" method="get" id="new_reflection">
-	<input type="submit" value="Submit Answers" name="commit" class="submitanswers">
+	<input type="submit" value="Save Answers" name="commit" class="submitanswers">
 	<%@questions.each do |onequestion|%>
 		<div class="oneQuestion" id="question_<%=onequestion.qno%>">
 			<div class="questionClass">
@@ -19,7 +19,7 @@
 			</div>
 		</div>
 	<%end%>
-	<input type="submit" value="Submit Answers" name="commit" class="submitanswers">
+	<input type="submit" value="Save Answers" name="commit" class="submitanswers">
 	
 	</form>
 </div>

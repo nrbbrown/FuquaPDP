@@ -4,6 +4,7 @@
 <div id="topbar">
     <% if @users %>
     <div id="searchdiv">
+		<a href="<%= goals_path%>" style="padding-left:32px;">&nbsp;</a>
         <% @users.each do |user| %>
             <% if user.id.to_i == @uid.to_i %>
                 <%= link_to(user.name, goals_path(:u => user.id),:class => "userentryarticle") %>
@@ -14,24 +15,27 @@
 		<input id="search-input" onkeyup="javascript:showUserList()" type="text" value="" autocomplete=off placeholder="Search By Name"/>
 		<% if @users %>
 			<div id="userlistdiv" class="hidediv">
-				<% @users.each do |user| %>
-					<div class="userentry">
-						<%= link_to(user.name, goals_path(:u => user.id)) %>
-					</div>
+				<% @users.each do |user| 
+					if user.access_level != 2%>
+						<div class="userentry">
+							<%= link_to(user.name, goals_path(:u => user.id)) %>
+						</div>
+					<%end%>
 				<% end %>
 			</div>
 		<% end %>
 	</div>
     <% end %>
     <div id="logoutdiv">
-        <%= link_to('Home', goals_path) %> 
+		<% if current_user.access_level == 2 %>
+			<%= link_to('Report', progressreport_admin_path) %> 
+		<% end %>
 		<% if current_user.id == @uid.to_i %>
 			<%= link_to('Score Entry', scoreentry_index_path) %> 
 			<%= link_to('Scorecard', scorecard_index_path) %> 
 			<%= link_to('Reflection', reflection_index_path) %> 
 		<% end %>
-        <%= link_to('Settings', edit_user_registration_path) %>   
-        <%= link_to('Help', help_index_path) %> 
+        <%= link_to('Settings', edit_user_registration_path) %>  
         <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>  
     </div>
 </div>

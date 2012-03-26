@@ -33,7 +33,7 @@ class ReflectionController < ApplicationController
 	#answer1
 	@a1 = params[:ans_1];
 	@q = '1'
-	if @a1.strip != ''
+	if true
 		@u11 = UserReflection.where("user_id = ? and question = ?", @uid,@q)
 		if @u11.length == 0
 			@u1 = UserReflection.new(:user_id=>current_user.id,:question => @q,:answer =>@a1)
@@ -46,7 +46,7 @@ class ReflectionController < ApplicationController
 	#answer2a
 	@a1 = params[:ans_2a];
 	@q = '2a'
-	if @a1.strip != ''
+	if true
 		@u11 = UserReflection.where("user_id = ? and question = ?", @uid,@q)
 		if @u11.length == 0
 			@u1 = UserReflection.new(:user_id=>current_user.id,:question => @q,:answer =>@a1)
@@ -59,7 +59,7 @@ class ReflectionController < ApplicationController
 	#answer2b
 	@a1 = params[:ans_2b];
 	@q = '2b'
-	if @a1.strip != ''
+	if true
 		@u11 = UserReflection.where("user_id = ? and question = ?", @uid,@q)
 		if @u11.length == 0
 			@u1 = UserReflection.new(:user_id=>current_user.id,:question => @q,:answer =>@a1)
@@ -72,7 +72,7 @@ class ReflectionController < ApplicationController
 	#answer2c
 	@a1 = params[:ans_2c];
 	@q = '2c'
-	if @a1.strip != ''
+	if true
 		@u11 = UserReflection.where("user_id = ? and question = ?", @uid,@q)
 		if @u11.length == 0
 			@u1 = UserReflection.new(:user_id=>current_user.id,:question => @q,:answer =>@a1)
@@ -85,7 +85,7 @@ class ReflectionController < ApplicationController
 	#answer3
 	@a1 = params[:ans_3];
 	@q = '3'
-	if @a1.strip != ''
+	if true
 		@u11 = UserReflection.where("user_id = ? and question = ?", @uid,@q)
 		if @u11.length == 0
 			@u1 = UserReflection.new(:user_id=>current_user.id,:question => @q,:answer =>@a1)

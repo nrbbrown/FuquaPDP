@@ -6,7 +6,6 @@ class HomeController < ApplicationController
 
     @fail = params[:f]
       
-      
     respond_to do |format|
           # redirect?
           if user_signed_in?

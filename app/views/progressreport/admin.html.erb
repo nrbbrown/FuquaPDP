@@ -1,5 +1,10 @@
 <div id="outer-container" >
-ADMIN REPORT
+<div class="">
+	<div class="floatLeft">ADMIN REPORT</div>
+	<div class="searchUserNameBox">
+		<input autocomplete="off" onkeyup="searchByUserName();" type="text" name="searchUserName" id="search_user_name" placeholder="Search By Name" class="searchUserName">
+	</div>
+</div>
 <br><br>
 <table id="adminScoreTable" width="100%" style="text-align:center;">
 	<tr class="headRow">
@@ -21,4 +26,7 @@ ADMIN REPORT
 		<td class="column6"><%=ong.completedtasks.to_i%></td>
 	</tr>
 <%end%>
+	<tr id="noResultDiv" class="hidediv">
+		<td class="column1" colspan="6" style="text-align:center;">No Results Found</td>
+	</tr>
 </div>

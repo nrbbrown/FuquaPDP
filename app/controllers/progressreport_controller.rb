@@ -57,6 +57,7 @@ class ProgressreportController < ApplicationController
 									join users u
 									on u.id=g.user_id
 									where 1=1
+									and u.access_level != 2
 									group by g.user_id,u.name
 									")
   end

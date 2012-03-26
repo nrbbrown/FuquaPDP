@@ -101,6 +101,12 @@
 	height: 32px;
 	width: 30px;
 }
+.commentIconBox {
+	cursor:pointer;
+	background: url("/images/commentsicon.png") no-repeat scroll 0 0 transparent;
+	height: 32px;
+	width: 38px;
+}
 .checkImageOn:hover {
 	background: url("/images/check_off.png") no-repeat scroll 0 0 transparent;
 }

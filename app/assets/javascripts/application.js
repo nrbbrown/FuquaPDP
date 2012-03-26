@@ -8,6 +8,27 @@
 //= require jquery_ujs
 //= require_tree .
 
+function searchByUserName(){
+	var searchTerm = (dojo.byId('search_user_name').value);
+	dojo.addClass('noResultDiv','hidediv');
+	var allUsers = dojo.query('.column2');
+		var count = 0;
+		allUsers.forEach(function(node) {	
+			var n = node.innerHTML.toUpperCase();
+			if(n != 'NAME'){
+				if(n.indexOf(searchTerm.toUpperCase()) == -1){
+					dojo.addClass(node.parentNode,'hidediv');
+				}else{
+					count = count + 1;
+					dojo.removeClass(node.parentNode,'hidediv');
+				}
+			}
+		});
+	if(count == 0){
+		dojo.removeClass('noResultDiv','hidediv');
+	}
+}
+
 function openinstructions(id1,id2){
 	
 	if(dojo.byId(id2)){

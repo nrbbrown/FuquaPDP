@@ -26,6 +26,39 @@
 		<% end %>
 	</div>
     <% end %>
+	<% if current_user.id == @uid.to_i %>
+		<div class="notificationIcon" onclick="openNotifications()">
+			<%if @notifications.length != 0 %>
+				<div class="notifyNumberIcon" id="notify_total_icon">
+					<%=@notifications.length%>
+				</div>
+			<% end %>
+		</div>
+		<div id="notificationdiv" class="hidediv">
+			<div class="notifyLabel">Notifications</div>
+			<div class="fullNotificationDetails">
+				<%if @notifications.length == 0 %>
+					No new notifications
+				<%else%>
+					<% @notifications.each do |onenotification| %>
+						<div class="oneNotificationDiv" 
+							onclick="javascript:openCommentsPopup(<%=onenotification.task_id%>,<%=onenotification.goal_id%>,<%=onenotification.goal_user_id%>)"
+							>
+							<div class="mainNotifyName">
+								<%=onenotification.name%> commented on your goal:
+							</div>
+							<div class="mainNotifiyDate">
+								"<%=onenotification.comment[0,30]%>..."
+							</div>
+							<div class="mainNotifiyDate">
+								on <%=onenotification.created_at.localtime.strftime("%b %e at %l:%M%P")%>
+							</div>
+						</div>
+					<%end %>
+				<%end %>
+			</div>
+		</div>
+	<%end%>
     <div id="logoutdiv">
 		<% if ((@myMentors and @myMentors.length > 0) or (@myMentees and @myMentees.length > 0 )) and current_user.id == @uid.to_i%>
 			<a href="javascript:openConnections();">my connections</a>

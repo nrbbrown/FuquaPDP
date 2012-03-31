@@ -8,6 +8,82 @@
 //= require jquery_ujs
 //= require_tree .
 
+function submitComment(taskid, goalid, goaluserid){
+	var comment = dojo.byId('input_comment_'+taskid+'_'+goalid).value;
+	if(dojo.byId('commentOuterDiv')){
+		dojo.byId('commentInnerDiv').innerHTML = '';
+	}
+	var xhrArgs = {
+		url:'/comments/edit',
+		content:{
+			taskid:taskid,
+			goalid:goalid,
+			goaluserid:goaluserid,
+			comment:comment
+		},
+		headers:{
+			'X-CSRF-Token':''          
+		},
+		load:function(data){
+			dojo.byId('commentInnerDiv').innerHTML = data;
+		},
+		error:function(data) {
+			alert('failed to complete task');
+		}
+	};
+	new dojo.xhrGet(xhrArgs);
+}
+
+function openCommentsPopup (taskid, goalid, goaluserid){
+	if(dojo.byId('commentOuterDiv')){
+		dojo.removeClass('commentOuterDiv','hidediv');
+		dojo.removeClass('instructionDiv','hidediv');
+	}
+	if(dojo.byId('notificationdiv')){
+		dojo.addClass('notificationdiv','hidediv');
+	}
+	if(dojo.byId('notify_icon_'+taskid+'_'+goalid)){
+		var nn = dojo.byId('notify_icon_'+taskid+'_'+goalid).innerHTML;
+		dojo.byId('notify_icon_'+taskid+'_'+goalid).innerHTML = nn-1;
+		if((nn-1) == 0){
+			dojo.byId('notify_icon_'+taskid+'_'+goalid).style.display = 'none';
+		}
+	}
+	if(dojo.byId('notify_total_icon')){
+		var nt = dojo.byId('notify_total_icon').innerHTML;
+		dojo.byId('notify_total_icon').innerHTML = nt-1;
+		if((nt-1) == 0){
+			dojo.byId('notify_total_icon').style.display = 'none';
+		}
+	}
+	
+	dojo.byId('commentInnerDiv').innerHTML = '';
+	var xhrArgs = {
+		url:'/comments/index',
+		content:{
+			taskid:taskid,
+			goalid:goalid,
+			goaluserid:goaluserid
+		},
+		headers:{
+			'X-CSRF-Token':''          
+		},
+		load:function(data){
+			dojo.byId('commentInnerDiv').innerHTML = data;
+		},
+		error:function(data) {
+			alert('failed to complete task');
+			closeCommentsBox();
+		}
+	};
+	new dojo.xhrGet(xhrArgs);
+}
+function closeCommentBox(){
+	if(dojo.byId('commentOuterDiv')){
+		dojo.addClass('commentOuterDiv','hidediv');
+		dojo.addClass('instructionDiv','hidediv');
+	}
+}
 function searchByUserName(){
 	var searchTerm = (dojo.byId('search_user_name').value);
 	dojo.addClass('noResultDiv','hidediv');
@@ -113,6 +189,9 @@ function appendMentor(name){
 }
 function openConnections(){
 	dojo.toggleClass('myconnectiondiv','hidediv');
+}
+function openNotifications(){
+	dojo.toggleClass('notificationdiv','hidediv');
 }
 function showgreen(id){
 	dojo.byId('thumbs_'+id).src = '/images/tu_on.png'

@@ -15,14 +15,30 @@ class GoalsController < ApplicationController
 											from mentor_users mu (nolock)
 											join users u 
 											on u.id = mu.mentor_user_id 
-											where student_user_id = ?",current_user.id]
+											where student_user_id = ? 
+											order by name",current_user.id]
 	
 	@myMentees = MentorUser.find_by_sql ["select distinct student_user_id as id, name 
 											from mentor_users mu (nolock) 
 											join users u 
 											on u.id = mu.student_user_id
-											where mentor_user_id = ?",current_user.id]
-								
+											where mentor_user_id = ? 
+											order by name ",current_user.id]
+
+	@notifications = UserComments.find_by_sql ["select uc.comment,u.name,uc.created_at,
+												uc.task_id,uc.goal_id,uc.goal_user_id
+												from user_comments uc (nolock)
+												join users u
+												on u.id = uc.comment_user_id
+												where goal_user_id = ?
+												and is_read = 0 
+												order by created_at desc", current_user.id]
+												
+	@taskNotifications = UserComments.find_by_sql ["select count(1) as notifications, task_id
+													from user_comments
+													where goal_user_id = ?
+													and is_read = 0
+													group by task_id",current_user.id]
     # apply filter
     @filter = params[:filter]
     if @filter == nil then @filter = 'academic' end
@@ -103,7 +119,7 @@ class GoalsController < ApplicationController
 		if onementor != '' and @goal.goal != ''
 			if @users
 				@users.each do |user| 
-					if user.name == onementor.strip
+					if user.name == onementor.strip and user.id.to_i != @goal.user_id.to_i
 						@mu = MentorUser.where('mentor_user_id = ? and student_user_id = ? ',user.id.to_i,@goal.user_id.to_i)
 						if @mu == nil
 							@mentorUser = MentorUser.new(:mentor_user_id=>user.id.to_i ,:student_user_id=>@goal.user_id.to_i)
@@ -167,7 +183,7 @@ class GoalsController < ApplicationController
 				if onementor != '' and @goal.goal != ''
 					if @users
 						@users.each do |user| 
-							if user.name == onementor.strip
+							if user.name == onementor.strip and user.id.to_i != @goal.user_id.to_i
 								@mu = MentorUser.where('mentor_user_id = ? and student_user_id = ? ',user.id.to_i,@goal.user_id.to_i)
 								if @mu.length == 0
 									@mentorUser = MentorUser.new(:mentor_user_id=>user.id.to_i ,:student_user_id=>@goal.user_id.to_i)

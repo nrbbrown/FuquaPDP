@@ -129,7 +129,14 @@ dojo.ready(Score.init);
 			<%end%>
         </td>
 		<td class="tasktdF">
-			<div class="commentIconBox">
+			<div class="commentIconBox" onclick="javascript:openCommentsPopup(<%=goal.tasks[s].id%>,<%=goal.tasks[s].goal_id%>,<%=goal.tasks[s].user_id%>)">
+				<%if @isme %>
+					<%@taskNotifications.each do |onetaskNot| %>
+						<% if onetaskNot.task_id == goal.tasks[s].id%>
+							<div class="notifyNumberIcon" id="notify_icon_<%=goal.tasks[s].id%>_<%=goal.tasks[s].goal_id%>"><%=onetaskNot.notifications%></div>
+						<% end%>
+					<% end %>
+				<% end %>
 			</div>
 		</td>
     </tr>

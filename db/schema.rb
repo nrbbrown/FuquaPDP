@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120331004318) do
+ActiveRecord::Schema.define(:version => 20120331152326) do
 
   create_table "goals", :force => true do |t|
     t.string   "goal"
@@ -57,6 +57,17 @@ ActiveRecord::Schema.define(:version => 20120331004318) do
     t.integer  "task_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "user_comments", :force => true do |t|
+    t.integer  "task_id"
+    t.integer  "goal_id"
+    t.integer  "goal_user_id"
+    t.integer  "comment_user_id"
+    t.text     "comment"
+    t.integer  "is_read",         :default => 0
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   create_table "user_reflections", :force => true do |t|

@@ -1,0 +1,38 @@
+<div class="commentFullBox">
+	<div class="goalDescBox">
+		<div class="goalLabelBox">
+			<div class="goalLabel">Goal:</div>
+			<div class="goalText"><%=@goal.goal%></div>
+		</div>
+		<div class="taskLabelBox">
+			<div class="taskLabel">Task:</div>
+			<div class="taskText"><%=@task.task%></div>
+		</div>
+		<div class="goalUserLabel">
+			By <%=@goalUser.name%> on <%=@goal.created_at.localtime.strftime("%b %e at %l:%M%P")%>
+		</div>
+	</div>
+	<div class="userCommentsBox">
+		<% @comments.each do |onecomment| %>
+			<div class="enterCommentsBox otherComments">
+				<div class="commentUserName">
+					<span><%=onecomment.name%></span>
+					<span class="commentCreatedAt"><%=onecomment.created_at.localtime.strftime("%b %e at %l:%M%P")%></span>
+				</div>
+				<div class="enterCommentInput">
+					<div class="otherCommentsText">
+						<%=onecomment.comment%>
+					</div>
+				</div>
+			</div>
+		<% end %>
+	</div>
+	<div class="userCommentsBox2">
+		<div class="enterCommentsBox">
+			<div class="enterCommentInput">
+				<input autocomplete="off" id="input_comment_<%=@task.id%>_<%=@goal.id%>" type="text" placeholder="Write a Comment">
+				<div class="submitComment" onclick="submitComment(<%=@task.id%>,<%=@goal.id%>,<%=@goal.user_id%>)"></div>
+			</div>
+		</div>
+	</div>
+</div>

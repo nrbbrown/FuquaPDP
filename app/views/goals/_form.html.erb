@@ -89,9 +89,20 @@
         <% end %>
         </table>
         </div>
-        <div class="field">
+        <div class="field" style="position:relative">
             <span class="goalsubtitle"><%= f.label 'Mentor/Leadership Fellow' %></span> 
-            <%= f.text_field :accountability, :placeholder => 'enter mentor or leadership fellow names', :class => 'accountabilitybox' %>
+            <%= f.text_field :accountability, :onblur => 'javascript: removeMentor()', :autocomplete=>'off', :placeholder => 'enter mentor or leadership fellow names', :class => 'accountabilitybox' , :onkeyup => 'javascript:showMentorList()' %>
+			<% if @users %>
+				<div id="mentorlistdiv" class="hidediv">
+					<% @users.each do |user| 
+						if user.access_level != 2%>
+							<div class="mentorentry" onclick="appendMentor('<%= user.name %>')">
+								<div><%= user.name %></div>
+							</div>
+						<%end%>
+					<% end %>
+				</div>
+			<% end %>
         </div>
         <div class="field">
             <%= f.hidden_field :is_complete, :value => 0 %>

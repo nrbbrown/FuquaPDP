@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120324124734) do
+ActiveRecord::Schema.define(:version => 20120331004318) do
 
   create_table "goals", :force => true do |t|
     t.string   "goal"
@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(:version => 20120324124734) do
     t.integer  "is_complete",    :default => 0
     t.integer  "user_id"
     t.date     "completed_at"
+  end
+
+  create_table "mentor_users", :force => true do |t|
+    t.integer  "mentor_user_id"
+    t.integer  "student_user_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "reflection_questions", :force => true do |t|

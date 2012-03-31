@@ -46,12 +46,13 @@ class ProgressreportController < ApplicationController
   
   # GET /progressreport/1/admin
   def admin
+    @users = User.find(:all,:order=>"name")
 	@allUserGoals = Goal.find_by_sql("select g.user_id, u.name ,
 										count(distinct g.id) as totalgoals,
 										count(distinct t.id) as totaltasks,
 										sum(g.is_complete) as completedgoals ,
 										sum(t.is_complete) as completedtasks 
-									from goals g
+									from goals g 
 									join tasks t
 									on g.id = t.goal_id
 									join users u

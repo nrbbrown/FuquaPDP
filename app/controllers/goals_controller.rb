@@ -7,10 +7,22 @@ class GoalsController < ApplicationController
   def index
     @isedit = false
     @users = User.find(:all,:order=>"name")
-		
+	
     @uid = (params[:u] != nil) ? params[:u] : current_user.id
     @isme = (current_user.id.to_i == @uid.to_i) ? true : false
-      
+
+	@myMentors = MentorUser.find_by_sql ["select distinct mentor_user_id as id, name 
+											from mentor_users mu (nolock)
+											join users u 
+											on u.id = mu.mentor_user_id 
+											where student_user_id = ?",current_user.id]
+	
+	@myMentees = MentorUser.find_by_sql ["select distinct student_user_id as id, name 
+											from mentor_users mu (nolock) 
+											join users u 
+											on u.id = mu.student_user_id
+											where mentor_user_id = ?",current_user.id]
+								
     # apply filter
     @filter = params[:filter]
     if @filter == nil then @filter = 'academic' end
@@ -85,7 +97,23 @@ class GoalsController < ApplicationController
   # POST /goals.json
   def create
     @goal = Goal.new(params[:goal])
-    
+    @mentors = @goal.accountability.split(',');
+	@users = User.find(:all,:order=>"name")
+	@mentors.each do |onementor|
+		if onementor != '' and @goal.goal != ''
+			if @users
+				@users.each do |user| 
+					if user.name == onementor.strip
+						@mu = MentorUser.where('mentor_user_id = ? and student_user_id = ? ',user.id.to_i,@goal.user_id.to_i)
+						if @mu == nil
+							@mentorUser = MentorUser.new(:mentor_user_id=>user.id.to_i ,:student_user_id=>@goal.user_id.to_i)
+							@mentorUser.save
+						end
+					end
+				end
+			end
+		end
+	end
     respond_to do |format|
 	  if @goal.goal == ''
 		format.html { redirect_to goals_url+'?filter='+@goal.category, notice: 'Your goal cannot be empty.' }
@@ -133,6 +161,24 @@ class GoalsController < ApplicationController
                bt.destroy
             end
             
+			@mentors = @goal.accountability.split(',');
+			@users = User.find(:all,:order=>"name")
+			@mentors.each do |onementor|
+				if onementor != '' and @goal.goal != ''
+					if @users
+						@users.each do |user| 
+							if user.name == onementor.strip
+								@mu = MentorUser.where('mentor_user_id = ? and student_user_id = ? ',user.id.to_i,@goal.user_id.to_i)
+								if @mu.length == 0
+									@mentorUser = MentorUser.new(:mentor_user_id=>user.id.to_i ,:student_user_id=>@goal.user_id.to_i)
+									@mentorUser.save
+								end
+							end
+						end
+					end
+				end
+			end
+	
             format.html { redirect_to goals_url+'?filter='+@goal.category, notice: 'Your goal was successfully updated.' }
             format.json { head :ok }
           else

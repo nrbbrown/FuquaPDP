@@ -145,15 +145,19 @@ dojo.ready(Score.init);
 
 <div class="goalaccountability">
     <span class="goalsubtitle">Mentor/Leadership Fellow</span>  
-    <% found = 0; @users.each do |user| %>
-        <% if user.name == goal.accountability %>
-            <%= link_to(user.name, goals_path(:u => user.id)) %>
-            <% found = 1 %>
-        <% end %>
-    <% end %>
-    <% if found == 0 %>
-         <%= goal.accountability == '' ? 'N/A' : goal.accountability %>
-    <% end %>
+    <% found = 0; 
+	    @mentorsNames = goal.accountability.split(',')
+		@mentorsNames.each do |onementor|
+			@users.each do |user| %>
+				<% if user.name == onementor.strip %>
+					<%= link_to(user.name, goals_path(:u => user.id)) %>
+					<% found = 1 %>
+				<% end %>
+			<% end %>
+		<% end %>
+		<% if found == 0 %>
+			<%= goal.accountability == '' ? 'N/A' : goal.accountability %>
+		<% end %>
 </div>
 <div class="goalScoreSheet">
 	<div class="">Effort Score: &nbsp;<%= ((@tuTasks*100.0)/[@activeTasks*1.0,1].max).round %>%</div>

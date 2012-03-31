@@ -1,5 +1,6 @@
 class ReflectionController < ApplicationController
   def index
+    @users = User.find(:all,:order=>"name")
 	@uid = (params[:u] != nil) ? params[:u] : current_user.id
     @isme = (current_user.id.to_i == @uid.to_i) ? true : false
     @isSaved = (params[:done] != nil) ? true : false

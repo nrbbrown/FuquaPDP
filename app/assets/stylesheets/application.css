@@ -137,7 +137,6 @@ div.field, div.actions {
 }
 #new_goal {
 	width:940px;
-	position:relative;
 }
 #searchdiv>a{
     text-decoration:none;
@@ -154,6 +153,7 @@ div.field, div.actions {
 	height:45px;
 	line-height:45px;
 	padding-right:20px;
+	position:relative;
 }
 #logoutdiv>a{
     color:#999;
@@ -197,7 +197,6 @@ div.field, div.actions {
 	margin: auto;
 	min-height: 200px;
 	padding-right: 16px;
-	position: relative;
 	width: 820px;
 	z-index: 100;
 }
@@ -787,4 +786,54 @@ span.form-item{
 	margin-right: 30px;
 	margin-top: -20px;
 	text-align: right;
+}
+#mentorlistdiv {
+	background: none repeat scroll 0 0 #FFFFFF;
+	border: 1px solid #EEEEEE;
+	font-size: 11px;
+	left: 182px;
+	max-height: 100px;
+	min-width: 516px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding: 3px;
+	position: absolute;
+	top: 20px;
+	z-index: 3000;
+}
+.mentorentry {
+	border-bottom: 1px solid #EEEEEE;
+	padding: 5px;
+	cursor:pointer;
+	color:#52B0CB;
+}
+.mentorentry:hover {
+	font-size:14px;
+}
+#myconnectiondiv {
+	background: none repeat scroll 0 0 #FBFBFB;
+	border: 1px solid #666666;
+	color: #52B0CB;
+	left: 15px;
+	max-height: 170px;
+	min-width: 300px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding: 3px;
+	padding-left:10px;
+	position: absolute;
+	top: 35px;
+	z-index: 3000;
+	line-height:30px;
+}
+.onementorDiv:hover {
+	font-size:14px;
+	background:#FFFFFF;
+}
+.onementorDiv {
+	border-bottom:1px solid #DDDDDD;
+}
+.onementorDiv  a {
+	text-decoration:none;
+	color: #52B0CB;
 }

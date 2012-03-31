@@ -27,6 +27,23 @@
 	</div>
     <% end %>
     <div id="logoutdiv">
+		<% if (@myMentors or @myMentees ) and current_user.id == @uid.to_i%>
+			<a href="javascript:openConnections();">my connections</a>
+			<div id="myconnectiondiv" class="hidediv">
+				<%@myMentees.each do |onementee|%>
+					<div class="onementorDiv">
+						<span style="text-align:right;"><%= link_to(onementee.name, goals_path(:u => onementee.id)) %></span>
+						<span style="color: #555555;float: right;font-size: 15px;font-style: italic;padding-right: 10px;text-align: right;">Mentee</span>
+					</div>
+				<%end%>
+				<%@myMentors.each do |onementor|%>
+					<div class="onementorDiv">
+						<span style="text-align:right;"><%= link_to(onementor.name, goals_path(:u => onementor.id)) %></span>
+						<span style="color: #555555;float: right;font-size: 15px;font-style: italic;padding-right: 10px;text-align: right;">Mentor</span>
+					</div>
+				<%end%>
+			</div>
+		<% end %>
 		<% if current_user.access_level == 2 %>
 			<%= link_to('Report', progressreport_admin_path) %> 
 		<% end %>

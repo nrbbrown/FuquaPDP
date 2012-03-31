@@ -1,5 +1,6 @@
 class ScorecardController < ApplicationController
   def index
+    @users = User.find(:all,:order=>"name")
     @uid = (params[:u] != nil) ? params[:u] : current_user.id
 	@thisWeek = (params[:week] != nil) ? params[:week] : Date.today.cweek
 	@isCurrentWeek = (@thisWeek.to_i == Date.today.cweek.to_i) ? true :	false

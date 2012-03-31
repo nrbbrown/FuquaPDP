@@ -69,6 +69,51 @@ function showUserList(){
 		}
 	}
 }
+function showMentorList(){
+	var v = dojo.byId('goal_accountability').value;
+	if(v.lastIndexOf(',') != -1){
+		v = v.substr(v.lastIndexOf(',')+1);
+	}
+	v = dojo.trim(v);
+	if(v == ''){
+		dojo.addClass('mentorlistdiv','hidediv');
+	}else{
+		dojo.removeClass('mentorlistdiv','hidediv');
+		var allUsers = dojo.query('.mentorentry div');
+		var count = 0;
+		allUsers.forEach(function(node) {	
+			var n = node.innerHTML.toUpperCase();
+						
+			if(n.indexOf(v.toUpperCase()) == 0){
+				dojo.removeClass(node.parentNode,'hidediv');
+				count++;
+			}else{
+				dojo.addClass(node.parentNode,'hidediv');
+			}
+		});
+		if(count == 0){
+			dojo.addClass('mentorlistdiv','hidediv');
+		}
+	}
+}
+var mentorclick = 0;
+function removeMentor(){
+	setTimeout("dojo.addClass('mentorlistdiv','hidediv')",200);
+	
+}
+function appendMentor(name){
+	mentorclick = 1;
+	var v = dojo.byId('goal_accountability').value;
+	if(v.indexOf(',') == -1){
+		dojo.byId('goal_accountability').value = name;
+	}else{
+		v = v.substr(0,v.lastIndexOf(','));
+		dojo.byId('goal_accountability').value = v + ', '+ name;
+	}
+}
+function openConnections(){
+	dojo.toggleClass('myconnectiondiv','hidediv');
+}
 function showgreen(id){
 	dojo.byId('thumbs_'+id).src = '/images/tu_on.png'
 }

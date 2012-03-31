@@ -27,7 +27,7 @@
 	</div>
     <% end %>
     <div id="logoutdiv">
-		<% if (@myMentors or @myMentees ) and current_user.id == @uid.to_i%>
+		<% if ((@myMentors and @myMentors.length > 0) or (@myMentees and @myMentees.length > 0 )) and current_user.id == @uid.to_i%>
 			<a href="javascript:openConnections();">my connections</a>
 			<div id="myconnectiondiv" class="hidediv">
 				<%@myMentees.each do |onementee|%>

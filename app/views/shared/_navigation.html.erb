@@ -28,7 +28,7 @@
     <% end %>
 	<% if current_user.id == @uid.to_i %>
 		<div class="notificationIcon" onclick="openNotifications()">
-			<%if @notifications.length != 0 %>
+			<%if @notifications != nil and @notifications.length != 0 %>
 				<div class="notifyNumberIcon" id="notify_total_icon">
 					<%=@notifications.length%>
 				</div>
@@ -37,7 +37,7 @@
 		<div id="notificationdiv" class="hidediv">
 			<div class="notifyLabel">Notifications</div>
 			<div class="fullNotificationDetails">
-				<%if @notifications.length == 0 %>
+				<%if @notifications != nil and @notifications.length == 0 %>
 					No new notifications
 				<%else%>
 					<% @notifications.each do |onenotification| %>

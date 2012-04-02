@@ -121,7 +121,7 @@ class GoalsController < ApplicationController
 				@users.each do |user| 
 					if user.name == onementor.strip and user.id.to_i != @goal.user_id.to_i
 						@mu = MentorUser.where('mentor_user_id = ? and student_user_id = ? ',user.id.to_i,@goal.user_id.to_i)
-						if @mu == nil
+						if @mu.length == 0
 							@mentorUser = MentorUser.new(:mentor_user_id=>user.id.to_i ,:student_user_id=>@goal.user_id.to_i)
 							@mentorUser.save
 						end

@@ -2,7 +2,20 @@ class CommentsController < ApplicationController
   layout "blank"
   def index
 	@goal = Goal.find(params[:goalid])
-	@task = Task.find(params[:taskid])
+	if params[:taskid].to_i != 0
+		@task = Task.find(params[:taskid])
+	end
+	
+	@lastSeen = UserLastSeenComment.where("user_id = ? and goal_id = ? and task_id = ?",current_user.id.to_i,params[:goalid],params[:taskid] )
+    if @lastSeen == nil || @lastSeen.length == 0
+		@lastSeen = UserLastSeenComment.new(:task_id=>params[:taskid],
+										   :goal_id=>params[:goalid],
+										   :user_id=>current_user.id.to_i,
+										   :last_seen=>Time.now)
+		@lastSeen.save
+	else
+		UserLastSeenComment.update_all(["last_seen = ? ",Time.now],["goal_id = ? and task_id = ? and user_id = ?",params[:goalid],params[:taskid],current_user.id.to_i])
+	end
 	@goalUser = User.find(params[:goaluserid])
 	if params[:goaluserid].to_i == current_user.id.to_i
 		UserComments.update_all("is_read = 1",["goal_id = ? and task_id = ? ",params[:goalid],params[:taskid]])
@@ -35,8 +48,12 @@ class CommentsController < ApplicationController
 								   :is_read=>@is_read)
 	@newComment.save
 	end
+	UserLastSeenComment.update_all(["last_seen = ? ",Time.now],["goal_id = ? and task_id = ? and user_id = ?",params[:goalid],params[:taskid],current_user.id.to_i])
+
 	@goal = Goal.find(params[:goalid])
-	@task = Task.find(params[:taskid])
+	if params[:taskid].to_i != 0
+		@task = Task.find(params[:taskid])
+	end
 	@goalUser = User.find(params[:goaluserid])
 	
 	@comments = UserComments.find_by_sql [" select uc.comment,u.name,uc.created_at 

@@ -4,10 +4,12 @@
 			<div class="goalLabel">Goal:</div>
 			<div class="goalText"><%=@goal.goal%></div>
 		</div>
-		<div class="taskLabelBox">
-			<div class="taskLabel">Task:</div>
-			<div class="taskText"><%=@task.task%></div>
-		</div>
+		<%if @task != nil && @task.id != 0%>
+			<div class="taskLabelBox">
+				<div class="taskLabel">Task:</div>
+				<div class="taskText"><%=@task.task%></div>
+			</div>
+		<% end %>
 		<div class="goalUserLabel">
 			By <%=@goalUser.name%> on <%=@goal.created_at.localtime.strftime("%b %e at %l:%M%P")%>
 		</div>
@@ -30,8 +32,13 @@
 	<div class="userCommentsBox2">
 		<div class="enterCommentsBox">
 			<div class="enterCommentInput">
-				<input autocomplete="off" id="input_comment_<%=@task.id%>_<%=@goal.id%>" type="text" placeholder="Write a Comment">
-				<div class="submitComment" onclick="submitComment(<%=@task.id%>,<%=@goal.id%>,<%=@goal.user_id%>)"></div>
+				<%if @task != nil %>
+					<input autocomplete="off" id="input_comment_<%=@task.id%>_<%=@goal.id%>" type="text" placeholder="Write a Comment">
+					<div class="submitComment" onclick="submitComment(<%=@task.id%>,<%=@goal.id%>,<%=@goal.user_id%>)"></div>
+				<%else%>
+					<input autocomplete="off" id="input_comment_0_<%=@goal.id%>" type="text" placeholder="Write a Comment">
+					<div class="submitComment" onclick="submitComment(0,<%=@goal.id%>,<%=@goal.user_id%>)"></div>
+				<% end %>
 			</div>
 		</div>
 	</div>

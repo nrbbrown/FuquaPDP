@@ -130,7 +130,7 @@ div.field, div.actions {
 	line-height:45px;
 	float:left;
     font-size:14px;
-    color:#fff  ;
+    color:#fff;
     text-shadow:1px 1px 1px #000;
     cursor:pointer;
     font-size:18px;
@@ -609,9 +609,10 @@ span.form-item{
     color:#52B0CB;
     text-decoration:none;
 }
-.userentry:hover a, .userentry a:hover{
+.userentry:hover a, .userentry a:hover, .userselectedhover {
     color:#1c94b7;
     font-size:16px;
+	background:#EEEEEE;
 }
 
 #userdirectory{
@@ -672,8 +673,13 @@ span.form-item{
 	width: 50px;	
 	cursor:pointer;
 }
+.questiontip {
+	font-size:14px;
+	cursor:pointer;
+	position:relative;
+}
 .closeButtonBox {
-	width:830px;
+	width:796px;
 	position:relative;
 	margin:100px auto 0 auto;
 }
@@ -784,6 +790,7 @@ span.form-item{
 }
 .categoryGoalLabel3 {
 	font-size:18px;
+	position:relative;
 }
 .userentryarticle {
 	text-transform:none !important;
@@ -930,7 +937,7 @@ span.form-item{
 	color: white;
 	font-size: 10px;
 	height: 20px;
-	margin: -5px 0 0 17px;
+	margin: -5px 0 0 22px;
 	text-align: center;
 	width: 20px;
 }
@@ -984,8 +991,13 @@ span.form-item{
 }
 .oneNotificationDiv {
 	border-top:1px solid #DDDDDD;
-	padding:5px 10px;
+	padding:5px 10px 5px 0px;
 	cursor:pointer;
+}
+.countOneNotify {
+	float: left;
+	height: 55px;
+	padding-right: 10px;
 }
 .mainNotifyName {
 	line-height:20px;
@@ -998,4 +1010,111 @@ span.form-item{
 }
 .fullNotificationDetails {
 	padding-left:10px;
+}
+.tooltip_up, .tooltip_down, .tooltip_left, .tooltip_right {
+    height: 0;
+    left: 50%;
+    overflow: visible;
+    position: absolute;
+    top: 50%;
+    width: 0;
+    z-index: 5;
+}
+.tooltip_box {
+    position: absolute;
+    width: 260px;
+    z-index: 5;
+}
+.tooltip_up .tooltip_box {
+    bottom: 0;
+    left: -130px;
+}
+.tooltip_down .tooltip_box {
+    left: -130px;
+    top: 0;
+}
+.tooltip_left .tooltip_box {
+    bottom: -70px;
+    right: 0;
+}
+.tooltip_right .tooltip_box {
+    bottom: -52px;
+    left: 0;
+}
+.tooltip_title {
+    background: none repeat scroll 0 0 #469CCC;
+    border: 1px solid #469CCC;
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 5px;
+    position: relative;
+    text-align: left;
+    width: 100%;
+}
+.tooltip_up .tooltip_title {
+    bottom: 17px;
+}
+.tooltip_down .tooltip_title {
+    top: 17px;
+}
+.tooltip_left .tooltip_title {
+    right: 29px;
+}
+.tooltip_right .tooltip_title {
+    left: 17px;
+}
+.tooltip_text {
+    background: none repeat scroll 0 0 #DEF0F9;
+    border: 1px solid #469CCC;
+    color: #333333;
+    font-size: 11px;
+    padding: 5px;
+    position: relative;
+    text-align: left;
+    width: 100%;
+}
+.tooltip_up .tooltip_text {
+    bottom: 17px;
+}
+.tooltip_down .tooltip_text {
+    top: 17px;
+}
+.tooltip_left .tooltip_text {
+    right: 29px;
+}
+.tooltip_right .tooltip_text {
+    left: 17px;
+}
+.tooltip_pointer {
+    position: absolute;
+    z-index: 6;
+}
+.tooltip_up .tooltip_pointer {
+    background: url("/images/tip_d.png") no-repeat scroll center bottom transparent;
+    bottom: 1px;
+    height: 17px;
+    padding: 0 5px;
+    width: 100%;
+}
+.tooltip_down .tooltip_pointer {
+    background: url("/images/tip_m.png") no-repeat scroll center top transparent;
+    height: 17px;
+    padding: 0 5px;
+    top: 1px;
+    width: 100%;
+}
+.tooltip_left .tooltip_pointer {
+    background: url("/images/tip_r.png") no-repeat scroll right center transparent;
+    height: 100%;
+    right: 1px;
+    top: 1px;
+    width: 17px;
+}
+.tooltip_right .tooltip_pointer {
+    background: url("/images/tip_l.png") no-repeat scroll left center transparent;
+    height: 100%;
+    left: 1px;
+    top: 1px;
+    width: 17px;
 }

@@ -10,35 +10,18 @@ class GoalsController < ApplicationController
 	
     @uid = (params[:u] != nil) ? params[:u] : current_user.id
     @isme = (current_user.id.to_i == @uid.to_i) ? true : false
-
-	@myMentors = MentorUser.find_by_sql ["select distinct mentor_user_id as id, name 
-											from mentor_users mu (nolock)
-											join users u 
-											on u.id = mu.mentor_user_id 
-											where student_user_id = ? 
-											order by name",current_user.id]
-	
-	@myMentees = MentorUser.find_by_sql ["select distinct student_user_id as id, name 
-											from mentor_users mu (nolock) 
-											join users u 
-											on u.id = mu.student_user_id
-											where mentor_user_id = ? 
-											order by name ",current_user.id]
-
-	@notifications = UserComments.find_by_sql ["select uc.comment,u.name,uc.created_at,
-												uc.task_id,uc.goal_id,uc.goal_user_id
-												from user_comments uc (nolock)
-												join users u
-												on u.id = uc.comment_user_id
-												where goal_user_id = ?
-												and is_read = 0 
-												order by created_at desc", current_user.id]
-												
 	@taskNotifications = UserComments.find_by_sql ["select count(1) as notifications, task_id
 													from user_comments
 													where goal_user_id = ?
 													and is_read = 0
 													group by task_id",current_user.id]
+	
+	@goalNotifications = UserComments.find_by_sql ["select count(1) as notifications, goal_id
+													from user_comments
+													where goal_user_id = ?
+													and is_read = 0
+													and task_id = 0
+													group by goal_id",current_user.id]
     # apply filter
     @filter = params[:filter]
     if @filter == nil then @filter = 'academic' end

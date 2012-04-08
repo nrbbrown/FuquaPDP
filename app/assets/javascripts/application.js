@@ -7,6 +7,70 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+var isBodyClick = 1;
+var selectedUserIndex = -1;
+function moveupdown(e){
+	var allus = dojo.query('#userlistdiv .userentry');
+	var cck = false;
+	if(dojo.byId('userlistdiv').className != 'hidediv'){
+		if(e.keyCode == 38){
+			if(dojo.byId('userentry_'+selectedUserIndex)){
+				dojo.removeClass('userentry_'+selectedUserIndex,'userselectedhover');
+			}
+			if(selectedUserIndex >= 0)
+				selectedUserIndex--;
+		}else if(e.keyCode == 40){
+			if(dojo.byId('userentry_'+selectedUserIndex)){
+				dojo.removeClass('userentry_'+selectedUserIndex,'userselectedhover');
+			}
+			allus.forEach(function(node) {	
+				if(node.getAttribute('data-group') > selectedUserIndex && !cck
+					&& node.className.indexOf('hidediv') == -1 ){
+					selectedUserIndex = selectedUserIndex + 1;
+					cck = true;
+				}else if(node.getAttribute('data-group') > selectedUserIndex && !cck){
+					selectedUserIndex = selectedUserIndex + 1;
+				}
+			});
+		}
+		if(dojo.byId('userentry_'+selectedUserIndex)){
+			dojo.addClass('userentry_'+selectedUserIndex,'userselectedhover');
+		}
+	}else{
+		selectedUserIndex = -1;
+	}
+	if(e.keyCode == 13 && dojo.byId('userentry_'+selectedUserIndex)){
+		var ah = dojo.query('#userentry_'+selectedUserIndex+' a');
+		window.location = ''+(ah[0].href);
+	}
+}
+function bodyClick(){
+	
+	if(isBodyClick == 1){
+		if(dojo.byId('notificationdiv')){
+			dojo.addClass('notificationdiv','hidediv');
+		}
+		if(dojo.byId('myconnectiondiv')){
+			dojo.addClass('myconnectiondiv','hidediv');
+		}
+	}else if(isBodyClick == 2){
+		if(dojo.byId('notificationdiv')){
+			dojo.addClass('notificationdiv','hidediv');
+		}
+		if(dojo.byId('search-input')){
+			dojo.byId('search-input').value = '';			
+			showUserList();
+		}
+	}else if(isBodyClick == 0){
+		if(dojo.byId('myconnectiondiv')){
+			dojo.addClass('myconnectiondiv','hidediv');
+		}
+		if(dojo.byId('search-input')){
+			dojo.byId('search-input').value = '';
+			showUserList();
+		}
+	}
+}
 
 function submitComment(taskid, goalid, goaluserid){
 	var comment = dojo.byId('input_comment_'+taskid+'_'+goalid).value;
@@ -44,12 +108,16 @@ function openCommentsPopup (taskid, goalid, goaluserid){
 	}
 	if(dojo.byId('notify_icon_'+taskid+'_'+goalid)){
 		var nn = dojo.byId('notify_icon_'+taskid+'_'+goalid).innerHTML;
-		dojo.byId('notify_icon_'+taskid+'_'+goalid).innerHTML = nn-1;
-		if((nn-1) == 0){
-			dojo.byId('notify_icon_'+taskid+'_'+goalid).style.display = 'none';
-		}
-	}
-	if(dojo.byId('notify_total_icon')){
+		dojo.byId('notify_icon_'+taskid+'_'+goalid).innerHTML = 0;
+		dojo.byId('notify_icon_'+taskid+'_'+goalid).style.display = 'none';
+		if(dojo.byId('notify_total_icon') && dojo.byId('onenotify_'+taskid+'_'+goalid+'_'+goaluserid)){
+			var nt = dojo.byId('notify_total_icon').innerHTML;
+			dojo.byId('notify_total_icon').innerHTML = nt-nn;
+			if((nt-nn) == 0){
+				dojo.byId('notify_total_icon').style.display = 'none';
+			}
+		}		
+	}else if(dojo.byId('notify_total_icon') && dojo.byId('onenotify_'+taskid+'_'+goalid+'_'+goaluserid)){
 		var nt = dojo.byId('notify_total_icon').innerHTML;
 		dojo.byId('notify_total_icon').innerHTML = nt-1;
 		if((nt-1) == 0){
@@ -188,10 +256,17 @@ function appendMentor(name){
 	}
 }
 function openConnections(){
+	isBodyClick = 2;
 	dojo.toggleClass('myconnectiondiv','hidediv');
+	setTimeout('isBodyClick = 1;',400);
 }
 function openNotifications(){
+	isBodyClick = 0;
 	dojo.toggleClass('notificationdiv','hidediv');
+	setTimeout('isBodyClick = 1;',400);
+}
+function markBodyClickOn(){
+	isBodyClick = 1;
 }
 function showgreen(id){
 	dojo.byId('thumbs_'+id).src = '/images/tu_on.png'

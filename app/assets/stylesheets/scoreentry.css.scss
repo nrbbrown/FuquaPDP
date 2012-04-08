@@ -88,9 +88,6 @@
 	width: 26px;
 	margin-top:2px;
 }
-.tupImage:hover {
-	background: url("/images/tu_off.png") no-repeat scroll 0 0 transparent;
-}
 .tupImage, .tdownImage:hover {
 	background: url("/images/tu_on.png") no-repeat scroll 0 0 transparent;
 }
@@ -105,10 +102,7 @@
 	cursor:pointer;
 	background: url("/images/commentsicon.png") no-repeat scroll 0 0 transparent;
 	height: 32px;
-	width: 38px;
-}
-.checkImageOn:hover {
-	background: url("/images/check_off.png") no-repeat scroll 0 0 transparent;
+	width: 41x;
 }
 .checkImageOff:hover,.checkImageOn {
 	background: url("/images/check_on.png") no-repeat scroll 0 0 transparent;

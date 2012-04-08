@@ -1,10 +1,63 @@
+<%
+@users = User.find(:all,:order=>"name")
+	if current_user != nil
+		@uid = (params[:u] != nil) ? params[:u] : current_user.id
+		@isme = (current_user.id.to_i == @uid.to_i) ? true : false
+		
+		@myMentors = MentorUser.find_by_sql ["select distinct mentor_user_id as id, name 
+												from mentor_users mu (nolock)
+												join users u 
+												on u.id = mu.mentor_user_id 
+												where student_user_id = ? 
+												order by name",current_user.id]
+		
+		@myMentees = MentorUser.find_by_sql ["select distinct student_user_id as id, name 
+												from mentor_users mu (nolock) 
+												join users u 
+												on u.id = mu.student_user_id
+												where mentor_user_id = ? 
+												order by name ",current_user.id]
 
+		@notifications = UserComments.find_by_sql ["select distinct uc.comment,u.name,uc.created_at,
+													uc.task_id,uc.goal_id,uc.goal_user_id
+													from user_comments uc (nolock)
+													join users u
+													on u.id = uc.comment_user_id
+													where goal_user_id = ?
+													and is_read = 0 
+													order by created_at desc", current_user.id]
+													
+		@otherNotifications = UserComments.find_by_sql ["
+														select distinct uc.comment,u.name,uc.created_at,
+														uc.task_id,uc.goal_id,uc.goal_user_id 
+														from user_comments  uc (nolock)
+														join user_last_seen_comments ls (nolock)
+															on uc.goal_id = ls.goal_id
+															and uc.task_id = ls.task_id
+															and ls.user_id = ?
+														join users u
+															on u.id = uc.comment_user_id
+														where uc.task_id in (
+															select distinct task_id from user_comments
+															where comment_user_id = ?
+														)
+														and uc.goal_id in (
+															select distinct goal_id from user_comments
+															where comment_user_id = ?
+														)
+														and comment_user_id != ?
+														and goal_user_id != ?
+														and uc.created_at > ls.last_seen
+														", current_user.id, current_user.id, current_user.id, current_user.id, current_user.id]
+		@notifications = @notifications + @otherNotifications
+	end											
+%>
 <% if user_signed_in? %>
 
 <div id="topbar">
     <% if @users %>
     <div id="searchdiv">
-		<a href="<%= goals_path%>" style="padding-left:32px;">&nbsp;</a>
+		<a href="<%= goals_path%>" style="padding-left:42px;width:5px;"></a>
         <% @users.each do |user| %>
             <% if user.id.to_i == @uid.to_i %>
                 <%= link_to(user.name, goals_path(:u => user.id),:class => "userentryarticle") %>
@@ -12,12 +65,15 @@
         <% end %>
     </div>
 	<div id="search-input-box">
-		<input id="search-input" onkeyup="javascript:showUserList()" type="text" value="" autocomplete=off placeholder="Search By Name"/>
-		<% if @users %>
+		<input id="search-input" onkeyup="javascript:showUserList();moveupdown(event)" 
+			type="text" value="" autocomplete=off placeholder="Search By Name"/>
+		<% if @users 
+			@countuser = -1 %>
 			<div id="userlistdiv" class="hidediv">
 				<% @users.each do |user| 
-					if user.access_level != 2%>
-						<div class="userentry">
+					if user.access_level != 2
+						@countuser = @countuser + 1 %>
+						<div class="userentry" data-group ="<%=@countuser%>" id="userentry_<%=@countuser%>">
 							<%= link_to(user.name, goals_path(:u => user.id)) %>
 						</div>
 					<%end%>
@@ -28,7 +84,7 @@
     <% end %>
 	<% if current_user.id == @uid.to_i %>
 		<div class="notificationIcon" onclick="openNotifications()">
-			<%if @notifications != nil and @notifications.length != 0 %>
+			<%if (@notifications != nil and @notifications.length != 0)%>
 				<div class="notifyNumberIcon" id="notify_total_icon">
 					<%=@notifications.length%>
 				</div>
@@ -41,12 +97,20 @@
 					<%if @notifications != nil and @notifications.length == 0 %>
 						No new notifications
 					<%else%>
-						<% @notifications.each do |onenotification| %>
-							<div class="oneNotificationDiv" 
+						<%	@counteachnotify = 0
+							@notifications.each do |onenotification| 
+							@counteachnotify = @counteachnotify + 1%>
+							<div class="countOneNotify"><%=@counteachnotify%></div>
+							<div id="onenotify_<%=onenotification.task_id%>_<%=onenotification.goal_id%>_<%=onenotification.goal_user_id%>" class="oneNotificationDiv" 
 								onclick="javascript:openCommentsPopup(<%=onenotification.task_id%>,<%=onenotification.goal_id%>,<%=onenotification.goal_user_id%>)"
 								>
 								<div class="mainNotifyName">
-									<%=onenotification.name%> commented on your goal:
+									<%=onenotification.name%> commented on 
+									<% if onenotification.goal_user_id ==  current_user.id%>
+									your
+									<%else %>
+									a
+									<%end%> goal:
 								</div>
 								<div class="mainNotifiyDate">
 									"<%=onenotification.comment[0,30]%>..."
@@ -62,8 +126,8 @@
 		</div>
 	<%end%>
     <div id="logoutdiv">
-		<% if ((@myMentors and @myMentors.length > 0) or (@myMentees and @myMentees.length > 0 )) and current_user.id == @uid.to_i%>
-			<a href="javascript:openConnections();">my connections</a>
+		<% if ((@myMentors and @myMentors.length > 0) or (@myMentees and @myMentees.length > 0 )) %>
+			<a href="javascript:void(0);" onclick="javascript:openConnections()">my connections</a>
 			<div id="myconnectiondiv" class="hidediv">
 				<%@myMentees.each do |onementee|%>
 					<div class="onementorDiv">
@@ -82,11 +146,10 @@
 		<% if current_user.access_level == 2 %>
 			<%= link_to('Report', progressreport_admin_path) %> 
 		<% end %>
-		<% if current_user.id == @uid.to_i %>
 			<%= link_to('Score Entry', scoreentry_index_path) %> 
 			<%= link_to('Scorecard', scorecard_index_path) %> 
 			<%= link_to('Reflection', reflection_index_path) %> 
-		<% end %>
+		
         <%= link_to('Settings', edit_user_registration_path) %>  
         <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>  
     </div>

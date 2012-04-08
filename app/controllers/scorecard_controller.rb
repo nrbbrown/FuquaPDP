@@ -25,7 +25,7 @@ class ScorecardController < ApplicationController
 			@taskstart = Date.parse(onetask.startdue.strftime("%d %b %Y"))
 			@taskend = Date.parse(onetask.due.strftime("%d %b %Y"))
 			@tasksEffortScore[onetask.id] = 'N/A'
-			if (@dateOfEntry.cweek >= @taskstart.cweek and @dateOfEntry >= @taskstart and @dateOfEntry.cweek <= @taskend.cweek) 
+			if (@dateOfEntry.cweek >= @taskstart.cweek and @dateOfEntry.cweek <= @taskend.cweek) 
 				@activetasks = @activetasks + 1
 				@tasksEffortScore[onetask.id] = '0%'
 				@overallActiveTasks = @overallActiveTasks + 1

@@ -26,8 +26,11 @@ class ScoreentryController < ApplicationController
 	@dateup = Date.commercial(Date.today.year.to_i, Date.today.cweek.to_i, 1)
 	respond_to do |format|
 		if @is_complete == 1
-			@taskProgress = Tasksprogress.new(:task_id =>params[:taskid],:date =>@dateup, :created_at =>DateTime.now, :updated_at =>DateTime.now)
-			@taskProgress.save
+			@taskfind = Tasksprogress.where("task_id = ? and date = ? ",params[:taskid],@dateup)
+			if @taskfind.length == 0
+				@taskProgress = Tasksprogress.new(:task_id =>params[:taskid],:date =>@dateup, :created_at =>DateTime.now, :updated_at =>DateTime.now)
+				@taskProgress.save
+			end
 		end
 		@task.update_attributes(:is_complete => @is_complete,:completed_at => Date.today)
 		@goalComplete = 1

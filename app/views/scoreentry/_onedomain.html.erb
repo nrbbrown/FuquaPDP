@@ -10,7 +10,9 @@
 				@taskstart = Date.parse(onetask.startdue.strftime("%d %b %Y"))
 				@taskend = Date.parse(onetask.due.strftime("%d %b %Y"))
 				%>
-				<%if @dateOfEntry.cweek >= @taskstart.cweek and @dateOfEntry >= @taskstart and @dateOfEntry.cweek <= @taskend.cweek %>
+				<%if @dateOfEntry.cweek >= @taskstart.cweek and 
+					@dateOfEntry.cweek <= @taskend.cweek
+				%>
 					<%@taskCount = @taskCount + 1%>
 					<div class="taskTitleBar">
 						<div class="taskName">

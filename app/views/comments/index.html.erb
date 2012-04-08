@@ -11,7 +11,7 @@
 			</div>
 		<% end %>
 		<div class="goalUserLabel">
-			By <%=@goalUser.name%> on <%=@goal.created_at.localtime.strftime("%b %e at %l:%M%P")%>
+			By <%=@goalUser.name%> on <%=@goal.created_at.strftime("%b %e at %l:%M%P")%>
 		</div>
 	</div>
 	<div class="userCommentsBox">
@@ -19,7 +19,7 @@
 			<div class="enterCommentsBox otherComments">
 				<div class="commentUserName">
 					<span><%=onecomment.name%></span>
-					<span class="commentCreatedAt"><%=onecomment.created_at.localtime.strftime("%b %e at %l:%M%P")%></span>
+					<span class="commentCreatedAt"><%=onecomment.created_at.strftime("%b %e at %l:%M%P")%></span>
 				</div>
 				<div class="enterCommentInput">
 					<div class="otherCommentsText">

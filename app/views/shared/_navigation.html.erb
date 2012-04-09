@@ -116,7 +116,7 @@
 									"<%=onenotification.comment[0,30]%>..."
 								</div>
 								<div class="mainNotifiyDate">
-									on <%=onenotification.created_at.localtime.strftime("%b %e at %l:%M%P")%>
+									on <%=onenotification.created_at.strftime("%b %e at %l:%M%P")%>
 								</div>
 							</div>
 						<%end %>

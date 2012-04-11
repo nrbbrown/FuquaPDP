@@ -117,7 +117,14 @@ class GoalsController < ApplicationController
 	  if @goal.goal == ''
 		format.html { redirect_to goals_url+'?filter='+@goal.category, notice: 'Your goal cannot be empty.' }
         format.json { render json: @goal, status: :created, location: @goal }
-	  elsif @goal.save
+	  elsif 
+		  @goal.tasks.each do |ot|
+			if ot.startdue > ot.due
+				format.html { redirect_to goals_url+'?filter='+@goal.category, notice: 'Start date cannot be less than end date.' }
+				format.json { render json: @goal, status: :created, location: @goal }	  
+			end
+		  end
+		  @goal.save
           
           # destroy blank tasks
           blanktasks = Task.where('task = \'\' and goal_id = ?',@goal.id)

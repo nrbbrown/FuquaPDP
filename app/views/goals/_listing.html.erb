@@ -59,7 +59,7 @@ dojo.ready(Score.init);
 		</div>
     </div>
 
-<div class="goaldesc"><span class="goalCountLabel"><%=@goalCount%></span>&nbsp;&nbsp;<%= goal.goal == '' ? 'my '+@filter+' goal' : goal.goal %></div>
+<div class="goaldesc"><span class="goalCountLabel"><%=@goalCount%></span>&nbsp;&nbsp;<span><%= goal.goal == '' ? 'my '+@filter+' goal' : goal.goal %></span></div>
 <div class="goalvalues"><span class="goalsubtitle">description:</span> <%= goal.values == '' ? 'N/A' : goal.values %></div>
 
 <div class="displaytaskarea">
@@ -101,7 +101,7 @@ dojo.ready(Score.init);
 			<%end%>
 			<%if @currentDate < @taskStartdate or @currentDate > @taskEnddate %>
 				<div class="nadiv">
-					--
+					n/a&nbsp;
 				</div>
 			<%elsif @showThumbsUp == true %>
 				<%@tuTasks = @tuTasks + 1%>

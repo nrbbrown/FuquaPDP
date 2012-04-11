@@ -286,7 +286,7 @@ div.field, div.actions {
     margin-bottom:20px;
 }
 .goaldesc{
-    font-size:25px;
+    font-size:23px;
     color:#555;
     margin:20px 0 20px 10px;
 }
@@ -499,10 +499,10 @@ span.form-item{
     font-size:14px;
     text-decoration:none;
     background:none;
-    color:#ccc;
+    color:#777;
 }
 .editdeletecontainer>a:hover{
-    color:#999;
+    color:#555;
 }
 .goalscore{
     float:right;
@@ -779,7 +779,7 @@ span.form-item{
 	color:#555555;
 }
 .goalCountLabel {
-	font-size:32px;
+	font-size:30px;
 	color:#BBBBBB;
 }
 .categoryGoalLabel {
@@ -1117,4 +1117,10 @@ span.form-item{
     left: 1px;
     top: 1px;
     width: 17px;
+}
+.flashMessage {
+	width:820px;
+	margin:10px auto;
+	float:left;
+	font-size:16px;
 }

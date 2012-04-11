@@ -9,31 +9,31 @@
 	<div class="">
 	<ul>
 	<li>
-		On this page you can define, view and edit your goals and tasks for each of the five domains - Academic, Career, Social, Personal, Physical. 
+		On this page you can define, view and edit your goals and tasks for each of the five domains - Academic, Career, Social, Personal, Physical. To select a particular domain, click on it in the lower left hand side of the page. The selected domain appears in red.
 	</li>
 	<li>
-		To select a particular domain click on that domain in the lower left hand side of the page. The selected domain appears in red.
+		As you browse through your goals and tasks you have the ability to self-rate your progress by using the “Thumbs Up” and “Check Mark” buttons. 
 	</li>
 	<li>
-		As you browse through your goals and tasks you also have the ability to self-rate progress on your current tasks. 
+		When you give a task a Thumbs Up, you indicate to the system that you are satisfied with the effort you invested on that task in the current week, and the system updates your Effort Score instantly. The Effort scores are recorded for each week and are reset for the following week at 11:59pm on Sunday.
 	</li>
 	<li>
-		You may give your current tasks a "Thumbs Up". This indicates to the system that you are satisfied with the effort you have invested on that task in the current week. The system records these Thumbs Up for the week on Sunday night at 11:59pm.
+		You also have the ability to mark tasks complete by using the check mark button. Based on the number of tasks that are complete, the system calculates the Completion Score. When all tasks related to a goal are complete the goal is marked complete and moved over to the “Complete” tab on the page.
 	</li>
 	<li>
-		You also have the ability to "Check Off" your current tasks (by clicking on the green check mark next to the Thumbs Up). This is to signal to the system that the task is complete. When all tasks related to a goal are complete the goal is assumed complete and moves over to the complete section of the page.
+		The “score entry” page lists all current tasks across all domains. It is designed to make it easier for you to self rate your progress on all your current tasks.
 	</li>
 	<li>
-		For each goal the system also calculates and displays the Effort Score and the Progress Score. 
+		The Effort and Completion Scores for each goal are displayed in the bottom right hand corner of the goal template.
 	</li>
 	<li>
-		The Effort Score is an indication of the effort you invested towards achieving that goal in the current week. It is calculated by dividing #(tasks given Thumbs Up) by #(total current tasks). For example, the Effort Score for a goal would be 75% if you gave a Thumbs Up to 3 out of the 4 current tasks for that goal. 
+		Effort and Completion Scores can also be viewed on the Scorecard page.
 	</li>
 	<li>
-		The Progress Score is an indication of the actual progress you're making towards achieving your goal, independent of the effort you're putting in. It is calculated by dividing #(completed tasks) by #(total current tasks). For example, the Progress Score for a goal would be 50% if you marked 1 out of the 2 current tasks complete.
+		The Effort Score for a goal is an indication of how much effort you invested towards achieving that goal in the current week. It is calculated by dividing the number of tasks you gave a Thumbs Up to by the number of total current tasks. For example, the Effort Score for a goal will be 75% if you gave a Thumbs Up to 3 out of the 4 current tasks.
 	</li>
 	<li>
-		Note: The scores for the week can also be entered on the score entry page. The scorecard provides a complete view of your Effort Score and Progress Score.
+		The Completion Score for a goal is an indication of how many current tasks for that goal have been completed. For example, the Completion Score for a goal will be 50% if you marked 1 out of the 2 current tasks complete.
 	</li>
 	</ul>
 	</div>
@@ -47,7 +47,7 @@
 			<div class="categoryGoalLabel2">category</div>
 			<%if @filter == 'academic' 
 				@filterText = 'Academic'
-				@toolText = 'What are your goals and what is important you with regard to the classes, clubs and academic experiences you can be involved with at Fuqua?'
+				@toolText = 'What is important to you with regard to the classes, clubs and academic experiences you can be involved at Fuqua?'
 				@marginTop = '-70'
 			elsif @filter == 'career' 
 				@filterText = 'Career'

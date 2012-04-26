@@ -118,22 +118,26 @@ class GoalsController < ApplicationController
 		format.html { redirect_to goals_url+'?filter='+@goal.category, notice: 'Your goal cannot be empty.' }
         format.json { render json: @goal, status: :created, location: @goal }
 	  elsif 
+		  @validated = true
 		  @goal.tasks.each do |ot|
 			if ot.startdue > ot.due
+			    @validated = false
 				format.html { redirect_to goals_url+'?filter='+@goal.category, notice: 'Start date cannot be less than end date.' }
-				format.json { render json: @goal, status: :created, location: @goal }	  
+				format.json { render json: @goal, status: :created, location: @goal }
 			end
 		  end
-		  @goal.save
-          
-          # destroy blank tasks
-          blanktasks = Task.where('task = \'\' and goal_id = ?',@goal.id)
-          blanktasks.each do |bt|
-              bt.destroy
-          end
-          
-        format.html { redirect_to goals_url+'?filter='+@goal.category, notice: 'Your goal was successfully created.' }
-        format.json { render json: @goal, status: :created, location: @goal }
+		  if @validated == true
+			  @goal.save
+			  
+			  # destroy blank tasks
+			  blanktasks = Task.where('task = \'\' and goal_id = ?',@goal.id)
+			  blanktasks.each do |bt|
+				  bt.destroy
+			  end
+			  
+			  format.html { redirect_to goals_url+'?filter='+@goal.category, notice: 'Your goal was successfully created.' }
+   			  format.json { render json: @goal, status: :created, location: @goal }
+		  end
       else
         format.html { redirect_to goals_url }
         format.json { render json: @goal.errors, status: :unprocessable_entity }

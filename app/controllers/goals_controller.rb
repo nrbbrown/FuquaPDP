@@ -162,39 +162,60 @@ class GoalsController < ApplicationController
             end
         end
     else # update all
-      respond_to do |format|              
-          if @goal.update_attributes(params[:goal])
-              
-            # destroy blank tasks
-            blanktasks = Task.where('task = \'\' and goal_id = ?',params[:id])
-            blanktasks.each do |bt|
-               bt.destroy
-            end
-            
-			@mentors = @goal.accountability.split(',');
-			@users = User.find(:all,:order=>"name")
-			@mentors.each do |onementor|
-				if onementor != '' and @goal.goal != ''
-					if @users
-						@users.each do |user| 
-							if user.name == onementor.strip and user.id.to_i != @goal.user_id.to_i
-								@mu = MentorUser.where('mentor_user_id = ? and student_user_id = ? ',user.id.to_i,@goal.user_id.to_i)
-								if @mu.length == 0
-									@mentorUser = MentorUser.new(:mentor_user_id=>user.id.to_i ,:student_user_id=>@goal.user_id.to_i)
-									@mentorUser.save
+      respond_to do |format|  
+		 
+		  @validated = true
+		  @i = 0
+		  @num = 5
+		  while @i < @num  do
+			@sm = params[:goal]['tasks_attributes']["#{@i}"]['startdue(2i)'].to_i
+		    @sd = params[:goal]['tasks_attributes']["#{@i}"]['startdue(3i)'].to_i
+			@sy = params[:goal]['tasks_attributes']["#{@i}"]['startdue(1i)'].to_i
+			@dm = params[:goal]['tasks_attributes']["#{@i}"]['due(2i)'].to_i
+			@dd = params[:goal]['tasks_attributes']["#{@i}"]['due(3i)'].to_i
+			@dy = params[:goal]['tasks_attributes']["#{@i}"]['due(1i)'].to_i
+			@i = @i + 1;
+			if (@sy > @dy) or (@sm > @dm and @sy == @dy) or (@sd > @dd and @sm == @dm and @sy == @dy)
+				@validated = false
+				format.html { redirect_to goals_url+'?filter='+@goal.category, notice: 'Start date cannot be less than end date.' }
+				format.json { render json: @goal, status: :created, location: @goal }
+			end
+		  end
+		  
+		  if @validated == true
+			  if @goal.update_attributes(params[:goal])
+				  
+				# destroy blank tasks
+				blanktasks = Task.where('task = \'\' and goal_id = ?',params[:id])
+				blanktasks.each do |bt|
+				   bt.destroy
+				end
+				
+				@mentors = @goal.accountability.split(',');
+				@users = User.find(:all,:order=>"name")
+				@mentors.each do |onementor|
+					if onementor != '' and @goal.goal != ''
+						if @users
+							@users.each do |user| 
+								if user.name == onementor.strip and user.id.to_i != @goal.user_id.to_i
+									@mu = MentorUser.where('mentor_user_id = ? and student_user_id = ? ',user.id.to_i,@goal.user_id.to_i)
+									if @mu.length == 0
+										@mentorUser = MentorUser.new(:mentor_user_id=>user.id.to_i ,:student_user_id=>@goal.user_id.to_i)
+										@mentorUser.save
+									end
 								end
 							end
 						end
 					end
 				end
-			end
-	
-            format.html { redirect_to goals_url+'?filter='+@goal.category, notice: 'Your goal was successfully updated.' }
-            format.json { head :ok }
-          else
-            format.html { redirect_to goals_url }
-            format.json { render json: @goal.errors, status: :unprocessable_entity }
-          end
+		
+				format.html { redirect_to goals_url+'?filter='+@goal.category, notice: 'Your goal was successfully updated.' }
+				format.json { head :ok }
+			  else
+				format.html { redirect_to goals_url }
+				format.json { render json: @goal.errors, status: :unprocessable_entity }
+			  end
+		  end
       end
     end
   end

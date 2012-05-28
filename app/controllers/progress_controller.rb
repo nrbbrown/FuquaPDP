@@ -16,7 +16,7 @@ class ProgressController < ApplicationController
   # GET /progress/new.json
   def new
 	  @task = Task.find(params[:taskid])
-	  @dateup = Date.commercial(params[:year].to_i, params[:week].to_i, 1)
+	  @dateup = Date.commercial(params[:year].to_i, params[:week].to_i, 2)
 	  @isComplete = params[:iscomplete].to_i
 	  if @isComplete == 1
 		@taskProgress = Tasksprogress.new(:task_id =>params[:taskid],:date =>@dateup, :created_at =>DateTime.now, :updated_at =>DateTime.now)

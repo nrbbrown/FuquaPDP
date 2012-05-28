@@ -72,6 +72,33 @@ function bodyClick(){
 	}
 }
 
+function deleteComment(commentid, taskid, goalid, goaluserid){
+	var comment = '';
+	if(dojo.byId('commentOuterDiv')){
+		dojo.byId('commentInnerDiv').innerHTML = '';
+	}
+	var xhrArgs = {
+		url:'/comments/edit',
+		content:{
+			taskid:taskid,
+			goalid:goalid,
+			goaluserid:goaluserid,
+			commentid:commentid,
+			comment:comment
+		},
+		headers:{
+			'X-CSRF-Token':''          
+		},
+		load:function(data){
+			dojo.byId('commentInnerDiv').innerHTML = data;
+		},
+		error:function(data) {
+			alert('failed to complete task');
+		}
+	};
+	new dojo.xhrGet(xhrArgs);
+}
+
 function submitComment(taskid, goalid, goaluserid){
 	var comment = dojo.byId('input_comment_'+taskid+'_'+goalid).value;
 	if(dojo.byId('commentOuterDiv')){

@@ -20,8 +20,8 @@ class CommentsController < ApplicationController
 	if params[:goaluserid].to_i == current_user.id.to_i
 		UserComments.update_all("is_read = 1",["goal_id = ? and task_id = ? ",params[:goalid],params[:taskid]])
 	end
-	@comments = UserComments.find_by_sql [" select uc.comment,u.name,uc.created_at 
-											from user_comments uc (nolock)
+	@comments = UserComments.find_by_sql [" select uc.id, uc.comment_user_id, uc.comment,u.name,uc.created_at 
+											from user_comments uc 
 											join users u
 											on u.id = uc.comment_user_id
 											where uc.goal_id = ?
@@ -34,30 +34,36 @@ class CommentsController < ApplicationController
   end
   
   def edit
-    @is_read = 0;
-	if params[:goaluserid].to_i == current_user.id.to_i
-		@is_read = 1;
+    if params[:commentid].to_i > 0
+		@comment = UserComments.find(params[:commentid])
+		if @comment.comment_user_id.to_i == current_user.id.to_i
+			@comment.destroy
+		end
+	else 
+		@is_read = 0;
+		if params[:goaluserid].to_i == current_user.id.to_i
+			@is_read = 1;
+		end
+		if params[:comment].strip != ''
+			@newComment = UserComments.new(:task_id=>params[:taskid],
+										   :goal_id=>params[:goalid],
+										   :goal_user_id=>params[:goaluserid],
+										   :comment_user_id=>current_user.id.to_i,
+										   :comment=>params[:comment],
+										   :created_at=>Time.now.getlocal,
+										   :is_read=>@is_read)
+			@newComment.save
+		end
+		UserLastSeenComment.update_all(["last_seen = ? ",Time.now],["goal_id = ? and task_id = ? and user_id = ?",params[:goalid],params[:taskid],current_user.id.to_i])
 	end
-	if params[:comment].strip != ''
-	@newComment = UserComments.new(:task_id=>params[:taskid],
-								   :goal_id=>params[:goalid],
-								   :goal_user_id=>params[:goaluserid],
-								   :comment_user_id=>current_user.id.to_i,
-								   :comment=>params[:comment],
-								   :created_at=>Time.now.getlocal,
-								   :is_read=>@is_read)
-	@newComment.save
-	end
-	UserLastSeenComment.update_all(["last_seen = ? ",Time.now],["goal_id = ? and task_id = ? and user_id = ?",params[:goalid],params[:taskid],current_user.id.to_i])
-
 	@goal = Goal.find(params[:goalid])
 	if params[:taskid].to_i != 0
 		@task = Task.find(params[:taskid])
 	end
 	@goalUser = User.find(params[:goaluserid])
 	
-	@comments = UserComments.find_by_sql [" select uc.comment,u.name,uc.created_at 
-											from user_comments uc (nolock)
+	@comments = UserComments.find_by_sql [" select uc.id, uc.comment_user_id, uc.comment,u.name,uc.created_at 
+											from user_comments uc 
 											join users u
 											on u.id = uc.comment_user_id
 											where uc.goal_id = ?
@@ -66,4 +72,6 @@ class CommentsController < ApplicationController
 											
 	render :action => "index"
   end
+  
+  
 end

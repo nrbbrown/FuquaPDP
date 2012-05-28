@@ -13,12 +13,22 @@
 		<div class="goalUserLabel">
 			By <%=@goalUser.name%> on <%=@goal.created_at.strftime("%b %e at %l:%M%P")%>
 		</div>
+		<div class="goalUserLabelLength">
+			<%= @comments.length %> Comments
+		</div>
 	</div>
 	<div class="userCommentsBox">
 		<% @comments.each do |onecomment| %>
 			<div class="enterCommentsBox otherComments">
 				<div class="commentUserName">
 					<span><%=onecomment.name%></span>
+					<%if onecomment.comment_user_id.to_i == current_user.id.to_i %>
+						<%if @task != nil %>
+							<span class="deleteComment" onclick="deleteComment(<%=onecomment.id%>,<%=@task.id%>,<%=@goal.id%>,<%=@goal.user_id%>)">(delete comment)</span>
+						<%else%>
+							<span class="deleteComment" onclick="deleteComment(<%=onecomment.id%>,0,<%=@goal.id%>,<%=@goal.user_id%>)">(delete comment)</span>
+						<% end %>
+					<% end %>
 					<span class="commentCreatedAt"><%=onecomment.created_at.strftime("%b %e at %l:%M%P")%></span>
 				</div>
 				<div class="enterCommentInput">

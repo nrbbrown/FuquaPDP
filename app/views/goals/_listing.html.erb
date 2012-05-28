@@ -52,7 +52,7 @@ dojo.ready(Score.init);
 			<%if @isme %>
 				<%@goalNotifications.each do |onetaskNot| %>
 					<% if onetaskNot.goal_id == goal.id%>
-						<div class="notifyNumberIcon" id="notify_icon_0_<%=goal.id%>"><%=onetaskNot.notifications%></div>
+						<span class="notifyNumberIcon" id="notify_icon_0_<%=goal.id%>"><%=onetaskNot.notifications%></span>
 					<% end%>
 				<% end %>
 			<% end %>

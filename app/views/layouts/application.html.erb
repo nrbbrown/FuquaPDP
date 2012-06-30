@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+<title>MIM: Measurable Intent Memos</title>
+<%= stylesheet_link_tag "application" %> 
+<%= javascript_include_tag "application" %>
+<%= csrf_meta_tags %>
+
+
+<script>
+dojo.ready(Mim.init);
+</script>
+
+</head>
+
+<link href='http://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
+
+<body onclick="javascript:bodyClick();">
+
+<div id="dim" class="hidediv"></div>
+<div id="dimuser" class="hidediv"></div>
+<div id="instructionDiv" class="hidediv"></div>
+<div id="instructionOuterDiv" class="hidediv">
+	<div class="closeButtonBox"><div class="blueCloseButton" onclick="closeInstructionBox()"></div></div>
+	<div id="instructionInnerDiv">
+	</div>
+</div>
+<div id="commentOuterDiv" class="hidediv">
+	<div class="closeButtonBox"><div class="blueCloseButton" onclick="closeCommentBox()"></div></div>
+	<div id="commentInnerDiv">
+	</div>
+</div>
+<%= render 'shared/navigation' %>
+
+<%= yield %>
+
+</html>

@@ -1,0 +1,191 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#homewrapper{
+    background:#222;
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+}
+#centercontainer{
+    width: 1000px;
+    margin:auto;
+    padding-top:50px;
+}
+
+#largebird{ 
+    background:url('/images/duke.png') 0px 0px no-repeat; 
+    width:221px; 
+    height:228px;
+    float:left;
+	margin-top:30px;
+	margin-right:25px;
+	margin-left:50px;
+}
+
+#rightcontainer{
+    float:left;
+}
+#mimtitlelg{
+    font-size:70px;
+    color:#eee;
+    padding-top:60px;
+    padding-bottom:20px;
+    border-bottom:1px solid #333;
+    width:600px;
+}
+#mimtitlelg>span{
+    display:block;
+}
+.mimsubtitle{
+    font-size:17px;
+    color:#777;
+    font-style:italic;
+    padding-top:30px;
+    padding-left:5px;
+}
+.mimsubtitle2 {
+	color: #BBBBBB;
+	font-style: normal;
+	margin-top: 45px;
+	padding-top: 0;
+}
+#signincontainer{
+    width:600px;
+    height:400px;
+}
+#signinarea{
+    float:left;
+    width:295px;
+    border-right:1px solid #333;
+    height:400px;
+}
+#signuparea{
+    float:right;
+    width:299px;
+}
+.bluetext{
+    font-size:16px;
+    font-weight:bold;
+    color:#52b0cb;
+    padding:20px;
+}
+.redtext{
+    font-size:16px;
+    font-weight:bold;
+    color:#fe4837;
+    padding:20px;
+}
+.greentext{
+    font-size:16px;
+    font-weight:bold;
+    color:#46b79b;
+    padding:20px;
+}
+.formupdate{
+    background: url('/images/save_blue_fade.png') 0 0 no-repeat;
+    width:100px;
+    height:100px;
+    border:0px;
+    color:transparent;
+    cursor:pointer;
+    margin-left:60px;
+    display:block;
+    margin-top:1px;
+}
+.formupdate:hover{
+    background: url('/images/save_blue.png') 0 0 no-repeat;
+    color: transparent;
+}
+.formsignin{
+    background: url('/images/signin_red_fade.png') 0 0 no-repeat;
+    width:100px;
+    height:100px;
+    border:0px;
+    color:transparent;
+    cursor:pointer;
+    margin-left:60px;
+    display:block;
+}
+.formsignin:hover{
+    background: url('/images/signin_red.png') 0 0 no-repeat;
+    color: transparent;
+}
+.formsignup{
+    background: url('/images/signup_green_fade.png') 0 0 no-repeat;
+    width:100px;
+    height:100px;
+    border:0px;
+    color:transparent;
+    cursor:pointer;
+    margin-left:60px;
+    display:block;
+}
+.formsignup:hover{
+    background: url('/images/signup_green.png') 0 0 no-repeat;
+    color: transparent;
+}
+.areaform{
+    padding-left:30px;
+    color:#999;
+}
+.areaform input[type=text], .areaform input[type=password], .areaform input[type=email]{
+    background:#333;
+    border:0px;
+    margin-bottom:7px;
+    padding: 5px;
+    font-size:14px;
+    width:220px;
+}
+.signinpad{
+    margin-top:49px;
+}
+.rememberme{
+    text-transform:lowercase;
+    font-size:10px;
+}
+.forgotpassword{
+    position:absolute;
+    margin-left:150px;
+    margin-top:30px;
+    padding:10px;
+    font-size:10px;
+    width:215px;
+    color:#666;
+    box-shadow:0px 0px 20px #333;
+    border-radius:15px;
+    background:#222;
+    opacity:0.9;
+	text-decoration:none;
+}
+.forgotpassword a {
+	text-decoration:none;
+}
+.bluehighlight{
+    color:#FE7C6F;
+	text-decoration:none;
+}
+.darkbluehighlight{
+    color:#fe4837;
+}
+.profMessage {
+	margin-top:238px;
+	color:#FFFFFF;
+	text-decoration:underline;
+	text-align:center;
+	cursor:pointer;
+}
+#instructionInnerDiv {
+	height:470px;
+	overflow:auto;
+	margin-top:-1px;
+}
+.closeButtonBox {
+	margin-top:65px;
+}
+.blueCloseButton {
+	margin-top:-30px;
+}

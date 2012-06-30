@@ -1,0 +1,225 @@
+<script>
+Goals.uid = <%= @uid %>;
+Goals.filter = '<%= @filter %>';
+Goals.complete = '<%= @complete %>';
+Goals.goallist = <%= raw @fullgoals.to_json(:include=>[:tasks]) %>;
+dojo.query('meta').forEach(function(m){
+    if(m.name == 'csrf-token'){
+        Goals.token = m.content;
+    }
+});
+dojo.ready(Goals.init);
+dojo.ready(Score.init);
+</script>
+
+
+
+<div id="listcontainer">
+
+
+<div id="activecontainer">
+<div id="activecomplete0"><%= link_to 'active', :controller=>'goals', :action=>'index', :filter=>@filter, :u=>@uid %></div> 
+<div id="activecomplete1"><%= link_to 'completed', :controller=>'goals', :action=>'index', :complete=>1, :filter=>@filter, :u=>@uid %></div>
+</div>
+
+<div class="categorylistcontainer">
+<div id="categorylist">
+<div id="cat-academic">academic</div>
+<div id="cat-career">career</div>
+<div id="cat-social">social</div>
+<div id="cat-personal">personal</div>
+<div id="cat-physical">physical</div>
+</div>
+</div>
+<%@goalCount = 0%>
+<% @goals.each do |goal| %>
+<%@goalCount = @goalCount + 1%>
+<div class="goalitem goalcat<%= goal.category %>" style="display:none">
+<div class="goalcontent">
+	<div class="progressBoard" id="progressBoard_<%=goal.id%>" style="display:none;">
+		<div class="closeBtn" onclick="javascript:closeProgressBox(<%=goal.id%>)"><img src="/images/BlueClose_off.png"></div>
+		<div id="progress_ajax_<%=goal.id%>"></div>
+	</div>
+
+    <div class="editdeletecontainer">
+	<%if @isme %>
+		<%if @complete != '1' %>
+			<%= link_to 'edit', edit_goal_path(goal) %>
+		<% end %>
+		<%= link_to 'delete', goal, confirm: 'Are you sure you want to delete this goal?', method: :delete %>
+	<% end %>
+		<div class="commentIconBox" style="float:right;margin-left:10px;margin-top:-7px;" onclick="javascript:openCommentsPopup(0,<%=goal.id%>,<%=goal.user_id%>)">
+			<%if @isme %>
+				<%@goalNotifications.each do |onetaskNot| %>
+					<% if onetaskNot.goal_id == goal.id%>
+						<div class="notifyNumberIcon" id="notify_icon_0_<%=goal.id%>"><%=onetaskNot.notifications%></div>
+					<% end%>
+				<% end %>
+			<% end %>
+		</div>
+    </div>
+
+<div class="goaldesc"><span class="goalCountLabel"><%=@goalCount%></span>&nbsp;&nbsp;<span><%= goal.goal == '' ? 'my '+@filter+' goal' : goal.goal %></span></div>
+<div class="goalvalues"><span class="goalsubtitle">description:</span> <%= goal.values == '' ? 'N/A' : goal.values %></div>
+
+<div class="displaytaskarea">
+<table>
+    <% cc = 0 
+	 @activeTasks = 0
+	 @tuTasks = 0 %>
+    <% for s in (0..9) %>
+    <% if goal.tasks[s] %>
+    <% if goal.tasks[s].is_complete == 1 then cc = cc+1 end %>
+    <tr>
+        <td class="tasktdA"><span class="tasksubtitle">task:</span></td>
+        <td class="tasktdB">
+            <%= goal.tasks[s].task %>
+        </td>
+        <td class="tasktdC"><img src="/images/goal_clock.png"/></td>
+        <td class="tasktdD">
+            <%if goal.tasks[s].startdue %>
+                <%= goal.tasks[s].startdue.strftime("%m.%d.%Y") %> 
+                -
+            <% end %>
+            <%= goal.tasks[s].due.strftime("%m.%d.%Y") %>
+		</td>
+		<td class="taskdDA">
+			<%
+			@currentDate = Date.today
+			@taskStartdate = Date.parse(goal.tasks[s].startdue.strftime("%d %b %Y"))
+			@taskEnddate = Date.parse(goal.tasks[s].due.strftime("%d %b %Y"))
+			@showThumbsUp = false
+			%>
+			<% goal.tasks[s].tasksprogresses.each do |onevote| %>
+				<%
+				@taskVotedate = Date.parse(onevote.date.strftime("%d %b %Y"))
+				if @taskVotedate.cweek == @currentDate.cweek 
+					@showThumbsUp = true
+					break
+				end
+				%>
+			<%end%>
+			<%if @currentDate < @taskStartdate or @currentDate > @taskEnddate %>
+				<div class="nadiv">
+					n/a&nbsp;
+				</div>
+			<%elsif @showThumbsUp == true %>
+				<%@tuTasks = @tuTasks + 1%>
+				<%@activeTasks = @activeTasks + 1%>
+				<div id="tu_img_<%=goal.tasks[s].id%>" title="thumbsUp" class="tupImage" 
+				<%if @isme %>
+				onclick="markTaskProgressEntry(<%=goal.tasks[s].id%>,0,<%=goal.tasks[s].goal_id%>,<%=@currentDate.cweek%>,<%=@currentDate.year%>)"
+				<%end%>
+				>
+			<%else%>
+			<%@activeTasks = @activeTasks + 1%>
+				<div id="tu_img_<%=goal.tasks[s].id%>" title="thumbsUp" class="tdownImage" 
+				<%if @isme %>
+				onclick="markTaskProgressEntry(<%=goal.tasks[s].id%>,1,<%=goal.tasks[s].goal_id%>,<%=@currentDate.cweek%>,<%=@currentDate.year%>)"
+				<%end%>
+				>
+			<%end%>
+		</td>
+        <td class="tasktdE">
+			<%if goal.tasks[s].is_complete? == true %>
+				<div title="Goal Complete" id="thumbs_img_<%= goal.tasks[s].id%>" 
+				class="checkImageOn"
+				<%if @isme %>
+				onclick="updateTaskComplete(<%=goal.tasks[s].id%>,<%=goal.tasks[s].goal_id%>,0)"
+				<%end%>
+				></div>
+			<%else%>
+				<div title="Goal Complete%>" id="thumbs_img_<%= goal.tasks[s].id%>" 
+				class="checkImageOff"
+				<%if @isme %>
+				onclick="updateTaskComplete(<%=goal.tasks[s].id%>,<%=goal.tasks[s].goal_id%>,1)"
+				<%end%>
+				></div>
+			<%end%>
+        </td>
+		<td class="tasktdF">
+			<div class="commentIconBox" onclick="javascript:openCommentsPopup(<%=goal.tasks[s].id%>,<%=goal.tasks[s].goal_id%>,<%=goal.tasks[s].user_id%>)">
+				<%if @isme %>
+					<%@taskNotifications.each do |onetaskNot| %>
+						<% if onetaskNot.task_id == goal.tasks[s].id%>
+							<div class="notifyNumberIcon" id="notify_icon_<%=goal.tasks[s].id%>_<%=goal.tasks[s].goal_id%>"><%=onetaskNot.notifications%></div>
+						<% end%>
+					<% end %>
+				<% end %>
+			</div>
+		</td>
+    </tr>
+    <% end %>
+    <% end %>
+    <% if  goal.tasks.length == 0 %>
+    <tr>
+        <td><span class="tasksubtitle">define tasks to track your goal's progress</span></td>
+    </tr>
+    <% end %>
+</table>
+</div>
+
+<div class="goalaccountability">
+    <span class="goalsubtitle">Mentor/Leadership Fellow:</span>  
+    <% found = 0; 
+	    @mentorsNames = goal.accountability.split(',')
+		@mentorsNames.each do |onementor|
+			@users.each do |user| %>
+				<% if user.name == onementor.strip %>
+					<%= link_to(user.name, goals_path(:u => user.id)) %>
+					<% found = 1 %>
+				<% end %>
+			<% end %>
+		<% end %>
+		<% if found == 0 %>
+			<%= goal.accountability == '' ? 'N/A' : goal.accountability %>
+		<% end %>
+</div>
+<div class="goalScoreSheet">
+	<div class="">Effort Score: &nbsp;<%= ((@tuTasks*100.0)/[@activeTasks*1.0,1].max).round %>%</div>
+	<div class="">Completion Score: &nbsp;<%= ((cc*100.0)/[goal.tasks.length*1.0,1].max).round %>%</div>
+</div>
+<div class="goalscore" id="goalscore<%=goal.id%>"><%= ((cc*100.0)/[goal.tasks.length*1.0,1].max).round %>%</div>
+
+</div>
+</div>
+<% end %>
+<% if @goals.length == 0 %>
+<div class="goalitem">
+<div class="goalcontent">
+<div class="goaldesc">no 
+<% if @complete == '1' %>
+complete
+<% else %>
+active
+<% end %>
+goals</div>
+</div>
+</div>
+<% end %>
+
+</div>
+
+<div class="goallistingbottompadding"></div>
+
+<%
+=begin %>
+<div id="scoreitem">
+    <div class="infoscorecontainer">
+        <div id="bottomscorecontent">
+            <div class="bottomscoretitle">
+                goal scorecard
+            </div>
+            <div>
+                <table>
+                    <tr><td class="scoredesc"><%= @filter %> completeness</td><td class="scorenum" id="categoryScore"></td></tr>
+                    <tr><td class="scoredesc">overall completeness</td><td class="scorenum" id="overallScore"></td></tr>
+                </table>
+            </div>
+        </div>
+        <div id="infoscore" class="iteminactive">score</div>
+        <div id="scoreplusminus" class="hidediv"></div>
+    </div>
+</div>
+<%
+=end %>

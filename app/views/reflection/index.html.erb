@@ -1,0 +1,25 @@
+<div id="outer-score-container">
+	<div class="scoreTitle">
+		<div class="floatLeft" style="width:100%">
+			Reflection
+			<%if @isSaved == true%>
+			<span class="floatRight" style="font-size:14px;color:green">Your Answers were successfully saved.</span>
+			<%end%>
+		</div>
+	</div>
+	<form action="/reflection/new" method="get" id="new_reflection">
+	<input type="submit" value="Save Answers" name="commit" class="submitanswers">
+	<%@questions.each do |onequestion|%>
+		<div class="oneQuestion" id="question_<%=onequestion.qno%>">
+			<div class="questionClass">
+				Q<%=onequestion.qno%>: <%=CGI.unescape(CGI.escape(onequestion.question.sub( "&lt;b&gt;", "<b>" )))%>
+			</div>
+			<div class="answerClass" id="answer_<%=onequestion.qno%>">
+				<textarea autocomplete="off" name="ans_<%=onequestion.qno%>" class="anserInputText"><%@userQuestions.each do |oneanswer|%><%if oneanswer.question == onequestion.qno%><%=oneanswer.answer.strip%><%end%><%end%></textarea>
+			</div>
+		</div>
+	<%end%>
+	<input type="submit" value="Save Answers" name="commit" class="submitanswers">
+	
+	</form>
+</div>

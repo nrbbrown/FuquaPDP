@@ -1,0 +1,160 @@
+<div id="goalcontainer">
+<div class="instructionLink">
+	<a onclick="openinstructions('instructionLink','goalInstruction')" class="instructionLinka">
+		Instructions
+	</a>
+</div>
+<div id="goalInstruction" class="hidediv">
+	<div class="headtitlein">Instructions</div>
+	<div class="">
+	<ul>
+	<li>
+		On this page you can define, view and edit your goals and tasks for each of the five domains - Academic, Career, Social, Personal, Physical. To select a particular domain, click on it in the lower left hand side of the page. The selected domain appears in red.
+	</li>
+	<li>
+		As you browse through your goals and tasks you have the ability to self-rate your progress by using the "Thumbs Up" and "Check Mark" buttons. 
+	</li>
+	<li>
+		When you give a task a Thumbs Up, you indicate to the system that you are satisfied with the effort you invested on that task in the current week, and the system updates your Effort Score instantly. The Effort scores are recorded for each week and are reset for the following week at 11:59pm on Sunday.
+	</li>
+	<li>
+		You also have the ability to mark tasks complete by using the check mark button. Based on the number of tasks that are complete, the system calculates the Completion Score. When all tasks related to a goal are complete the goal is marked complete and moved over to the "Complete" tab on the page.
+	</li>
+	<li>
+		The "score entry" page lists all current tasks across all domains. It is designed to make it easier for you to self rate your progress on all your current tasks.
+	</li>
+	<li>
+		The Effort and Completion Scores for each goal are displayed in the bottom right hand corner of the goal template.
+	</li>
+	<li>
+		Effort and Completion Scores can also be viewed on the Scorecard page.
+	</li>
+	<li>
+		The Effort Score for a goal is an indication of how much effort you invested towards achieving that goal in the current week. It is calculated by dividing the number of tasks you gave a Thumbs Up to by the number of total current tasks. For example, the Effort Score for a goal will be 75% if you gave a Thumbs Up to 3 out of the 4 current tasks.
+	</li>
+	<li>
+		The Completion Score for a goal is an indication of how many current tasks for that goal have been completed. For example, the Completion Score for a goal will be 50% if you marked 1 out of the 2 current tasks complete.
+	</li>
+	</ul>
+	</div>
+</div>
+<%= form_for(@goal) do |f| %>
+<div class="goalsubcontainer">
+    <div class="newgoalleft">
+        <div id="editgoalheader"><% if @isedit %>edit<% else %>&nbsp;<% end %></div>
+        <div class="newgoal"><%= link_to 'goal', :controller=>'goals', :action=>'index', :filter=>@filter %></div>
+		<div class="categoryGoalLabel">
+			<div class="categoryGoalLabel2">category</div>
+			<%if @filter == 'academic' 
+				@filterText = 'Academic'
+				@toolText = 'What is important to you with regard to the classes, clubs and academic experiences you can be involved with at Fuqua?'
+				@marginTop = '-70'
+			elsif @filter == 'career' 
+				@filterText = 'Career'
+				@toolText = 'What passions or motivations drive your working life?  What are your career goals?  Focus on your future career and not on past work experiences.'
+				@marginTop = '-70'
+			elsif @filter == 'personal'
+				@filterText = 'Personal'
+				@toolText = 'Consider the activities you love to do.  What are your personal goals with regard to making time for these activities?'
+				@marginTop = '-70'
+			elsif @filter == 'physical' 
+				@filterText = 'Physical'
+				@toolText = 'Physical fitness and wellness are important aspects of general well being and help sustain intellectual performance over time.  What are your goals for your personal fitness? How will you maintain your health while you are here?'
+				@marginTop = '-70'
+			elsif @filter == 'social' 
+				@filterText = 'Social'
+				@toolText = 'How will you maintain a connection with those who are important to you, such as your family, friends and community?'
+				@marginTop = '-70'
+			end
+			%>
+			
+			<div class="categoryGoalLabel3"><%=@filter%>&nbsp;
+				<span class="questiontip" 
+					onmouseover="javascript:dojo.byId('ewb-help-box').style.display='block';" 
+					onmouseout="javascript:dojo.byId('ewb-help-box').style.display='none';" >
+					<sup>[?]</sup>
+					<div class="tooltip_right">
+						<div id="ewb-help-box" style="display: none;left:10px;top:<%=@marginTop%>px" class="tooltip_box">
+							<div class="tooltip_title">Category <%=@filterText%></div>
+							<div class="tooltip_text">
+								<%=@toolText%>
+							</div>
+							<div class="tooltip_pointer"></div>
+						</div>
+					</div>
+				</span>
+			</div>
+			
+		</div>
+    </div>
+
+    <div class="newgoalright">
+        <% if @goal.errors.any? %>
+            <div id="error_explanation">
+            <h2><%= pluralize(@goal.errors.count, "error") %> prohibited this goal from being saved:</h2>
+
+            <ul>
+                <% @goal.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+                <% end %>
+            </ul>
+            </div>
+        <% end %>
+
+        <div class="field">
+            <%= f.text_field :goal, :placeholder => 'enter goal title (max 40 chars.)', :class => 'goalbox' ,:MAXLENGTH => '40' %>
+        </div>
+        <div class="field">
+            <span class="goalsubtitle"><%= f.label :description %></span> 
+            <%= f.text_field :values, :placeholder => 'describe your goal', :class => 'valuesbox' %>
+        </div>
+        <div class="field taskarea">
+        <table>
+        <% s=1; r='on' %>
+        <%= f.fields_for :tasks do |t| %>
+            <tr class="taskrow<%=r%>">
+                <td><span class="tasksubtitle">task</span></td>
+                <td><%= t.text_field :task, :allow_blank => true, :class => 'tasktext', :id => 'taskrow'+s.to_s(), :placeholder => 'break it down into concrete tasks (max 50 chars.)',:MAXLENGTH => '50' %></td>
+                <td><img src="/images/goal_clock.png"/></td>
+                <td>
+                    <%= t.date_select :startdue, :use_month_numbers => true, :order => [:month, :day, :year] %> -
+                    <%= t.date_select :due, :use_month_numbers => true, :order => [:month, :day, :year] %>
+
+                    <%= t.hidden_field :is_complete %>
+                    <%= t.hidden_field :user_id, :value => current_user.id %>
+                </td>
+            </tr>
+        <% s=s+1; if s>1 then r='off' end %>
+        <% end %>
+        </table>
+        </div>
+        <div class="field" style="position:relative">
+            <span class="goalsubtitle"><%= f.label 'Mentor/Leadership Fellow' %></span> 
+            <%= f.text_field :accountability, :onblur => 'javascript: removeMentor()', :autocomplete=>'off', :placeholder => 'enter mentor or leadership fellow names', :class => 'accountabilitybox' , :onkeyup => 'javascript:showMentorList()' %>
+			<% if @users %>
+				<div id="mentorlistdiv" class="hidediv">
+					<% @users.each do |user| 
+						if user.access_level != 2%>
+							<div class="mentorentry" onclick="appendMentor('<%= user.name %>')">
+								<div><%= user.name %></div>
+							</div>
+						<%end%>
+					<% end %>
+				</div>
+			<% end %>
+        </div>
+        <div class="field">
+            <%= f.hidden_field :is_complete, :value => 0 %>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+            <%= f.hidden_field :category, :value => @filter %>
+        </div>
+    </div>
+<div class="actions" id="submitgoalbox">
+<%= f.submit 'create', :class => 'submitgoal' %>
+</div>
+</div>
+<% end %>
+
+
+
+</div>

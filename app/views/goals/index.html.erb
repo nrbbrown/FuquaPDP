@@ -1,0 +1,11 @@
+<%= render 'top' %>
+
+<div class="flashMessage">
+<%- flash.each do |name, msg| -%>
+<%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+<%- end -%>
+</div>
+<%if @isme %>
+<%= render 'form' %>
+<% end %>
+<%= render 'listing' %>

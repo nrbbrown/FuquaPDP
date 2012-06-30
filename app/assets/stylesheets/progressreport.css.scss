@@ -1,0 +1,83 @@
+// Place all the styles related to the progressreport controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#adminScoreTable td {
+	border-bottom:1px solid #999999;
+	border-right:1px solid #999999;
+	height:25px;
+}
+#adminScoreTable .headRow {
+	font-weight:bold;
+}
+#adminScoreTable .column1 {
+	border-left:1px solid #999999;
+}
+#adminScoreTable .column2 {
+	width:200px;
+}
+#adminScoreTable {
+	border-top:1px solid #999999;
+}
+#outer-container {
+	margin:70px auto;
+	font-size:20px;
+	color:#333333;
+	width:940px;
+}
+.domainContainer ,.overallCompletion{
+	float:left;
+	width:100%;
+	margin:20px 0px;
+}
+.domainLevelReport {
+	width:500px;
+	margin-left:200px;
+	border:1px solid #999999;
+	position:relative;
+	float:left;
+	background:#333333;
+	color:#EEEEEE;
+	padding:10px;
+}
+.domainLevelReport .catLabel {
+	float:left;
+	width:140px;
+	text-align:right;
+	padding-right:10px;
+	height:30px;
+}
+.domainLevelReport .catBarEmpty {
+	height:30px;
+	float:left;
+	width:320px;
+	background:#EEEEEE;
+	border:1px solid #999999;
+	color:#333333;
+	overflow:hidden;
+}
+.singleBar {
+	padding:5px 0px;
+	float:left;
+}
+.filledGraph {
+	position:relative;
+	background:red;
+	float:left;
+	height:30px;
+}
+.percentFilled {
+	float:left;
+	padding:5px;
+	font-size:14px;
+}
+.searchUserNameBox {
+	float:left;
+	margin-left:20px;
+}
+.searchUserName {
+	font-size: 16px;
+	margin-top: -4px;
+	padding: 5px;
+	width: 300px;
+}

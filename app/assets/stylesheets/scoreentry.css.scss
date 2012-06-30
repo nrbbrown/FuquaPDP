@@ -1,0 +1,122 @@
+// Place all the styles related to the scoreentry controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#outer-score-container {
+	width:930px;
+	margin:60px auto;
+	font-family:verdana,arial,helvetica,sans-serif;
+}
+.scoreTitle {
+	font-size:24px;
+	float:left;
+	width:100%;
+	padding:10px 10px 10px 0px;
+	border-bottom:1px solid #999999;
+}
+.scoreBoxTitle {
+	font-size:20px;
+	float:left;
+	width:100%;
+	padding:10px 0px;
+}
+.scoreInnerBox {
+	float:left;
+	width:100%;
+}
+.scoreInnerBox:hover .scoreBoxTitle {
+	font-weight:bold;
+}
+.scoreBox {
+	float:left;
+	width:100%;
+	margin:10px 0px;
+	padding:10px;
+}
+.goalOuterBox {
+	float:left;
+	width:90%;
+	margin-left:50px;
+}
+.goalInnerBox {
+	float:left;
+	width:100%;
+	padding:0px 0px 20px 20px;
+	background:#EEEEEE;
+}
+.goalInnerBox:hover .goalBoxTitle {
+	font-weight:bold;
+}
+.goalBoxTitle {
+	float:left;
+	width:100%;
+	padding:5px 0px;
+	font-size:16px;
+}
+.taskOuterBox {
+	float:left;
+	width:90%;
+	margin-left:40px;
+}
+.taskTitleBar:hover {
+	background:#cccccc;
+}
+.taskTitleBar {
+	float:left;
+	width:100%;
+	font-size:14px;
+	padding:3px 3px;
+	border-bottom:1px solid #bbbbbb;
+	height:34px;
+}
+.taskName {
+	float:left;
+	padding-top:8px;
+}
+.progressIcons {
+	float:right;
+	padding-top:5px;
+}
+.tdownImage,.tupImage {
+	cursor:pointer;
+}
+.tdownImage, .tupImage, .checkImage, .checkImageOn, .checkImageOff {
+	float:left;
+}
+.tdownImage, .tupImage {
+	background: url("/images/tu_off.png") no-repeat scroll 0 0 transparent;
+	height: 26px;
+	width: 26px;
+	margin-top:2px;
+}
+.tupImage, .tdownImage:hover {
+	background: url("/images/tu_on.png") no-repeat scroll 0 0 transparent;
+}
+.checkImageOn,.checkImageOff {
+	margin:-6px 4px 0px 7px;
+	cursor:pointer;
+	background: url("/images/check_off.png") no-repeat scroll 0 0 transparent;
+	height: 32px;
+	width: 30px;
+}
+.commentIconBox {
+	cursor:pointer;
+	background: url("/images/commentsicon.png") no-repeat scroll 0 0 transparent;
+	height: 32px;
+	width: 41px;
+}
+.checkImageOff:hover,.checkImageOn {
+	background: url("/images/check_on.png") no-repeat scroll 0 0 transparent;
+}
+.nadiv {
+	text-align:center;
+}
+.weekSelect {
+	font-size:13px;
+}
+#entry_week_change {
+	width:100px;
+}
+.emptyTask {
+	margin:4px 0px;
+	font-style:italic;
+}

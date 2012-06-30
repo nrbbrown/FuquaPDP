@@ -1,0 +1,58 @@
+<%@ggoals.each do |onegoal| %>
+	<div class="goalInnerBox">
+		<div class="goalBoxTitle">
+			<%=onegoal.goal%>
+		</div>
+		<div class="taskOuterBox">
+			<%@taskCount = 0%>
+			<%onegoal.tasks.each do |onetask| %>
+				<%
+				@taskstart = Date.parse(onetask.startdue.strftime("%d %b %Y"))
+				@taskend = Date.parse(onetask.due.strftime("%d %b %Y"))
+				%>
+				<%if @dateOfEntry.cweek >= @taskstart.cweek and 
+					@dateOfEntry.cweek <= @taskend.cweek
+				%>
+					<%@taskCount = @taskCount + 1%>
+					<div class="taskTitleBar">
+						<div class="taskName">
+							<%=onetask.task%>
+						</div>
+						<div class="progressIcons">
+							<% @showThumbsUp = false %>
+							<% onetask.tasksprogresses.each do |onevote| %>
+								<%
+								@taskVotedate = Date.parse(onevote.date.strftime("%d %b %Y"))
+								if @taskVotedate.cweek == @dateOfEntry.cweek 
+									@showThumbsUp = true
+									break
+								end
+								%>
+							<%end%>
+							<% if @showThumbsUp == true %>
+								<div id="tu_img_<%=onetask.id%>" class="tupImage" onclick="markTaskProgressEntry(<%=onetask.id%>,0,<%=onetask.goal_id%>,<%=@dateOfEntry.cweek%>,<%=@dateOfEntry.year%>)">
+								</div>
+							<%else%>
+								<div id="tu_img_<%=onetask.id%>" class="tdownImage" onclick="markTaskProgressEntry(<%=onetask.id%>,1,<%=onetask.goal_id%>,<%=@dateOfEntry.cweek%>,<%=@dateOfEntry.year%>)" >
+								</div>
+							<% end %>
+							<%if onetask.is_complete? == true %>
+								<div id="thumbs_img_<%=onetask.id%>" class="checkImageOn" onclick="updateTaskComplete(<%=onetask.id%>,<%=onetask.goal_id%>,0)">
+								</div>
+							<%else%>
+								<div id="thumbs_img_<%=onetask.id%>" class="checkImageOff" onclick="updateTaskComplete(<%=onetask.id%>,<%=onetask.goal_id%>,1)" >
+								</div>
+							<%end%>
+						</div>
+					</div>
+				<%end%>
+			<%end%>
+			<%if @taskCount == 0%>
+				<div class="emptyTask">No Active Tasks this week</div>
+			<%end%>
+		</div>
+	</div>
+<%end%>
+<%if @ggoals.length == 0%>
+	<div class="emptyTask">No Goals Entered</div>
+<%end%>

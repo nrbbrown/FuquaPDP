@@ -1,0 +1,1126 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree . 
+*/
+
+ul.hmenu {
+  list-style: none;	
+  margin: 0 0 2em;
+  padding: 0;
+}
+.headtitlein {
+	font-weight:bold;
+	font-size:14px;
+	margin:10px 0px;
+}
+ul.hmenu li {
+  display: inline;  
+}
+#flash_notice, #flash_alert {
+  padding: 5px 8px;
+  margin: 10px 0;
+  float: right;
+  font-size:16x;
+}
+#flash_notice {
+  color: #46B79B;
+}
+#flash_alert {
+  color: #fe4837;
+}
+
+
+
+/* MIM */
+
+body { background:#e2e2e2; color: #333; overflow-x:hidden; }
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a { color: #000; }
+a:visited { color: #666; }
+a:hover { color: #fff; }
+
+input{
+	border:1px solid #ddd;
+	color:#666;
+	font-size:12px;
+	padding:2px;
+}
+
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+#notice {
+    color: #46b79b;
+}
+
+.field_with_errors>input[type=password] {
+  /*padding: 2px;*/
+  /*background-color: red;*/
+  /*display: table;*/
+    border:1px solid #b41100 !important;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+.spacer{
+    height:40px;
+
+}
+#topbar{
+	position:absolute;
+	top:0px;
+	left:0px;
+	background:url('/images/background_topbar.png');
+	width:100%;
+	height:45px;
+	border-bottom: 2px solid #666;
+	z-index:100;
+}
+#search-input-box {
+	float:left;
+	margin:10px 5px 5px 20px;
+	position:relative;
+}
+#search-input-box  input {
+	font-size:14px;
+	padding:5px;
+}
+#searchdiv{
+	background:url('/images/homeicon.png') 5px 5px no-repeat;
+	height:45px;
+	line-height:45px;
+	float:left;
+    font-size:14px;
+    color:#fff;
+    text-shadow:1px 1px 1px #000;
+    cursor:pointer;
+    font-size:18px;
+}
+#new_goal {
+	width:940px;
+}
+#searchdiv>a{
+    text-decoration:none;
+    color:#eee;
+    text-transform:lowercase;
+}
+#searchdiv>a:hover{
+    background:none;
+    text-decoration:underline;
+}
+#logoutdiv{
+    float:right;
+	color:#ccc;
+	height:45px;
+	line-height:45px;
+	padding-right:20px;
+	position:relative;
+}
+#logoutdiv>a{
+    color:#999;
+    text-decoration:none;
+    text-transform:lowercase;
+    font-size:14px;
+    text-shadow:1px 1px 1px #000;
+    padding-left:15px;
+}
+#logoutdiv>a:hover{
+    color:#eee;
+}
+#goalbackleft{
+	background:url('/images/background_main_left.png') 0 0 repeat-x; 
+	height:535px;
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:390px;
+	z-index:-100;
+}
+#goalbackright{
+	background:url('/images/background_main_right.png') 0 0 repeat-x; 
+	height:535px;
+	position:absolute;
+	top:0px;
+	right:0px;
+	width:390px;
+	z-index:-100;
+}
+#goalbacktile{
+	background:url('/images/background_main_tile.png') 0 0 repeat-x; 
+	height:535px;
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	z-index:-100;
+}
+#goalcontainer{
+	margin: auto;
+	min-height: 200px;
+	padding-right: 16px;
+	width: 820px;
+	z-index: 100;
+}
+.catarrow{
+    position:absolute;
+    margin-left:10px;
+}
+.categoryfield{
+    width:100px;
+    text-transform:lowercase;
+    font-size:14px;
+    color:#444;
+    text-align:right;
+}
+.goalsubcontainer{
+    width:670px;
+    margin:auto;
+}
+.newgoalleft{
+    position:absolute;
+    width:160px;
+    margin-left:-180px;
+    margin-top:-10px;
+}
+.newgoalright{
+    width:710px;
+}
+.newgoal a{
+    font-size:45px;
+    color:#fe4837;
+    margin-bottom:60px;
+    text-decoration:none;
+	font-family:'Rock Salt'
+}
+#editgoalheader{
+    font-family: 'Rock Salt';
+    font-size:30px;
+    color:#666;
+    margin-bottom:6px;
+    text-decoration:none;
+}
+#listcontainer{
+	background: url('/images/background_base.png') 0 0 repeat-x; 
+	width:100%;
+	margin-left:-9px;
+	padding: 30px 6px 137px 70px;
+}
+.valuesbox{
+    width:612px;
+}
+.accountabilitybox{
+    width:518px;
+}
+.goalbox{
+    font-size:25px;
+    padding:4px;
+    color:#555;
+    width:696px;
+}
+#activecontainer{
+    margin:auto;
+    width:700px;
+    padding:20px 0px;
+}
+#activecontainer>div{
+    display:inline;
+}
+#activecontainer>div a{
+    text-decoration:none;
+    font-size:20px;
+    color:#999;
+    font-family:arial;
+}
+#activecontainer>div.selected a,#activecontainer>div a:hover{
+    color:#fe7c6f;
+    cursor:pointer;
+    background:transparent;
+}
+.goalitem{
+    margin:auto;
+    width:700px;
+    min-height:200px;
+    border:1px solid #ddd;
+    background:#fff;
+    padding:10px;
+    padding-bottom:30px;
+    margin-bottom:20px;
+}
+.goaldesc{
+    font-size:23px;
+    color:#555;
+    margin:20px 0 20px 10px;
+}
+.goalcategory,.goalaccountability, .goalvalues{
+    color:#999;
+}
+.goalvalues{
+    margin:0 0 10px 50px;
+}
+.goalaccountability{
+    margin:10px 0 0 50px;
+	width:50%;
+}
+.goalaccountability a{
+    color:#52B0CB;
+    text-decoration:none;
+}
+.goalaccountability a:hover{
+    color:#1c94b7;
+}
+.goalsubtitle{
+    color:#444;
+    font-size:14px;
+    text-transform:lowercase;
+    margin-right:5px;
+}
+.tasksubtitle{
+    color:#666;
+    font-size:14px;
+    text-transform:lowercase;
+    margin-right:5px;
+}
+.tasktext{
+    width:276px;
+}
+.taskarea,.displaytaskarea{
+    background:#eee;
+    padding:13px 0px 13px 13px;
+    border:1px solid #ccc;
+    margin-left:-12px;
+    width:703px;
+}
+.displaytaskarea{
+    margin-left:10px;
+    width:665px;
+}
+.taskrowoff{
+    display:none;
+}
+.tasktdA{
+    width:45px;
+}
+.tasktdB{
+    width:275px;
+}
+.tasktdC{
+    width:28px;
+}
+.tasktdD{
+    width:210px;
+}
+.submitgoal{
+	background:url('/images/submit_arrow_gray.png') 0 0 no-repeat;
+    width:150px;
+    height:160px;
+    border:none;
+    color:transparent;
+}
+.submitgoal:hover{
+	background:url('/images/clickarrow.png') 0 0 no-repeat;
+    cursor:pointer;
+}
+#submitgoalbox{
+    position:absolute;
+    margin-left:550px;
+    margin-top:-55px;
+}
+#mimitem{
+    position:fixed;
+    bottom:-220px;
+    left:0px;
+    width:100%;
+    z-index:2000; 
+}
+.infomimcontainer{
+    width:700px;
+    margin:auto;
+}
+#mimbird{
+    position:absolute;
+    background:url('/images/mim_magpieicon.png') 0 0 no-repeat;
+    width:60px;
+    height:80px;
+    margin-top:-80px;
+    margin-left:71px;
+    cursor:pointer;
+}
+#infomim{
+    position:absolute;
+    margin-top:-65px;
+    margin-left:-11px;
+	background:url('/images/mim_tab_blank.png') 0 0 no-repeat;
+	width:153px;
+	height:132px;
+	padding:35px 0 0 42px;
+	font-size:38px;
+	font-family: Arial;
+	color:#fff;
+    cursor:pointer;
+}
+#infomimbottomcrest{
+    color:#666;   
+    background:#fff;
+    width:330px;
+    height:200px;
+    padding:7px;
+    border:1px solid #ddd;
+    box-shadow: 3px -3px 10px #fff;
+}
+.bottomcresttitle{
+    margin:14px 0 0 105px;
+    font-size:16px;
+    font-style:italic;
+}
+.bottomcrestcontent{
+    margin:15px 0 0 15px;
+    font-size:10px;
+}
+.bottomcrestcontent ul{
+    font-size:10px;
+}
+.crestfooter{
+    font-size:8px;
+    text-transform:uppercase;
+    float:right;
+    margin-right:10px;
+}
+.centercontainer{
+	margin:auto;
+	width:600px;
+	height:300px;
+	padding-top:30px;
+}
+.goal-tasks{
+	background:#eee;
+	border:1px solid #ddd;
+	width:580px;
+	height:30px;
+	padding:10px;
+	font-size:14px;
+	color:#777;
+	font-style:italic;
+	margin: 5px 0;
+}
+span.form-item{
+	font-size:14px;
+	color:#444;
+	padding-left:15px;
+	line-height:30px;
+}
+.values-item{
+	width:505px;
+}
+.accountability-item{
+	width:453px;
+}
+.goal-item{
+	font-size:20px;
+	width:557px;
+	margin-left:10px;
+	padding:3px;
+}
+.categorylistcontainer{
+    width:620px;
+    margin:auto;
+}
+#categorylist{
+    position:absolute;
+    margin-left:-230px;
+}
+#categorylist>div{
+    font-size:24px;
+    color:#666;
+    font-family:arial;
+    line-height:30px;
+    width:150px;
+    text-align:right;
+}
+#categorylist>div.selected,#categorylist>div:hover{
+    color:#fe4837;
+    cursor:pointer;
+}
+.truetaskcheck0,.truetaskcheck1:hover,.falsetaskcheck0{
+    background:url('/images/check_off.png');
+    width:30px;
+    height:32px;
+}
+.truetaskcheck0:hover,.truetaskcheck1,.falsetaskcheck1{
+    background:url('/images/check_on.png');   
+    width:30px;
+    height:32px;
+}
+.truetaskcheck0:hover,.truetaskcheck1{
+    cursor:pointer;
+}
+.editdeletecontainer{
+    float:right;
+}
+.editdeletecontainer>a{
+    font-size:14px;
+    text-decoration:none;
+    background:none;
+    color:#777;
+}
+.editdeletecontainer>a:hover{
+    color:#555;
+}
+.goalscore{
+    float:right;
+    color:#46b79b;
+    font-size:16px;
+    font-family:arial;
+    margin-right:45px;
+    margin-top:-15px;
+    font-weight:bold;
+	display:none;
+}
+#scoreitem{
+    position:fixed;
+    bottom:-112px;
+    width:100%;
+    z-index:2001;
+}
+.infoscorecontainer{
+    margin:auto;
+    width:700px;f
+}
+.iteminactive{
+    opacity:0.4;
+}
+.iteminactive:hover{
+    opacity:1.0;
+}
+#infoscore{
+	background:url('/images/score_tab.png') 0 0 no-repeat;
+    margin-left:545px;
+    margin-top:-185px;
+	width:167px;
+	height:144px;
+	color:#fff;
+	padding:45px 0 0 40px;
+	font-size:24px;
+	font-family: 'Rock Salt', cursive;
+    position:fixed;
+    cursor:pointer;
+}
+#scoreplusminus{
+    background:url('/images/score_plusminus.png') 0 0 no-repeat;
+    width:224px;
+    height:100px;
+    margin-left:345px;
+    margin-top:-180px;
+    position:fixed;
+}
+.hidediv{
+    display:none;
+}
+#bottomscorecontent{
+    position:fixed;
+    border:1px solid #ddd;
+    box-shadow: 3px -3px 10px #fff;
+    height:300px;
+    width:330px;
+    background:#fff;
+    padding:7px;
+    margin-top:-110px;
+    margin-left:350px;
+}
+.scoredesc{
+    color:#333;
+    font-size:14px;
+    padding:0px 50px 0px 32px;
+}
+.scorenum{
+    text-align:right;
+    font-weight:bold;
+    color:#46b79b;
+    font-size:16px;
+    font-family:Arial;
+    width:50px;
+}
+.bottomscoretitle{
+    margin:14px 0 20px 30px;
+    font-size:16px;
+    font-style:italic;
+    color:#666;
+}
+.goallistingbottompadding{
+    height:0px;
+}
+#userlistdiv{
+    position:absolute;
+    left:0px;
+    top:27px;
+    min-width:300px;
+    background:#fff;
+    padding:3px;
+    border:1px solid #eee;
+    box-shadow:0px 0px 10px #fff;
+    z-index:3000;
+	max-height:170px;
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+.userentry{
+    padding:7px 12px;
+    height:20px;
+}
+.userentry a{
+    color:#52B0CB;
+    text-decoration:none;
+}
+.userentry:hover a, .userentry a:hover, .userselectedhover {
+    color:#1c94b7;
+    font-size:16px;
+	background:#EEEEEE;
+}
+
+#userdirectory{
+    height:18px;
+    padding:13px 12px;
+    cursor:pointer;
+    color:#777;
+    font-size:16px;
+    background:#eee;
+}
+.markme{
+    color:#46b79b;
+    height:20px;
+    font-family:'Rock Salt';
+}
+#dim,#dimuser, #instructionDiv {
+    background:#000;
+    opacity:0.4;
+    width:100%;
+    height:100%;
+    position:fixed;
+    top:0px;
+    left:0px; 
+}
+#instructionOuterDiv {
+	z-index:2022;
+	width:100%;
+    height:100%;
+    position:fixed;
+    top:0px;
+    left:0px; 
+}
+#commentOuterDiv {
+	z-index:2022;
+	width:100%;
+    height:100%;
+    position:fixed;
+    top:0px;
+    left:0px; 
+}
+#commentInnerDiv {
+	width:800px;
+	margin:0px auto 0 auto;
+	background: url('/images/white.png') repeat;
+	border: 1px solid #DDDDDD;
+	box-shadow: 3px -3px 10px #FFFFFF;
+	color: #666666;
+	padding: 7px;
+	min-height:400px;
+	z-index:3000;
+}
+.blueCloseButton {
+	background: url('/images/BlueClose_on.png') no-repeat;
+	float: right;
+	height: 50px;
+	margin-right: -30px;
+	margin-top: -20px;
+	width: 50px;	
+	cursor:pointer;
+}
+.questiontip {
+	font-size:14px;
+	cursor:pointer;
+	position:relative;
+}
+.closeButtonBox {
+	width:796px;
+	position:relative;
+	margin:100px auto 0 auto;
+}
+#instructionInnerDiv {
+	width:800px;
+	margin:0px auto 0 auto;
+	background: url('/images/white.png') repeat;
+	border: 1px solid #DDDDDD;
+	box-shadow: 3px -3px 10px #FFFFFF;
+	color: #666666;
+	padding: 7px;
+	z-index:3000;
+}
+#instructionInnerDiv li {
+	padding:5px 0px;
+}
+#dim{
+    z-index:1000;
+}
+.floatLeft{
+    float:left;
+}
+.floatRight{
+    float:right;
+}
+
+.reportBox {
+	background: none repeat scroll 0 0 #FFFFFF;
+	border: 1px solid #DDDDDD;
+	box-shadow: 3px -3px 10px #FFFFFF;
+	color: #666666;
+	padding: 7px;
+	float:left;
+	width: 750px;
+}
+.reportOuterBox {
+	z-index:1001;
+}
+.leftTaskBox {
+	float:left;
+}
+.oneTaskName {
+	height: 30px;
+	padding: 5px;
+	text-align: left;
+	line-height:30px;
+	float:left;
+	width:90px;
+}
+.firstDateColumn {
+	float:left;
+	width:100px;
+	height:30px;
+}
+.oneDateColumn {
+	float:left;
+	width:100px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	padding-top:8px;
+}
+.dateRow {
+	float:left;
+	width:100%;
+}
+.taskRow {
+	width:100%;
+	float:left;
+}
+.oneTaskRow {
+	float:left;
+	width:100%;
+}
+.thumbsOff {
+	cursor:pointer;
+}
+#startWeek, #endWeek {
+	display:none;
+}
+.progressBoard {
+	float: left;
+	margin: -260px auto 0px -50px;
+	position: absolute;
+	z-index:1002;
+}
+.closeBtn {
+	float: right;
+	margin-left: 730px;
+	margin-top: -16px;
+	position: absolute;
+	z-index: 100000;
+	cursor:pointer;
+}
+.currentweekLabel {
+	font-size:12px;
+	color:#555555;
+}
+.goalCountLabel {
+	font-size:30px;
+	color:#BBBBBB;
+}
+.categoryGoalLabel {
+	margin:20px;
+}
+.categoryGoalLabel2 {
+	font-size:12px;
+}
+.categoryGoalLabel3 {
+	font-size:18px;
+	position:relative;
+}
+.userentryarticle {
+	text-transform:none !important;
+}
+.instructionLinka:hover {
+	color:#FE4837;
+	cursor:pointer;
+}
+.instructionLink {
+	width:840px;
+	text-decoration:underline;
+	margin:10px auto;
+	text-align:right;
+	color:#999999;
+}
+.goalScoreSheet {
+	float: right;
+	font-size: 11px;
+	margin-right: 30px;
+	margin-top: -20px;
+	text-align: right;
+}
+#mentorlistdiv {
+	background: none repeat scroll 0 0 #FFFFFF;
+	border: 1px solid #EEEEEE;
+	font-size: 11px;
+	left: 182px;
+	max-height: 100px;
+	min-width: 516px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding: 3px;
+	position: absolute;
+	top: 20px;
+	z-index: 3000;
+}
+.mentorentry {
+	border-bottom: 1px solid #EEEEEE;
+	padding: 5px;
+	cursor:pointer;
+	color:#52B0CB;
+}
+.mentorentry:hover {
+	font-size:14px;
+}
+#myconnectiondiv {
+	background: none repeat scroll 0 0 #FBFBFB;
+	border: 1px solid #666666;
+	color: #52B0CB;
+	left: 15px;
+	max-height: 170px;
+	min-width: 300px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding: 3px;
+	padding-left:10px;
+	position: absolute;
+	top: 35px;
+	z-index: 3000;
+	line-height:30px;
+}
+.onementorDiv:hover {
+	font-size:14px;
+	background:#FFFFFF;
+}
+.onementorDiv {
+	border-bottom:1px solid #DDDDDD;
+}
+.onementorDiv  a {
+	text-decoration:none;
+	color: #52B0CB;
+}
+.commentFullBox {
+	margin:0px 100px;
+	float:left;
+}
+.goalLabelBox,.taskLabelBox {
+	padding:5px 10px 10px 10px;
+	float:left;
+}
+.goalLabel ,.taskLabel{
+	float: left;
+	font-size: 16px;
+	font-weight: bold;
+	padding-right: 20px;
+}
+.goalText,.taskText {
+	float:left;
+	font-size:16px;
+	width:480px;
+}
+.goalUserLabel {
+	float: left;
+	font-size: 12px;
+	padding-left: 10px;
+	width: 100%;
+}
+.goalDescBox {
+	border:1px solid #DDDDDD;
+	float:left;
+	padding:5px;
+}
+.userCommentsBox {
+	float:left;
+	margin-top:10px;
+	width:100%;
+	overflow:auto;
+	max-height:235px;
+}
+.userCommentsBox2 {
+	float:left;
+	margin-top:10px;
+	width:100%;
+}
+
+.enterCommentsBox {
+	background:#EDEFF4;
+	float:left;
+	width:100%;
+	border-bottom:1px solid #DDDDDD;
+	font-size:14px;
+}
+.commentUserName,.enterCommentInput {
+	padding:3px 10px;
+	width:96%;
+	float:left;
+}
+.enterCommentInput input {
+	font-size: 14px;
+	padding: 5px;
+	width: 87%;
+	float:left;
+}
+.submitComment {
+	background:url('/images/submit.png') no-repeat;
+	width:61px;
+	height:26px;
+	float:right;
+	cursor:pointer;
+	margin-top:1px;
+}
+.notifyNumberIcon {
+	background: url("/images/notify.png") no-repeat scroll 0 0 transparent;
+	color: white;
+	font-size: 10px;
+	height: 20px;
+	margin: -5px 0 0 22px;
+	text-align: center;
+	width: 20px;
+}
+.oneNotificationDiv:hover{
+	background:#EEEEEE;
+}
+.otherComments {
+	font-size:12px;
+	padding-bottom:6px;
+}
+.otherComments .commentUserName {
+	font-weight:bold;
+	padding-bottom:0px;
+}
+.commentCreatedAt {
+	float:right;
+	font-weight:normal;
+	font-size:11px;
+}
+.otherComments .enterCommentInput {
+	padding-top:0px;
+}
+.notificationIcon {
+	background:url('/images/notification.png') no-repeat;
+	width:32px;
+	height:32px;
+	float:left;
+	cursor:pointer;
+	margin:10px 0px 0px 10px;
+}
+#notificationdiv{
+	background: none repeat scroll 0 0 #FBFBFB;
+	border: 1px solid #666666;
+	color: #52B0CB;
+	left: 280px;
+	line-height: 30px;
+	max-height: 214px;
+	min-width: 300px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	padding: 3px 3px 3px 3px;
+	position: absolute;
+	top: 46px;
+	z-index: 3000;
+}
+.notifyLabel {
+	font-size:11px;
+	font-weight:bold;
+	color:#333333;
+	padding-left:10px;
+}
+.oneNotificationDiv {
+	border-top:1px solid #DDDDDD;
+	padding:5px 10px 5px 0px;
+	cursor:pointer;
+}
+.countOneNotify {
+	float: left;
+	height: 55px;
+	padding-right: 10px;
+}
+.mainNotifyName {
+	line-height:20px;
+	font-size:11px;
+}
+.mainNotifiyDate {
+	color: #777777;
+	font-size: 9px;
+	line-height: 15px;
+}
+.fullNotificationDetails {
+	padding-left:10px;
+}
+.tooltip_up, .tooltip_down, .tooltip_left, .tooltip_right {
+    height: 0;
+    left: 50%;
+    overflow: visible;
+    position: absolute;
+    top: 50%;
+    width: 0;
+    z-index: 5;
+}
+.tooltip_box {
+    position: absolute;
+    width: 260px;
+    z-index: 5;
+}
+.tooltip_up .tooltip_box {
+    bottom: 0;
+    left: -130px;
+}
+.tooltip_down .tooltip_box {
+    left: -130px;
+    top: 0;
+}
+.tooltip_left .tooltip_box {
+    bottom: -70px;
+    right: 0;
+}
+.tooltip_right .tooltip_box {
+    bottom: -52px;
+    left: 0;
+}
+.tooltip_title {
+    background: none repeat scroll 0 0 #469CCC;
+    border: 1px solid #469CCC;
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 5px;
+    position: relative;
+    text-align: left;
+    width: 100%;
+}
+.tooltip_up .tooltip_title {
+    bottom: 17px;
+}
+.tooltip_down .tooltip_title {
+    top: 17px;
+}
+.tooltip_left .tooltip_title {
+    right: 29px;
+}
+.tooltip_right .tooltip_title {
+    left: 17px;
+}
+.tooltip_text {
+    background: none repeat scroll 0 0 #DEF0F9;
+    border: 1px solid #469CCC;
+    color: #333333;
+    font-size: 11px;
+    padding: 5px;
+    position: relative;
+    text-align: left;
+    width: 100%;
+}
+.tooltip_up .tooltip_text {
+    bottom: 17px;
+}
+.tooltip_down .tooltip_text {
+    top: 17px;
+}
+.tooltip_left .tooltip_text {
+    right: 29px;
+}
+.tooltip_right .tooltip_text {
+    left: 17px;
+}
+.tooltip_pointer {
+    position: absolute;
+    z-index: 6;
+}
+.tooltip_up .tooltip_pointer {
+    background: url("/images/tip_d.png") no-repeat scroll center bottom transparent;
+    bottom: 1px;
+    height: 17px;
+    padding: 0 5px;
+    width: 100%;
+}
+.tooltip_down .tooltip_pointer {
+    background: url("/images/tip_m.png") no-repeat scroll center top transparent;
+    height: 17px;
+    padding: 0 5px;
+    top: 1px;
+    width: 100%;
+}
+.tooltip_left .tooltip_pointer {
+    background: url("/images/tip_r.png") no-repeat scroll right center transparent;
+    height: 100%;
+    right: 1px;
+    top: 1px;
+    width: 17px;
+}
+.tooltip_right .tooltip_pointer {
+    background: url("/images/tip_l.png") no-repeat scroll left center transparent;
+    height: 100%;
+    left: 1px;
+    top: 1px;
+    width: 17px;
+}
+.flashMessage {
+	width:820px;
+	margin:10px auto;
+	float:left;
+	font-size:16px;
+}

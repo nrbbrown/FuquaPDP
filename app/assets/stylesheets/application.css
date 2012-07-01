@@ -1136,6 +1136,7 @@ span.form-item{
     float:left;
 }
 .taskrowon td select {
+    font-size: 11px;
     max-width:52px;
 }
 .privateGoalScore {

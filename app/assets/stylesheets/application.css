@@ -1138,3 +1138,8 @@ span.form-item{
 .taskrowon td select {
     max-width:52px;
 }
+.privateGoalScore {
+    color: #999999;
+    font-size: 12px;
+    font-style: italic;
+}

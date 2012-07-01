@@ -2,9 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .effortBox {
-	width:49%;
 	float:left;
-	border-right:1px solid #999999;
+  width: 100%;
 }
 .completeBox {
 	width:49%;
@@ -19,16 +18,21 @@
 	padding-left:5px;
 }
 .effortRow {
-	width:79%;
+	width:732px;
 	float:left;
 	padding:5px 0px 5px 14px;
 	border:1px solid #999999;
+}
+.effortRow:hover {
+  font-weight: bold;
 }
 .effortRow2 {
 	border:1px solid #999999;
 	border-top:none;
 	border-bottom:none;
-	width:75%;
+	width:716px;
+    font-size: 16px;
+    padding-top:10px;
 	padding-left:30px;
 	padding-bottom:0px;
 	padding-right:0px;
@@ -43,16 +47,17 @@
 	border:1px solid #999999;
 	border-top:none;
 	border-bottom:none;
-	width:68%;
+	width:687px;
 	padding-left:59px;
 }
 .effortRow4 {
 	border:1px solid #999999;
 	border-top:none;
 	border-bottom:none;
-	width:62%;
+	width:663px;
 	padding-left:83px;
 	padding-top:2px;
+  padding-bottom: 10px;
 }
 .titleBoxInner {
 	font-size:16px;
@@ -83,7 +88,12 @@
 }
 .overallRow {
 	font-weight:bold;
+    font-size: 16px;
+    padding-top: 10px;
 }
 .overallRowBottom {
 	border-top:none;
+}
+.openPlusBox {
+  float:left;
 }

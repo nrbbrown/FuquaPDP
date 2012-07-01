@@ -1,7 +1,7 @@
 <%@ggoals.each do |onegoal| %>
 	<div class="goalInnerBox">
 		<div class="goalBoxTitle">
-			<%=onegoal.goal%>
+			<%=onegoal.goal%> <% if onegoal.is_private == 1 %><span class="privateGoalScore">(Private Goal)</span><% end %>
 		</div>
 		<div class="taskOuterBox">
 			<%@taskCount = 0%>

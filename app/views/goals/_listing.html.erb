@@ -11,14 +11,22 @@ dojo.query('meta').forEach(function(m){
 dojo.ready(Goals.init);
 dojo.ready(Score.init);
 </script>
-
-
+<%if @isme %>
+    <style>
+        .tdownImage:hover {
+            background: url("/images/tu_on.png") no-repeat scroll 0 0 transparent;
+        }
+        .checkImageOff:hover {
+            background: url("/images/check_on.png") no-repeat scroll 0 0 transparent;
+        }
+    </style>
+<% end %>
 
 <div id="listcontainer">
 
 
 <div id="activecontainer">
-<div id="activecomplete0"><%= link_to 'active', :controller=>'goals', :action=>'index', :filter=>@filter, :u=>@uid %></div> 
+<div id="activecomplete0"><%= link_to 'active', :controller=>'goals', :action=>'index', :filter=>@filter, :u=>@uid %></div>
 <div id="activecomplete1"><%= link_to 'completed', :controller=>'goals', :action=>'index', :complete=>1, :filter=>@filter, :u=>@uid %></div>
 </div>
 
@@ -62,7 +70,7 @@ dojo.ready(Score.init);
 <div class="goaldesc"><span class="goalCountLabel"><%=@goalCount%></span>&nbsp;&nbsp;<span><%= goal.goal == '' ? 'my '+@filter+' goal' : goal.goal %></span></div>
 <div class="goalvalues"><span class="goalsubtitle">description:</span> <%= goal.values == '' ? 'N/A' : goal.values %></div>
 
-<div class="displaytaskarea">
+<div class="displaytaskarea" id="task_area_<%=goal.id%>">
 <table>
     <% cc = 0 
 	 @activeTasks = 0
@@ -176,11 +184,12 @@ dojo.ready(Score.init);
 		<% end %>
 </div>
 <div class="goalScoreSheet">
-	<div class="">Effort Score: &nbsp;<%= ((@tuTasks*100.0)/[@activeTasks*1.0,1].max).round %>%</div>
-	<div class="">Completion Score: &nbsp;<%= ((cc*100.0)/[goal.tasks.length*1.0,1].max).round %>%</div>
+	<div class="">Effort Score: &nbsp;<span id="effort_score_<%=goal.id%>"><%= ((@tuTasks*100.0)/[@activeTasks*1.0,1].max).round %></span>%</div>
 </div>
 <div class="goalscore" id="goalscore<%=goal.id%>"><%= ((cc*100.0)/[goal.tasks.length*1.0,1].max).round %>%</div>
-
+  <%if goal.is_private == 1%>
+     <div class="privateGoal">This goal is private</div>
+  <% end %>
 </div>
 </div>
 <% end %>

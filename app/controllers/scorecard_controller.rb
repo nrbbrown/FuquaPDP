@@ -6,9 +6,17 @@ class ScorecardController < ApplicationController
 	@isCurrentWeek = (@thisWeek.to_i == Date.today.cweek.to_i) ? true :	false
 	@dateOfEntry = Date.commercial(Date.today.year.to_i, @thisWeek.to_i, 1)
 	@endDateEntry = @dateOfEntry + 6
-	@minDate =  Date.parse(Task.minimum('startdue').strftime("%d %b %Y"))
-	@maxDate =  Date.parse(Task.maximum('due').strftime("%d %b %Y"))
-	@AllGoals = Goal.where("user_id = ? ", current_user.id)
+    @minDate = Date.today
+    @maxDate = Date.today
+    @taskStartMin = Task.minimum('startdue')
+    if @taskStartMin != nil
+      @minDate =  Date.parse(@taskStartMin.strftime("%d %b %Y"))
+    end
+    @taskDueMin = Task.maximum('due')
+    if @taskDueMin != nil
+      @maxDate =  Date.parse(@taskDueMin.strftime("%d %b %Y"))
+    end
+    @AllGoals = Goal.where("user_id = ? and is_private = 0 ", current_user.id)
 	@overallScore = 0
 	@overallActiveTasks = 0
 	@overallProgressedTasks = 0
@@ -53,40 +61,12 @@ class ScorecardController < ApplicationController
 	@domainScore["physical"] = (@domainActiveTasks["physical"] == 0) ? 'N/A' : "#{@domainProgressedTasks["physical"]*100/@domainActiveTasks["physical"]}%"
 	@overallScore = (@overallActiveTasks == 0) ? 'N/A' : (@overallProgressedTasks*100/@overallActiveTasks)
 	
-	@academicGoals = Goal.where("user_id = ? and category = ?", current_user.id, :academic)
-	@careerGoals = Goal.where("user_id = ? and category = ?", current_user.id, :career)
-	@personalGoals = Goal.where("user_id = ? and category = ?", current_user.id, :personal)
-	@physicalGoals = Goal.where("user_id = ? and category = ?", current_user.id, :physical)
-	@socialGoals = Goal.where("user_id = ? and category = ?", current_user.id, :social)
+	@academicGoals = Goal.where("user_id = ? and category = ? and is_private = 0 ", current_user.id, :academic)
+	@careerGoals = Goal.where("user_id = ? and category = ?  and is_private = 0 ", current_user.id, :career)
+	@personalGoals = Goal.where("user_id = ? and category = ?  and is_private = 0 ", current_user.id, :personal)
+	@physicalGoals = Goal.where("user_id = ? and category = ? and is_private = 0 ", current_user.id, :physical)
+	@socialGoals = Goal.where("user_id = ? and category = ? and is_private = 0 ", current_user.id, :social)
 	
-	@overallCompleteTasks = 0
-	@overallTasks = 0
-	@domainTasks = Hash["academic",0,"career",0,"social",0,"personal",0,"physical",0]
-	@domainCompleteTasks = Hash["academic",0,"career",0,"social",0,"personal",0,"physical",0]
-	@goalCompleteScore = Hash.new
-	@domainCompleteScore = Hash.new
-	@AllGoals.each do |onegoal|
-		@goalCompleteScore[onegoal.id] = 0
-		onegoal.tasks.each do |onetask|
-			@domainTasks[onegoal.category] = @domainTasks[onegoal.category] + 1
-			@overallTasks = @overallTasks + 1
-			if onetask.is_complete? == true and onetask.completed_at != nil
-				@taskCompletedAt = Date.parse(onetask.completed_at.strftime("%d %b %Y"))
-				if @taskCompletedAt.cweek <= @dateOfEntry.cweek
-					@overallCompleteTasks = @overallCompleteTasks + 1
-					@domainCompleteTasks[onegoal.category] = @domainCompleteTasks[onegoal.category] + 1
-					@goalCompleteScore[onegoal.id] = @goalCompleteScore[onegoal.id] + 1 
-				end
-			end
-		end
-	end
-	
-	@domainCompleteScore["academic"] = (@domainTasks["academic"] == 0) ? 'N/A' : "#{@domainCompleteTasks["academic"]*100/@domainTasks["academic"]}%"
-	@domainCompleteScore["career"] = (@domainTasks["career"] == 0) ? 'N/A' : "#{@domainCompleteTasks["career"]*100/@domainTasks["career"]}%"
-	@domainCompleteScore["social"] = (@domainTasks["social"] == 0) ? 'N/A' : "#{@domainCompleteTasks["social"]*100/@domainTasks["social"]}%"
-	@domainCompleteScore["personal"] = (@domainTasks["personal"] == 0) ? 'N/A' : "#{@domainCompleteTasks["personal"]*100/@domainTasks["personal"]}%"
-	@domainCompleteScore["physical"] = (@domainTasks["physical"] == 0) ? 'N/A' : "#{@domainCompleteTasks["physical"]*100/@domainTasks["physical"]}%"
-	@overallCompleteScore = (@overallTasks == 0) ? 'N/A' : (@overallCompleteTasks*100/@overallTasks)
-	
+
   end
 end

@@ -4,3 +4,18 @@
   <p> Time.now.utc <%= Time.now.utc %> </p>
   <p> Time.zone.now <%= Time.zone.now %>  </p>
   <p> Time.zone.today <%= Time.zone.today %> </p>
+
+<p> Date.today <%= Date.today %> </p>
+
+<%
+time = Time.new
+  %>
+# Here is the interpretation
+<p>time.zone  <%= time.zone %></p>
+<p>time.utc_offset  <%= time.utc_offset %></p>
+<p>time.zone <%= time.zone %></p>
+<p>time.isdst   <%= time.isdst %></p>
+<p>time.utc?  <%= time.utc? %></p>
+<p>time.localtime  <%= time.localtime %></p>
+<p>time.gmtime  <%= time.gmtime %></p>
+<p>time.getlocal  <%= time.getlocal %></p>

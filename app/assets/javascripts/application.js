@@ -420,6 +420,7 @@ function markTaskProgressEntry(taskId,isComplete,id,week,year){
 			dojo.removeClass('tu_img_'+taskid,'tupImage');
 			dojo.byId('tu_img_'+taskid).onclick = function () { markTaskProgressEntry(taskid,1,id,week,year);};
 		}
+        calculateWeeklyEffortScore(id);
 	},
 	error:function(data) {
 		alert('failed to complete task');
@@ -427,6 +428,19 @@ function markTaskProgressEntry(taskId,isComplete,id,week,year){
 	};
 	new dojo.xhrGet(xhrArgs);
 }
+
+function calculateWeeklyEffortScore(goalid){
+
+    var allThumbs = dojo.query('#task_area_'+goalid+' .tdownImage');
+    var allThumbsUp = dojo.query('#task_area_'+goalid+' .tupImage');
+
+    var upCount = allThumbsUp.length;
+    var downCount = allThumbs.length;
+    var score = (upCount)/(upCount +downCount)*100 ;
+    dojo.byId('effort_score_'+goalid).innerHTML = score;
+
+}
+
 var Mim = {
     
     up: -1,

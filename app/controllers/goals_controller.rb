@@ -30,7 +30,11 @@ class GoalsController < ApplicationController
     if @complete != '1' && @complete != '0' then @complete = '0' end
       
     # fetch existing
-    @goals = Goal.where("user_id = ? and category = ? and is_complete = ?", @uid, @filter, @complete)
+    if @isme
+      @goals = Goal.where("user_id = ? and category = ? and is_complete = ?", @uid, @filter, @complete)
+    else
+      @goals = Goal.where("user_id = ? and category = ? and is_private = 0 and is_complete = ?", @uid, @filter, @complete)
+    end
     @fullgoals = Goal.where("user_id = ?", @uid);
     
     # new goal

@@ -13,8 +13,16 @@ class ScoreentryController < ApplicationController
 	@thisWeek = (params[:week] != nil) ? params[:week] : Date.today.cweek
 	@isCurrentWeek = (@thisWeek.to_i == Date.today.cweek.to_i) ? true :	false
 	@dateOfEntry = Date.commercial(Date.today.year.to_i, @thisWeek.to_i, 1)
-	@minDate =  Date.parse(Task.minimum('startdue').strftime("%d %b %Y"))
-	@maxDate =  Date.parse(Task.maximum('due').strftime("%d %b %Y"))
+    @minDate = Date.today
+    @maxDate = Date.today
+    @taskStartMin = Task.minimum('startdue')
+    if @taskStartMin != nil
+	    @minDate =  Date.parse(@taskStartMin.strftime("%d %b %Y"))
+    end
+    @taskDueMin = Task.maximum('due')
+    if @taskDueMin != nil
+      @maxDate =  Date.parse(@taskDueMin.strftime("%d %b %Y"))
+    end
   end
   
   # Get /scoreentry/1
@@ -23,7 +31,7 @@ class ScoreentryController < ApplicationController
 	@is_complete = params[:is_complete].to_i
     @task = Task.find(params[:taskid])
 	@goal = Goal.find(@task.goal_id)
-	@dateup = Date.commercial(Date.today.year.to_i, Date.today.cweek.to_i, 1)
+	@dateup = Date.commercial(Date.today.year.to_i, Date.today.cweek.to_i, 2)
 	respond_to do |format|
 		if @is_complete == 1
 			@taskfind = Tasksprogress.where("task_id = ? and date = ? ",params[:taskid],@dateup)

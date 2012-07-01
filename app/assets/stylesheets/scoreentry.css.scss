@@ -88,7 +88,8 @@
 	width: 26px;
 	margin-top:2px;
 }
-.tupImage, .tdownImage:hover {
+
+.tupImage {
 	background: url("/images/tu_on.png") no-repeat scroll 0 0 transparent;
 }
 .checkImageOn,.checkImageOff {
@@ -104,7 +105,7 @@
 	height: 32px;
 	width: 41px;
 }
-.checkImageOff:hover,.checkImageOn {
+.checkImageOn {
 	background: url("/images/check_on.png") no-repeat scroll 0 0 transparent;
 }
 .nadiv {

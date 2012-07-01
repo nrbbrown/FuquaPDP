@@ -70,7 +70,7 @@
 										<img src="/images/tu_on.png">
 									<%elsif @startWeek < @taskStartDate.cweek or @startWeek > @taskEndDate.cweek %>
 										--
-									<%elsif @startWeek > Date.today.cweek %>
+									<%elsif @startWeek > Time.zone.today.cweek %>
 										<img id="thumbs_<%=@count%>" src="/images/tu_blank.png">
 									<%elsif @startWeek <= @taskEndDate.cweek and !@taskComplete %>
 										<img class="thumbsOff" id="thumbs_<%=@count%>" src="/images/tu_off.png" 

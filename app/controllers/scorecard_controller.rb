@@ -2,12 +2,12 @@ class ScorecardController < ApplicationController
   def index
     @users = User.find(:all,:order=>"name")
     @uid = (params[:u] != nil) ? params[:u] : current_user.id
-	@thisWeek = (params[:week] != nil) ? params[:week] : Date.today.cweek
-	@isCurrentWeek = (@thisWeek.to_i == Date.today.cweek.to_i) ? true :	false
-	@dateOfEntry = Date.commercial(Date.today.year.to_i, @thisWeek.to_i, 1)
+	@thisWeek = (params[:week] != nil) ? params[:week] : Time.zone.today.cweek
+	@isCurrentWeek = (@thisWeek.to_i == Time.zone.today.cweek.to_i) ? true :	false
+	@dateOfEntry = Date.commercial(Time.zone.today.year.to_i, @thisWeek.to_i, 1)
 	@endDateEntry = @dateOfEntry + 6
-    @minDate = Date.today
-    @maxDate = Date.today
+    @minDate = Time.zone.today
+    @maxDate = Time.zone.today
     @taskStartMin = Task.minimum('startdue')
     if @taskStartMin != nil
       @minDate =  Date.parse(@taskStartMin.strftime("%d %b %Y"))

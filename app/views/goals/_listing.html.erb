@@ -93,7 +93,7 @@ dojo.ready(Score.init);
 		</td>
 		<td class="taskdDA">
 			<%
-			@currentDate = Date.today
+			@currentDate = Time.zone.today
 			@taskStartdate = Date.parse(goal.tasks[s].startdue.strftime("%d %b %Y"))
 			@taskEnddate = Date.parse(goal.tasks[s].due.strftime("%d %b %Y"))
 			@showThumbsUp = false

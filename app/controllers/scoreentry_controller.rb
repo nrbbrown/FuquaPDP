@@ -10,11 +10,11 @@ class ScoreentryController < ApplicationController
 	@personalGoals = Goal.where("user_id = ? and category = ?", current_user.id, :personal)
 	@physicalGoals = Goal.where("user_id = ? and category = ?", current_user.id, :physical)
 	@socialGoals = Goal.where("user_id = ? and category = ?", current_user.id, :social)
-	@thisWeek = (params[:week] != nil) ? params[:week] : Date.today.cweek
-	@isCurrentWeek = (@thisWeek.to_i == Date.today.cweek.to_i) ? true :	false
-	@dateOfEntry = Date.commercial(Date.today.year.to_i, @thisWeek.to_i, 1)
-    @minDate = Date.today
-    @maxDate = Date.today
+	@thisWeek = (params[:week] != nil) ? params[:week] : Time.zone.today.cweek
+	@isCurrentWeek = (@thisWeek.to_i == Time.zone.today.cweek.to_i) ? true :	false
+	@dateOfEntry = Date.commercial(Time.zone.today.year.to_i, @thisWeek.to_i, 1)
+    @minDate = Time.zone.today
+    @maxDate = Time.zone.today
     @taskStartMin = Task.minimum('startdue')
     if @taskStartMin != nil
 	    @minDate =  Date.parse(@taskStartMin.strftime("%d %b %Y"))
@@ -31,7 +31,7 @@ class ScoreentryController < ApplicationController
 	@is_complete = params[:is_complete].to_i
     @task = Task.find(params[:taskid])
 	@goal = Goal.find(@task.goal_id)
-	@dateup = Date.commercial(Date.today.year.to_i, Date.today.cweek.to_i, 2)
+	@dateup = Date.commercial(Time.zone.today.year.to_i, Time.zone.today.cweek.to_i, 2)
 	respond_to do |format|
 		if @is_complete == 1
 			@taskfind = Tasksprogress.where("task_id = ? and date = ? ",params[:taskid],@dateup)
@@ -40,14 +40,14 @@ class ScoreentryController < ApplicationController
 				@taskProgress.save
 			end
 		end
-		@task.update_attributes(:is_complete => @is_complete,:completed_at => Date.today)
+		@task.update_attributes(:is_complete => @is_complete,:completed_at => Time.zone.today)
 		@goalComplete = 1
 		@goal.tasks.each do |onetask|
 			if onetask.is_complete? == false
 				@goalComplete = 0
 			end
 		end
-		@goal.update_attributes(:is_complete => @goalComplete,:completed_at => Date.today)
+		@goal.update_attributes(:is_complete => @goalComplete,:completed_at => Time.zone.today)
 		format.html { render :nothing => true }
 		format.js { render :json => 1}
 	end

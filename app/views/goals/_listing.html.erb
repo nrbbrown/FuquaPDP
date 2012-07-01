@@ -52,11 +52,13 @@ dojo.ready(Score.init);
     <div class="editdeletecontainer">
 	<%if @isme %>
 		<%if @complete != '1' %>
-			<%= link_to 'edit', edit_goal_path(goal) %>
+			<div style="float: left;padding:0px 3px;"><%= link_to 'edit', edit_goal_path(goal) %></div>
 		<% end %>
-		<%= link_to 'delete', goal, confirm: 'Are you sure you want to delete this goal?', method: :delete %>
+          <div style="float: left;padding:0px 3px;">
+            <%= link_to 'delete', goal, confirm: 'Are you sure you want to delete this goal?', method: :delete %>
+          </div>
 	<% end %>
-		<div class="commentIconBox" style="float:right;margin-left:10px;margin-top:-7px;" onclick="javascript:openCommentsPopup(0,<%=goal.id%>,<%=goal.user_id%>)">
+		<div class="commentIconBox" style="float:left;margin-left:10px;margin-top:-7px;" onclick="javascript:openCommentsPopup(0,<%=goal.id%>,<%=goal.user_id%>)">
 			<%if @isme %>
 				<%@goalNotifications.each do |onetaskNot| %>
 					<% if onetaskNot.goal_id == goal.id%>

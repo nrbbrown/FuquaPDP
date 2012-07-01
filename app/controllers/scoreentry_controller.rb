@@ -19,10 +19,7 @@ class ScoreentryController < ApplicationController
     if @taskStartMin != nil
 	    @minDate =  Date.parse(@taskStartMin.strftime("%d %b %Y"))
     end
-    @taskDueMin = Task.maximum('due')
-    if @taskDueMin != nil
-      @maxDate =  Date.parse(@taskDueMin.strftime("%d %b %Y"))
-    end
+
   end
   
   # Get /scoreentry/1

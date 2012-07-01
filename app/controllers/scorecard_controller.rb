@@ -13,9 +13,7 @@ class ScorecardController < ApplicationController
       @minDate =  Date.parse(@taskStartMin.strftime("%d %b %Y"))
     end
     @taskDueMin = Task.maximum('due')
-    if @taskDueMin != nil
-      @maxDate =  Date.parse(@taskDueMin.strftime("%d %b %Y"))
-    end
+
     @AllGoals = Goal.where("user_id = ? and is_private = 0 ", current_user.id)
 	@overallScore = 0
 	@overallActiveTasks = 0
@@ -33,7 +31,7 @@ class ScorecardController < ApplicationController
 			@taskstart = Date.parse(onetask.startdue.strftime("%d %b %Y"))
 			@taskend = Date.parse(onetask.due.strftime("%d %b %Y"))
 			@tasksEffortScore[onetask.id] = 'N/A'
-			if (@dateOfEntry.cweek >= @taskstart.cweek and @dateOfEntry.cweek <= @taskend.cweek) 
+			if (@dateOfEntry.cweek >= @taskstart.cweek and @dateOfEntry.cweek <= @taskend.cweek) or  (@dateOfEntry.cwyear < @taskend.cwyear and @dateOfEntry > @taskstart)
 				@activetasks = @activetasks + 1
 				@tasksEffortScore[onetask.id] = '0%'
 				@overallActiveTasks = @overallActiveTasks + 1

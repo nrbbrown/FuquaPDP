@@ -324,10 +324,10 @@ div.field, div.actions {
 }
 .taskarea,.displaytaskarea{
     background:#eee;
-    padding:13px 0px 13px 13px;
+    padding:13px 0px 13px 7px;
     border:1px solid #ccc;
     margin-left:-12px;
-    width:703px;
+    width:708px;
 }
 .displaytaskarea{
     margin-left:10px;
@@ -495,7 +495,7 @@ span.form-item{
 .editdeletecontainer{
     float:right;
 }
-.editdeletecontainer>a{
+.editdeletecontainer a{
     font-size:14px;
     text-decoration:none;
     background:none;
@@ -692,6 +692,7 @@ span.form-item{
 	color: #666666;
 	padding: 7px;
 	z-index:3000;
+    cursor: move;
 }
 #instructionInnerDiv li {
 	padding:5px 0px;
@@ -1133,4 +1134,7 @@ span.form-item{
     font-size:14px;
     margin:10px 5px;
     float:left;
+}
+.taskrowon td select {
+    max-width:52px;
 }

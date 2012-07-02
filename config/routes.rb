@@ -2,6 +2,7 @@ Epdp::Application.routes.draw do
 
   get "comments/index"
   get "comments/edit"
+  resources "comments"
   resources "reflection"
   resources "scorecard"
   resources "scoreentry"

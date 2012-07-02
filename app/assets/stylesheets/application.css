@@ -889,6 +889,23 @@ span.form-item{
 	padding-left: 10px;
 	width: 100%;
 }
+.goalUserLabelLength {
+    float: left;
+    font-size: 11px;
+    padding-left: 10px;
+    width: 100%;
+    color:#777777;
+}
+.deleteComment:hover {
+    color:orange;
+}
+.deleteComment {
+    color: #999999;
+    cursor:pointer;
+    font-size: 10px;
+    font-weight: normal;
+    padding-left: 10px;
+}
 .goalDescBox {
 	border:1px solid #DDDDDD;
 	float:left;

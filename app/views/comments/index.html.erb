@@ -1,45 +1,55 @@
 <div class="commentFullBox">
-	<div class="goalDescBox">
-		<div class="goalLabelBox">
-			<div class="goalLabel">Goal:</div>
-			<div class="goalText"><%=@goal.goal%></div>
-		</div>
-		<%if @task != nil && @task.id != 0%>
-			<div class="taskLabelBox">
-				<div class="taskLabel">Task:</div>
-				<div class="taskText"><%=@task.task%></div>
-			</div>
-		<% end %>
-		<div class="goalUserLabel">
-			By <%=@goalUser.name%> on <%=@goal.created_at.strftime("%b %e at %l:%M%P")%>
-		</div>
-	</div>
-	<div class="userCommentsBox">
-		<% @comments.each do |onecomment| %>
-			<div class="enterCommentsBox otherComments">
-				<div class="commentUserName">
-					<span><%=onecomment.name%></span>
-					<span class="commentCreatedAt"><%=onecomment.created_at.strftime("%b %e at %l:%M%P")%></span>
-				</div>
-				<div class="enterCommentInput">
-					<div class="otherCommentsText">
-						<%=onecomment.comment%>
-					</div>
-				</div>
-			</div>
-		<% end %>
-	</div>
-	<div class="userCommentsBox2">
-		<div class="enterCommentsBox">
-			<div class="enterCommentInput">
-				<%if @task != nil %>
-					<input autocomplete="off" id="input_comment_<%=@task.id%>_<%=@goal.id%>" type="text" placeholder="Write a Comment">
-					<div class="submitComment" onclick="submitComment(<%=@task.id%>,<%=@goal.id%>,<%=@goal.user_id%>)"></div>
-				<%else%>
-					<input autocomplete="off" id="input_comment_0_<%=@goal.id%>" type="text" placeholder="Write a Comment">
-					<div class="submitComment" onclick="submitComment(0,<%=@goal.id%>,<%=@goal.user_id%>)"></div>
-				<% end %>
-			</div>
-		</div>
-	</div>
+  <div class="goalDescBox">
+    <div class="goalLabelBox">
+      <div class="goalLabel">Goal:</div>
+      <div class="goalText"><%=@goal.goal%></div>
+    </div>
+    <%if @task != nil && @task.id != 0%>
+        <div class="taskLabelBox">
+          <div class="taskLabel">Task:</div>
+          <div class="taskText"><%=@task.task%></div>
+        </div>
+    <% end %>
+    <div class="goalUserLabel">
+      By <%=@goalUser.name%> on <%=@goal.created_at.strftime("%b %e at %l:%M%P")%>
+    </div>
+    <div class="goalUserLabelLength">
+      <%= @comments.length %> Comments
+    </div>
+  </div>
+  <div class="userCommentsBox">
+    <% @comments.each do |onecomment| %>
+        <div class="enterCommentsBox otherComments">
+          <div class="commentUserName">
+            <span><%=onecomment.name%></span>
+            <%if onecomment.comment_user_id.to_i == current_user.id.to_i %>
+                <%if @task != nil %>
+                    <span class="deleteComment" onclick="deleteComment(<%=onecomment.id%>,<%=@task.id%>,<%=@goal.id%>,<%=@goal.user_id%>)">(delete comment)</span>
+                <%else%>
+                    <span class="deleteComment" onclick="deleteComment(<%=onecomment.id%>,0,<%=@goal.id%>,<%=@goal.user_id%>)">(delete comment)</span>
+                <% end %>
+            <% end %>
+            <span class="commentCreatedAt"><%=onecomment.created_at.strftime("%b %e at %l:%M%P")%></span>
+          </div>
+          <div class="enterCommentInput">
+            <div class="otherCommentsText">
+              <%=onecomment.comment%>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+  <div class="userCommentsBox2">
+    <div class="enterCommentsBox">
+      <div class="enterCommentInput">
+        <%if @task != nil %>
+            <input autocomplete="off" id="input_comment_<%=@task.id%>_<%=@goal.id%>" type="text" placeholder="Write a Comment">
+            <div class="submitComment" onclick="submitComment(<%=@task.id%>,<%=@goal.id%>,<%=@goal.user_id%>)"></div>
+        <%else%>
+            <input autocomplete="off" id="input_comment_0_<%=@goal.id%>" type="text" placeholder="Write a Comment">
+            <div class="submitComment" onclick="submitComment(0,<%=@goal.id%>,<%=@goal.user_id%>)"></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

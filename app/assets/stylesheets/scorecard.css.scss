@@ -97,3 +97,52 @@
 .openPlusBox {
   float:left;
 }
+.scorecardTabs {
+  width:100%;
+  display: inline-block;
+  letter-spacing: normal;
+  vertical-align: top;
+  word-spacing: normal;
+  border-bottom: 1px solid #568CA5;
+  height: 37px;
+  z-index: 2;
+  margin:5px 0px;
+}
+#scorecard_tabs_list {
+  float: left;
+  list-style: none outside none !important;
+  margin: 5px 0 0 !important;
+  padding: 0 !important;
+}
+#scorecard_tabs_list li {
+  background: url("//imga.nxjimg.com/emp_image/sa500kids/offtab.png") repeat scroll 0 0 transparent;
+  border-color: #A9C4D0;
+  border-style: solid;
+  border-width: 1px 1px 0;
+  display: inline-block;
+  font-size: 120%;
+  height: 31px;
+  line-height: 26px;
+  margin-right: 4px;
+  text-transform: uppercase;
+  vertical-align: top;
+}
+#scorecard_tabs_list li a {
+  color: #5489A1;
+  display: block;
+  font-family: 'GillSans',Arial;
+  padding: 2px 10px 2px 5px;
+  text-align: center;
+  text-decoration: none;
+}
+#scorecard_tabs_list .active {
+  background: url("//imgb.nxjimg.com/emp_image/sa500kids/ontab.png") repeat scroll 0 0 transparent;
+  border-color: #568CA5;
+  border-style: solid;
+  border-width: 1px 1px 0;
+}
+#scorecard_tabs_list .active a {
+  color: #FFFFFF;
+  cursor: default;
+  font-weight: bold;
+}

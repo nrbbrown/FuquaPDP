@@ -1,0 +1,71 @@
+<div class="instructionLink" >
+  <a onclick="openinstructions('instructionLink','scoreCardInstruction')" class="instructionLinka">
+    Instructions
+  </a>
+</div>
+<div id="scoreCardInstruction" class="hidediv">
+  <div class="headtitlein">Instructions</div>
+  <div class="">
+    <ul>
+      <li>
+        The scorecard is designed to give you a sense of your performance. It defaults to the current week and gives you your Effort Score at all levels - overall, domain level, goal level and task level.
+      </li>
+      <li>
+        The Effort Score is specific to the week. To view scores for a past week, that week may be selected from the drop down.
+      </li>
+      <li>
+        The scores are calculated at each level by taking the average of scores at the level below. So the overall score is calculated by taking the average of domain scores, the domain score is calculated by taking the average of scores for goals within the domain, and the goal score is calculated by taking the average of scores for tasks within the goal.
+      </li>
+      <li>
+        The Effort Score is an indication of the effort you invested towards achieving your goals during the week. The Effort Score for a goal is calculated by dividing #(tasks given Thumbs Up) by #(total current tasks). For example, the Effort Score for a goal would be 75% if you gave a Thumbs Up to 3 out of the 4 current tasks for that goal.
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="scoreTitle">
+  <div class="floatLeft">
+    Score Card for Week of <%=@dateOfEntry.strftime("%b %e")%>
+    <%if @isCurrentWeek == true %>
+        <span class="currentweekLabel">(current week)</span>
+    <%end%>
+  </div>
+  <div class="floatRight weekSelect">
+    Select Week&nbsp;
+    <select id="entry_week_change" onchange="changeReportWeek()" autocomplete="off">
+      <%
+         @startWeek = @minDate.cweek
+         @endWeek = @maxDate.cweek
+         while @startWeek <= @endWeek
+      %>
+          <option class="entryOption" <%if @dateOfEntry.cweek == @startWeek %>selected=""<%end%> value="<%=@startWeek%>">Week <%=@startWeek%></option>
+          <%@startWeek = @startWeek + 1%>
+      <%end%>
+    </select>
+  </div>
+</div>
+
+
+<div class="scorecardTabs">
+  <ul id="scorecard_tabs_list">
+    <li class="<% if @activeTab == 1 %>active<%end%> ">
+      <a href="javascript:openScoreTab(1)">
+        Personal
+      </a>
+    </li>
+    <li class="<% if @activeTab == 2 %>active<%end%>">
+      <a href="javascript:openScoreTab(2)">
+        ILE Team
+      </a>
+    </li>
+    <li class="<% if @activeTab == 3 %>active<%end%>">
+      <a href="javascript:openScoreTab(3)">
+        Section
+      </a>
+    </li>
+    <li class="<% if @activeTab == 4 %>active<%end%>">
+      <a href="javascript:openScoreTab(4)">
+        Class
+      </a>
+    </li>
+  </ul>
+</div>

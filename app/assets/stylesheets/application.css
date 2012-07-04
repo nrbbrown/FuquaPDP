@@ -1152,7 +1152,7 @@ span.form-item{
     margin:10px 5px;
     float:left;
 }
-.taskrowon td select {
+.taskarea td select {
     font-size: 11px;
     max-width:52px;
 }

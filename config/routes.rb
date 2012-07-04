@@ -1,5 +1,10 @@
 Epdp::Application.routes.draw do
 
+  get "scorecard/ileteams"
+
+  get "scorecard/section"
+  get "scorecard/class"
+
   get "comments/index"
   get "comments/edit"
   resources "comments"
@@ -11,6 +16,7 @@ Epdp::Application.routes.draw do
 
   get "progressreport/index"
   get "progressreport/admin"
+
   resources :goals do
       resources :tasks
   end

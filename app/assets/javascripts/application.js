@@ -382,7 +382,20 @@ function closeProgressBox(goalid) {
 	dojo.byId('progressBoard_'+goalid).style.display = 'none';
 	dojo.addClass('dim','hidediv');
 }
+function openScoreTab(tab){
+    var selIndex = dojo.byId('entry_week_change').selectedIndex;
+    var selValue = dojo.byId('entry_week_change').options[selIndex].value;
+    if(tab == 1){
+        window.location = "/scorecard?week="+selValue;
+    }else if(tab == 2){
+        window.location = "/scorecard/ileteams?week="+selValue;
+    }else if(tab == 3){
+        window.location = "/scorecard/section?week="+selValue;
+    }else if(tab == 4){
+        window.location = "/scorecard/class?week="+selValue;
+    }
 
+}
 function changeEntryWeek(){
 	var selIndex = dojo.byId('entry_week_change').selectedIndex;
 	var selValue = dojo.byId('entry_week_change').options[selIndex].value;

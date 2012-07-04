@@ -132,6 +132,20 @@
     padding-left:30px;
     color:#999;
 }
+.areaform .ilelabelDiv {
+  margin:10px 0px;
+  float: left;
+  width: 100%;
+}
+.areaform label{
+  padding-left:0px;
+  color:#999;
+  float:left;
+  width:105px;
+}
+.rememberme label {
+  float:none;
+}
 .areaform input[type=text], .areaform input[type=password], .areaform input[type=email]{
     background:#333;
     border:0px;

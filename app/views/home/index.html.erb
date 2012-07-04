@@ -108,6 +108,14 @@
 
                     <div><%= f.password_field :password_confirmation, :placeholder => 'confirm password' %></div>
 
+                    <div class="ilelabelDiv"><%= f.label 'ILE Team' %>&nbsp;&nbsp;
+                      <%= f.select(:ileteam, options_for_select([[1,1],[2,2],[3,3],[4,4],[5,5],[6,6]])) %>
+                    </div>
+
+                    <div><%= f.label 'Section Number' %>&nbsp;&nbsp;
+                      <%= f.select(:section_number, options_for_select([[1,1],[2,2],[3,3],[4,4],[5,5],[6,6]])) %>
+                    </div>
+
                     <div><%= f.submit "Sign up", :class => 'formsignup' %></div>
 
                     <% end %>

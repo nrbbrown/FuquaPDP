@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120704030601) do
+ActiveRecord::Schema.define(:version => 20120704160409) do
 
   create_table "goals", :force => true do |t|
     t.string   "goal"
@@ -109,6 +109,8 @@ ActiveRecord::Schema.define(:version => 20120704030601) do
     t.string   "name"
     t.integer  "is_complete"
     t.integer  "access_level",                          :default => 0
+    t.integer  "ileteam",                               :default => 1
+    t.integer  "section_number",                        :default => 1
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

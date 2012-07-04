@@ -189,9 +189,7 @@ dojo.ready(Score.init);
 	<div class="">Effort Score: &nbsp;<span id="effort_score_<%=goal.id%>"><%= ((@tuTasks*100.0)/[@activeTasks*1.0,1].max).round %></span>%</div>
 </div>
 <div class="goalscore" id="goalscore<%=goal.id%>"><%= ((cc*100.0)/[goal.tasks.length*1.0,1].max).round %>%</div>
-  <%if goal.is_private == 1%>
-     <div class="privateGoal">This goal is private</div>
-  <% end %>
+
 </div>
 </div>
 <% end %>

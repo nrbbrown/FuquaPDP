@@ -143,7 +143,10 @@
 				</div>
 			<% end %>
         </div>
-
+        <div class="field">
+          <%= f.check_box(:is_private) %>
+          <%= f.label :is_private, "Private Goal" %>
+        </div>
         <div class="field">
             <%= f.hidden_field :is_complete, :value => 0 %>
             <%= f.hidden_field :user_id, :value => current_user.id %>

@@ -1,12 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e0298d42-e474-4abe-8210-d83bd60bb6ff" name="Default" comment="changing page title">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/commentsicon_default.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20120704025710_remove_is_private_from_goals.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20120704030601_add_is_private_from_goals.rb" />
+    <list default="true" id="e0298d42-e474-4abe-8210-d83bd60bb6ff" name="Default" comment="Merge branch 'master' of heroku.com:fuquapdp&#10;&#10;Conflicts:&#10;&#9;app/assets/javascripts/application.js&#10;&#9;app/assets/stylesheets/application.css&#10;&#9;app/assets/stylesheets/home.css.scss&#10;&#9;app/assets/stylesheets/scorecard.css.scss&#10;&#9;app/assets/stylesheets/scoreentry.css.scss&#10;&#9;app/controllers/comments_controller.rb&#10;&#9;app/controllers/goals_controller.rb&#10;&#9;app/controllers/scorecard_controller.rb&#10;&#9;app/controllers/scoreentry_controller.rb&#10;&#9;app/models/goal.rb&#10;&#9;app/views/comments/index.html.erb&#10;&#9;app/views/goals/_form.html.erb&#10;&#9;app/views/goals/_listing.html.erb&#10;&#9;app/views/goals/edit.html.erb&#10;&#9;app/views/help/index.html.erb&#10;&#9;app/views/layouts/application.html.erb&#10;&#9;app/views/progress/index.html.erb&#10;&#9;app/views/scorecard/_goaleffort.html.erb&#10;&#9;app/views/scorecard/index.html.erb&#10;&#9;app/views/scoreentry/_onedomain.html.erb&#10;&#9;config/application.rb&#10;&#9;config/database.yml&#10;&#9;db/schema.rb&#10;">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/20110718_PDP_mockup.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/20110719_PDP_mockup.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/20110721163316031.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/20110722_mim.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/20111011_mim_main.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/20111011_mim_main.psd" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/20111011_mim_score.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/20111011_mim_score.psd" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/Thumbs.db" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/bottomstripe.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/dialog_downarrow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/export/Thumbs.db" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/export/background_base.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/export/background_main_left.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/export/background_main_right.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/export/background_main_tile.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/export/background_topbar.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/export/check_off.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/export/check_on.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/export/clickarrow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/export/goal_clock.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/export/header_magnify.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/export/menu_arrow.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/export/mim_magpieicon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/export/mim_tab.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/export/mim_tab_blank.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/export/score_plusminus.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/export/score_tab.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/export/support_tab.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/magpie.psd" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/magpie_large.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/magpie_large_2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/mim.psd" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/mim_2.2.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/mim_2.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/mim_login.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/mim_login.psd" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/mim_magpie.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/save_blue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/save_blue_fade.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/search.psd" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/signin_red.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/signin_red_fade.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/signup_green.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/signup_green_fade.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/tab_lg_blue.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/tab_lg_green.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/tab_sm_delete.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/tab_sm_edit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/tab_sm_tu_off.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/tab_sm_tu_on.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/tb_lg_green_highlight.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/tu_blank.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/tu_off.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/visuals/tu_on.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
     </list>
     <ignored path="epdp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,35 +82,7 @@
     <favorites_list name="epdp" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="_form.html.erb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/goals/_form.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="148" column="16" selection-start="7296" selection-end="7296" vertical-scroll-proportion="0.4169675">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_listing.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/goals/_listing.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="193" column="12" selection-start="6824" selection-end="6921" vertical-scroll-proportion="-6.3076925">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="20120704030601_add_is_private_from_goals.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db/migrate/20120704030601_add_is_private_from_goals.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="55" selection-start="140" selection-end="140" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -87,10 +110,10 @@
         <option value="$PROJECT_DIR$/app/controllers/goals_controller.rb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/db/migrate/20120704030601_add_is_private_from_goals.rb" />
         <option value="$PROJECT_DIR$/app/views/goals/_listing.html.erb" />
         <option value="$PROJECT_DIR$/app/views/goals/_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
       </list>
     </option>
   </component>
@@ -413,19 +436,24 @@
       <created>1341196304012</created>
       <updated>1341196304012</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fixing is private default value">
+      <created>1341371596818</created>
+      <updated>1341371596818</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32847896" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32847896" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.51941746" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32200646" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25417298" sideWeight="0.32524273" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25417298" sideWeight="0.67799354" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25417298" sideWeight="0.48058254" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25417298" sideWeight="0.33333334" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32847896" sideWeight="0.49772382" order="10" side_tool="true" content_ui="tabs" />
@@ -434,7 +462,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32847896" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -477,7 +504,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="changing page title" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing is private default value" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -495,6 +522,7 @@
     <MESSAGE value="dropdown isse" />
     <MESSAGE value="changes from lost revision" />
     <MESSAGE value="changing page title" />
+    <MESSAGE value="fixing is private default value" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -560,30 +588,30 @@
         <state line="26" column="20" selection-start="510" selection-end="510" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/goals/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="48" selection-start="184" selection-end="184" vertical-scroll-proportion="0.046703298">
+        <state line="146" column="42" selection-start="7228" selection-end="7228" vertical-scroll-proportion="0.84549356">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20120704030601_add_is_private_from_goals.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="55" selection-start="140" selection-end="140" vertical-scroll-proportion="0.0">
+        <state line="25" column="28" selection-start="996" selection-end="996" vertical-scroll-proportion="0.14592275">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/goals/_listing.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="193" column="12" selection-start="6824" selection-end="6921" vertical-scroll-proportion="-6.3076925">
+        <state line="230" column="12" selection-start="8360" selection-end="8360" vertical-scroll-proportion="0.70386267">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/goals/_form.html.erb">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20120704030601_add_is_private_from_goals.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="148" column="16" selection-start="7296" selection-end="7296" vertical-scroll-proportion="0.4169675">
+        <state line="6" column="0" selection-start="140" selection-end="140" vertical-scroll-proportion="0.375">
           <folding />
         </state>
       </provider>

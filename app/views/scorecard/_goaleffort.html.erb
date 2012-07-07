@@ -19,3 +19,25 @@
 		<%end%>
 	<%end%>
 <%end%>
+<%@ggoalsPrivate.each do |onegoal|%>
+<% @privateGoals.include? onegoal.id %>
+    <div class="effortRow effortRow3 effort_row_3_<%=@domainType%>_0"
+         <% if @goalScore[onegoal.id] != 'N/A' %> style="cursor:pointer;display: none" onclick="openScoreCardDetails(<%=@domainType%>,4,<%=onegoal.id%>)" <% else %> style="display: none;"<% end %>
+    >
+      <div class="goalRowBox">
+        <div class="openPlusBox"><% if @goalScore[onegoal.id] != 'N/A' %><span id="plus_div_4_<%=@domainType%>_<%=onegoal.id%>" class="openPlusDiv">[+]</span><% end%></div>
+        <div class="effortRowTitle"><%=onegoal.goal%>&nbsp;<span style="color:#555555;font-size:11px;">(Private)</span></div>
+        <div class="effortRowProgress"><%=@goalScore[onegoal.id]%></div>
+      </div>
+    </div>
+    <%if @goalScore[onegoal.id] != 'N/A' %>
+        <%onegoal.tasks.each do |onetask|%>
+            <div class="effortRow effortRow4 effort_row_4_<%=@domainType%> effort_row_4_<%=@domainType%>_<%=onegoal.id%>" style="display: none;">
+              <div class="taskRowBox">
+                <div class="effortRowTitle"><%=onetask.task%></div>
+                <div class="effortRowProgress"><%=@tasksEffortScore[onetask.id]%></div>
+              </div>
+            </div>
+        <%end%>
+    <%end %>
+<%end%>

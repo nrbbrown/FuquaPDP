@@ -18,7 +18,7 @@ class ScorecardController < ApplicationController
     end
     @taskDueMin = Task.maximum('due')
 
-    @AllGoals = Goal.where("user_id = ? and is_private = 0 ", current_user.id)
+    @AllGoals = Goal.where("user_id = ?  ", current_user.id)
 	@overallScore = 0
 	@overallActiveTasks = 0
 	@overallProgressedTasks = 0
@@ -27,6 +27,7 @@ class ScorecardController < ApplicationController
 	@domainActiveTasks = Hash["academic",0,"career",0,"social",0,"personal",0,"physical",0]
 	@domainProgressedTasks = Hash["academic",0,"career",0,"social",0,"personal",0,"physical",0]
 	@tasksEffortScore = Hash.new
+    @privateGoals = Array.new
 	@AllGoals.each do |onegoal|
 		@goalScore[onegoal.id] = 0
 		@activetasks = 0
@@ -35,7 +36,7 @@ class ScorecardController < ApplicationController
 			@taskstart = Date.parse(onetask.startdue.strftime("%d %b %Y"))
 			@taskend = Date.parse(onetask.due.strftime("%d %b %Y"))
 			@tasksEffortScore[onetask.id] = 'N/A'
-			if (@dateOfEntry.cweek >= @taskstart.cweek and @dateOfEntry.cweek <= @taskend.cweek) or  (@dateOfEntry.cwyear < @taskend.cwyear and @dateOfEntry > @taskstart)
+			if onegoal.is_private == 0 and ((@dateOfEntry.cweek >= @taskstart.cweek and @dateOfEntry.cweek <= @taskend.cweek) or  (@dateOfEntry.cwyear < @taskend.cwyear and @dateOfEntry > @taskstart))
 				@activetasks = @activetasks + 1
 				@tasksEffortScore[onetask.id] = '0%'
 				@overallActiveTasks = @overallActiveTasks + 1
@@ -50,7 +51,19 @@ class ScorecardController < ApplicationController
 					end
 				end
 				@goalScore[onegoal.id] = "#{@tasksProgressed*100/@activetasks}%"
-			end
+      elsif onegoal.is_private == 1 and ((@dateOfEntry.cweek >= @taskstart.cweek and @dateOfEntry.cweek <= @taskend.cweek) or  (@dateOfEntry.cwyear < @taskend.cwyear and @dateOfEntry > @taskstart))
+        @privateGoals.push(onegoal.id)
+        @activetasks = @activetasks + 1
+        @tasksEffortScore[onetask.id] = '0%'
+        onetask.tasksprogresses.each do |onevote|
+          @taskVotedate = Date.parse(onevote.date.strftime("%d %b %Y"))
+          if @taskVotedate.cweek == @dateOfEntry.cweek
+            @tasksProgressed = @tasksProgressed + 1
+            @tasksEffortScore[onetask.id] = '100%'
+          end
+        end
+        @goalScore[onegoal.id] = "#{@tasksProgressed*100/@activetasks}%"
+      end
 		end
 		if @activetasks == 0
 			@goalScore[onegoal.id] = 'N/A'
@@ -68,7 +81,13 @@ class ScorecardController < ApplicationController
 	@personalGoals = Goal.where("user_id = ? and category = ?  and is_private = 0 ", current_user.id, :personal)
 	@physicalGoals = Goal.where("user_id = ? and category = ? and is_private = 0 ", current_user.id, :physical)
 	@socialGoals = Goal.where("user_id = ? and category = ? and is_private = 0 ", current_user.id, :social)
-	
+
+
+    @academicPrivateGoals = Goal.where("user_id = ? and category = ? and is_private = 1 ", current_user.id, :academic)
+    @careerPrivateGoals = Goal.where("user_id = ? and category = ?  and is_private = 1 ", current_user.id, :career)
+    @personalPrivateGoals = Goal.where("user_id = ? and category = ?  and is_private = 1 ", current_user.id, :personal)
+    @physicalPrivateGoals = Goal.where("user_id = ? and category = ? and is_private = 1 ", current_user.id, :physical)
+    @socialPrivateGoals = Goal.where("user_id = ? and category = ? and is_private = 1 ", current_user.id, :social)
 
   end
 

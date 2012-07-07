@@ -396,6 +396,12 @@ function openScoreTab(tab){
     }
 
 }
+function isNumberKey(evt){
+    var charCode = (evt.which) ? evt.which : event.keyCode
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+    return true;
+}
 function changeEntryWeek(){
 	var selIndex = dojo.byId('entry_week_change').selectedIndex;
 	var selValue = dojo.byId('entry_week_change').options[selIndex].value;

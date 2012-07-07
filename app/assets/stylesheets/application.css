@@ -298,7 +298,7 @@ div.field, div.actions {
 }
 .goalaccountability{
     margin:10px 0 0 50px;
-	width:50%;
+	max-width:72%;
 }
 .goalaccountability a{
     color:#52B0CB;
@@ -681,18 +681,28 @@ span.form-item{
 .closeButtonBox {
 	width:796px;
 	position:relative;
-	margin:100px auto 0 auto;
+	margin-left:35px;
+}
+.innerinnerOuterDiv {
+    width:840px;
+    margin:0 auto;
+    background: url('/images/white.png') repeat;
+    border: 1px solid #DDDDDD;
+    box-shadow: 4px 5px 7px #FFFFFF;
+    margin-top:65px;
+    max-height:470px;
 }
 #instructionInnerDiv {
 	width:800px;
-	margin:0px auto 0 auto;
-	background: url('/images/white.png') repeat;
-	border: 1px solid #DDDDDD;
-	box-shadow: 3px -3px 10px #FFFFFF;
+    padding-top:0px;
+	margin:5px auto 0 auto;
 	color: #666666;
 	padding: 7px;
 	z-index:3000;
     cursor: move;
+    overflow:auto;
+    padding-top:0px;
+    max-height:415px;
 }
 #instructionInnerDiv li {
 	padding:5px 0px;
@@ -1148,9 +1158,9 @@ span.form-item{
 .privateGoal {
     font-style: italic;
     color:#777777;
-    font-size:14px;
-    margin:10px 5px;
-    float:left;
+    font-size:12px;
+    margin-right:20px;
+    float:right;
 }
 .taskarea td select {
     font-size: 11px;

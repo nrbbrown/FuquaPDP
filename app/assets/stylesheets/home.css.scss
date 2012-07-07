@@ -13,7 +13,7 @@
 #centercontainer{
     width: 1000px;
     margin:auto;
-    padding-top:50px;
+    padding-top:20px;
 }
 
 #largebird{ 
@@ -32,7 +32,7 @@
 #mimtitlelg{
     font-size:70px;
     color:#eee;
-    padding-top:60px;
+    padding-top:45px;
     padding-bottom:20px;
     border-bottom:1px solid #333;
     width:600px;
@@ -141,7 +141,7 @@
   padding-left:0px;
   color:#999;
   float:left;
-  width:105px;
+  width:75px;
 }
 .rememberme label {
   float:none;
@@ -164,7 +164,7 @@
 .forgotpassword{
     position:absolute;
     margin-left:150px;
-    margin-top:30px;
+    margin-top:75px;
     padding:10px;
     font-size:10px;
     width:215px;
@@ -192,14 +192,9 @@
 	text-align:center;
 	cursor:pointer;
 }
-#instructionInnerDiv {
-	max-height:470px;
-	overflow:auto;
-	margin-top:-1px;
-}
-.closeButtonBox {
-	margin-top:65px;
-}
 .blueCloseButton {
 	margin-top:-30px;
+}
+.ileteamInput {
+  width:130px !important;
 }

@@ -15,9 +15,17 @@ dojo.ready(Score.init);
     <style>
         .tdownImage:hover {
             background: url("/images/tu_on.png") no-repeat scroll 0 0 transparent;
+            cursor:pointer;
+        }
+        .tupImage:hover{
+            cursor: pointer;
         }
         .checkImageOff:hover {
             background: url("/images/check_on.png") no-repeat scroll 0 0 transparent;
+            cursor:pointer;
+        }
+        .checkImageOn {
+            cursor: pointer;
         }
     </style>
 <% end %>
@@ -58,7 +66,7 @@ dojo.ready(Score.init);
             <%= link_to 'delete', goal, confirm: 'Are you sure you want to delete this goal?', method: :delete %>
           </div>
 	<% end %>
-		<div class="commentIconBox" style="float:left;margin-left:10px;margin-top:-7px;" onclick="javascript:openCommentsPopup(0,<%=goal.id%>,<%=goal.user_id%>)">
+		<div class="commentIconBox" title="Add Comments" style="float:left;margin-left:10px;margin-top:-7px;" onclick="javascript:openCommentsPopup(0,<%=goal.id%>,<%=goal.user_id%>)">
 			<%if @isme %>
 				<%@goalNotifications.each do |onetaskNot| %>
 					<% if onetaskNot.goal_id == goal.id%>
@@ -116,14 +124,14 @@ dojo.ready(Score.init);
 			<%elsif @showThumbsUp == true %>
 				<%@tuTasks = @tuTasks + 1%>
 				<%@activeTasks = @activeTasks + 1%>
-				<div id="tu_img_<%=goal.tasks[s].id%>" title="thumbsUp" class="tupImage"
+				<div id="tu_img_<%=goal.tasks[s].id%>" title="Thumbs Up" class="tupImage"
 				<%if @isme %>
 				onclick="markTaskProgressEntry(<%=goal.tasks[s].id%>,0,<%=goal.tasks[s].goal_id%>,<%=@currentDate.cweek%>,<%=@currentDate.year%>)"
 				<%end%>
 				>
 			<%else%>
 			<%@activeTasks = @activeTasks + 1%>
-				<div id="tu_img_<%=goal.tasks[s].id%>" title="thumbsUp" class="tdownImage"
+				<div id="tu_img_<%=goal.tasks[s].id%>" title="Thumbs Up" class="tdownImage"
 				<%if @isme %>
 				onclick="markTaskProgressEntry(<%=goal.tasks[s].id%>,1,<%=goal.tasks[s].goal_id%>,<%=@currentDate.cweek%>,<%=@currentDate.year%>)"
 				<%end%>
@@ -132,14 +140,14 @@ dojo.ready(Score.init);
 		</td>
         <td class="tasktdE">
 			<%if goal.tasks[s].is_complete? == true %>
-				<div title="Goal Complete" id="thumbs_img_<%= goal.tasks[s].id%>"
+				<div title="Task Complete" id="thumbs_img_<%= goal.tasks[s].id%>"
 				class="checkImageOn"
 				<%if @isme %>
 				onclick="updateTaskComplete(<%=goal.tasks[s].id%>,<%=goal.tasks[s].goal_id%>,0)"
 				<%end%>
 				></div>
 			<%else%>
-				<div title="Goal Complete%>" id="thumbs_img_<%= goal.tasks[s].id%>"
+				<div title="Task Complete" id="thumbs_img_<%= goal.tasks[s].id%>"
 				class="checkImageOff"
 				<%if @isme %>
 				onclick="updateTaskComplete(<%=goal.tasks[s].id%>,<%=goal.tasks[s].goal_id%>,1)"
@@ -148,7 +156,7 @@ dojo.ready(Score.init);
 			<%end%>
         </td>
 		<td class="tasktdF">
-			<div class="commentIconBox" onclick="javascript:openCommentsPopup(<%=goal.tasks[s].id%>,<%=goal.tasks[s].goal_id%>,<%=goal.tasks[s].user_id%>)">
+			<div class="commentIconBox" title="Add Comments" onclick="javascript:openCommentsPopup(<%=goal.tasks[s].id%>,<%=goal.tasks[s].goal_id%>,<%=goal.tasks[s].user_id%>)">
 				<%if @isme %>
 					<%@taskNotifications.each do |onetaskNot| %>
 						<% if onetaskNot.task_id == goal.tasks[s].id%>

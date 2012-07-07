@@ -76,9 +76,7 @@
 	float:right;
 	padding-top:5px;
 }
-.tdownImage,.tupImage {
-	cursor:pointer;
-}
+
 .tdownImage, .tupImage, .checkImage, .checkImageOn, .checkImageOff {
 	float:left;
 }
@@ -94,7 +92,6 @@
 }
 .checkImageOn,.checkImageOff {
 	margin:-6px 4px 0px 7px;
-	cursor:pointer;
 	background: url("/images/check_off.png") no-repeat scroll 0 0 transparent;
 	height: 32px;
 	width: 30px;

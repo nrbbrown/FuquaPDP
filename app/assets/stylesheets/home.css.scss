@@ -146,13 +146,18 @@
 .rememberme label {
   float:none;
 }
-.areaform input[type=text], .areaform input[type=password], .areaform input[type=email]{
+.areaform input[type=text], .areaform input[type=password], .areaform input[type=email], .areaform select {
     background:#333;
     border:0px;
     margin-bottom:7px;
     padding: 5px;
     font-size:14px;
     width:220px;
+    color:#999999;
+}
+.areaform select {
+  color:#999999;
+  width:50px;
 }
 .signinpad{
     margin-top:49px;
@@ -197,4 +202,10 @@
 }
 .ileteamInput {
   width:130px !important;
+}
+#updateSignContainer {
+    margin: 50px 229px
+}
+#updateSignContainer .forgotpassword{
+   margin:10px 15px;
 }

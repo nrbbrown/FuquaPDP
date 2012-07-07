@@ -4,12 +4,10 @@
 
 	<div class="effortBox">
 		<div class="effortScoreBox">
-			<div class="titleBoxInner">
-				Effort Score
-			</div>
+
 			<div class="effortInnerBox">
 				<div class="effortRow overallRow">
-					<div class="effortRowTitle">Overall</div>
+					<div class="effortRowTitle">Overall Effort Score</div>
 					<div class="effortRowProgress"><%=@overallScore%>%</div>
 				</div>
 
@@ -27,8 +25,8 @@
 
                 <%@domainType = 2%>
 				<div class="effortRow effortRow2">
-                  <div class="categoryRowBox" id="category_row_<%=@domainType%>" <% if @domainScore["career"] != 'N/A' %> style="cursor:pointer;" onclick="openScoreCardDetails(<%=@domainType%>,3,0)" <% else %> style="border-bottom: 2px solid #999999"  <% end %>>
-                        <div class="openPlusBox"><% if @domainScore["career"] != 'N/A' %><span id="plus_div_3_<%=@domainType%>_0" class="openPlusDiv">[+]</span><% end%></div>
+                  <div class="categoryRowBox" id="category_row_<%=@domainType%>" <% if @domainScore["career"] != 'N/A' or @careerPrivateGoals.length != 0 %> style="cursor:pointer;" onclick="openScoreCardDetails(<%=@domainType%>,3,0)" <% else %> style="border-bottom: 2px solid #999999"  <% end %>>
+                        <div class="openPlusBox"><% if @domainScore["career"] != 'N/A' or @careerPrivateGoals.length != 0 %><span id="plus_div_3_<%=@domainType%>_0" class="openPlusDiv">[+]</span><% end%></div>
 						<div class="effortRowTitle">Career</div>
 						<div class="effortRowProgress"><%=@domainScore["career"]%></div>
 					</div>
@@ -39,8 +37,8 @@
 
                 <%@domainType = 3%>
 				<div class="effortRow effortRow2">
-                  <div class="categoryRowBox" id="category_row_<%=@domainType%>" <% if @domainScore["social"] != 'N/A' %> style="cursor:pointer;" onclick="openScoreCardDetails(<%=@domainType%>,3,0)" <% else %> style="border-bottom: 2px solid #999999"  <% end %>>
-                        <div class="openPlusBox"><% if @domainScore["social"] != 'N/A' %><span id="plus_div_3_<%=@domainType%>_0" class="openPlusDiv">[+]</span><% end%></div>
+                  <div class="categoryRowBox" id="category_row_<%=@domainType%>" <% if @domainScore["social"] != 'N/A' or @socialPrivateGoals.length != 0 %> style="cursor:pointer;" onclick="openScoreCardDetails(<%=@domainType%>,3,0)" <% else %> style="border-bottom: 2px solid #999999"  <% end %>>
+                        <div class="openPlusBox"><% if @domainScore["social"] != 'N/A' or @socialPrivateGoals.length != 0 %><span id="plus_div_3_<%=@domainType%>_0" class="openPlusDiv">[+]</span><% end%></div>
                         <div class="effortRowTitle">Social</div>
 						<div class="effortRowProgress"><%=@domainScore["social"]%></div>
 					</div>
@@ -52,8 +50,8 @@
 
                 <%@domainType = 4%>
                 <div class="effortRow effortRow2">
-                    <div class="categoryRowBox" id="category_row_<%=@domainType%>" <% if @domainScore["personal"] != 'N/A' %> style="cursor:pointer;" onclick="openScoreCardDetails(<%=@domainType%>,3,0)" <% else %> style="border-bottom: 2px solid #999999" <% end %>>
-                        <div class="openPlusBox"><% if @domainScore["personal"] != 'N/A' %><span id="plus_div_3_<%=@domainType%>_0" class="openPlusDiv">[+]</span><% end%></div>
+                    <div class="categoryRowBox" id="category_row_<%=@domainType%>" <% if @domainScore["personal"] != 'N/A' or @personalPrivateGoals.length != 0 %> style="cursor:pointer;" onclick="openScoreCardDetails(<%=@domainType%>,3,0)" <% else %> style="border-bottom: 2px solid #999999" <% end %>>
+                        <div class="openPlusBox"><% if @domainScore["personal"] != 'N/A' or @personalPrivateGoals.length != 0%><span id="plus_div_3_<%=@domainType%>_0" class="openPlusDiv">[+]</span><% end%></div>
                         <div class="effortRowTitle">Personal</div>
 						<div class="effortRowProgress"><%=@domainScore["personal"]%></div>
 					</div>
@@ -64,8 +62,8 @@
 
                 <%@domainType = 5%>
                 <div class="effortRow effortRow2">
-                     <div class="categoryRowBox" id="category_row_<%=@domainType%>" <% if @domainScore["physical"] != 'N/A' %> style="cursor:pointer;" onclick="openScoreCardDetails(<%=@domainType%>,3,0)" <% else %> style="border-bottom: 2px solid #999999"  <% end %>>
-                        <div class="openPlusBox"><% if @domainScore["physical"] != 'N/A' %><span id="plus_div_3_<%=@domainType%>_0" class="openPlusDiv">[+]</span><% end%></div>
+                     <div class="categoryRowBox" id="category_row_<%=@domainType%>" <% if @domainScore["physical"] != 'N/A' or @physicalPrivateGoals.length != 0 %> style="cursor:pointer;" onclick="openScoreCardDetails(<%=@domainType%>,3,0)" <% else %> style="border-bottom: 2px solid #999999"  <% end %>>
+                        <div class="openPlusBox"><% if @domainScore["physical"] != 'N/A' or @physicalPrivateGoals.length != 0 %><span id="plus_div_3_<%=@domainType%>_0" class="openPlusDiv">[+]</span><% end%></div>
                         <div class="effortRowTitle">Physical</div>
 						<div class="effortRowProgress"><%=@domainScore["physical"]%></div>
 					</div>

@@ -20,12 +20,10 @@ class ScorecardController < ApplicationController
 
     @AllGoals = Goal.where("user_id = ?  ", current_user.id)
 	@overallScore = 0
-	@overallActiveTasks = 0
-	@overallProgressedTasks = 0
 	@domainScore = Hash["academic",0,"career",0,"social",0,"personal",0,"physical",0]
 	@goalScore = Hash.new
-	@domainActiveTasks = Hash["academic",0,"career",0,"social",0,"personal",0,"physical",0]
-	@domainProgressedTasks = Hash["academic",0,"career",0,"social",0,"personal",0,"physical",0]
+	@domainActiveGoals = Hash["academic",0,"career",0,"social",0,"personal",0,"physical",0]
+	@domainProgressedGoals = Hash["academic",0,"career",0,"social",0,"personal",0,"physical",0]
 	@tasksEffortScore = Hash.new
     @privateGoals = Array.new
 	@AllGoals.each do |onegoal|
@@ -39,18 +37,13 @@ class ScorecardController < ApplicationController
 			if onegoal.is_private == 0 and ((@dateOfEntry.cweek >= @taskstart.cweek and @dateOfEntry.cweek <= @taskend.cweek) or  (@dateOfEntry.cwyear < @taskend.cwyear and @dateOfEntry > @taskstart))
 				@activetasks = @activetasks + 1
 				@tasksEffortScore[onetask.id] = '0%'
-				@overallActiveTasks = @overallActiveTasks + 1
-				@domainActiveTasks[onegoal.category] = @domainActiveTasks[onegoal.category].to_i + 1
 				onetask.tasksprogresses.each do |onevote|
 					@taskVotedate = Date.parse(onevote.date.strftime("%d %b %Y"))
 					if @taskVotedate.cweek == @dateOfEntry.cweek
 						@tasksProgressed = @tasksProgressed + 1
 						@tasksEffortScore[onetask.id] = '100%'
-						@overallProgressedTasks = @overallProgressedTasks + 1
-						@domainProgressedTasks[onegoal.category] = @domainProgressedTasks[onegoal.category].to_i + 1
 					end
 				end
-				@goalScore[onegoal.id] = "#{@tasksProgressed*100/@activetasks}%"
       elsif onegoal.is_private == 1 and ((@dateOfEntry.cweek >= @taskstart.cweek and @dateOfEntry.cweek <= @taskend.cweek) or  (@dateOfEntry.cwyear < @taskend.cwyear and @dateOfEntry > @taskstart))
         @privateGoals.push(onegoal.id)
         @activetasks = @activetasks + 1
@@ -67,14 +60,42 @@ class ScorecardController < ApplicationController
 		end
 		if @activetasks == 0
 			@goalScore[onegoal.id] = 'N/A'
-		end
+    else
+      @goalScore[onegoal.id] = "#{(@tasksProgressed*100.00/@activetasks).round(2)}%"
+      if onegoal.is_private == 0
+        @domainActiveGoals[onegoal.category] = @domainActiveGoals[onegoal.category].to_i + 1
+        @domainProgressedGoals[onegoal.category] = @domainProgressedGoals[onegoal.category] + (@tasksProgressed*100.00/@activetasks)
+      end
+    end
 	end
-	@domainScore["academic"] = (@domainActiveTasks["academic"] == 0) ? 'N/A' : "#{@domainProgressedTasks["academic"]*100/@domainActiveTasks["academic"]}%"
-	@domainScore["career"] = (@domainActiveTasks["career"] == 0) ? 'N/A' : "#{@domainProgressedTasks["career"]*100/@domainActiveTasks["career"]}%"
-	@domainScore["social"] = (@domainActiveTasks["social"] == 0) ? 'N/A' : "#{@domainProgressedTasks["social"]*100/@domainActiveTasks["social"]}%"
-	@domainScore["personal"] = (@domainActiveTasks["personal"] == 0) ? 'N/A' : "#{@domainProgressedTasks["personal"]*100/@domainActiveTasks["personal"]}%"
-	@domainScore["physical"] = (@domainActiveTasks["physical"] == 0) ? 'N/A' : "#{@domainProgressedTasks["physical"]*100/@domainActiveTasks["physical"]}%"
-	@overallScore = (@overallActiveTasks == 0) ? 'N/A' : (@overallProgressedTasks*100/@overallActiveTasks)
+	@domainScore["academic"] = (@domainActiveGoals["academic"] == 0) ? 'N/A' : "#{(@domainProgressedGoals["academic"]/@domainActiveGoals["academic"]).round(2)}%"
+	@domainScore["career"] = (@domainActiveGoals["career"] == 0) ? 'N/A' : "#{(@domainProgressedGoals["career"]/@domainActiveGoals["career"]).round(2)}%"
+	@domainScore["social"] = (@domainActiveGoals["social"] == 0) ? 'N/A' : "#{(@domainProgressedGoals["social"]/@domainActiveGoals["social"]).round(2)}%"
+	@domainScore["personal"] = (@domainActiveGoals["personal"] == 0) ? 'N/A' : "#{(@domainProgressedGoals["personal"]/@domainActiveGoals["personal"]).round(2)}%"
+	@domainScore["physical"] = (@domainActiveGoals["physical"] == 0) ? 'N/A' : "#{(@domainProgressedGoals["physical"]/@domainActiveGoals["physical"]).round(2)}%"
+    @overallActiveDomains = 0
+    @overallScoreDomain = 0
+    if @domainActiveGoals["academic"] != 0
+      @overallActiveDomains = @overallActiveDomains + 1
+      @overallScoreDomain = @overallScoreDomain + (@domainProgressedGoals["academic"]/@domainActiveGoals["academic"]).round(2)
+    end
+    if @domainActiveGoals["career"] != 0
+      @overallActiveDomains = @overallActiveDomains + 1
+      @overallScoreDomain = @overallScoreDomain + (@domainProgressedGoals["career"]/@domainActiveGoals["career"]).round(2)
+    end
+    if @domainActiveGoals["social"] != 0
+      @overallActiveDomains = @overallActiveDomains + 1
+      @overallScoreDomain = @overallScoreDomain + (@domainProgressedGoals["social"]/@domainActiveGoals["social"]).round(2)
+    end
+    if @domainActiveGoals["personal"] != 0
+      @overallActiveDomains = @overallActiveDomains + 1
+      @overallScoreDomain = @overallScoreDomain + (@domainProgressedGoals["personal"]/@domainActiveGoals["personal"]).round(2)
+    end
+    if @domainActiveGoals["physical"] != 0
+      @overallActiveDomains = @overallActiveDomains + 1
+      @overallScoreDomain = @overallScoreDomain + (@domainProgressedGoals["physical"]/@domainActiveGoals["physical"]).round(2)
+    end
+    @overallScore = (@overallActiveDomains == 0) ? 'N/A' : (@overallScoreDomain*1.00/@overallActiveDomains).round(2)
 	
 	@academicGoals = Goal.where("user_id = ? and category = ? and is_private = 0 ", current_user.id, :academic)
 	@careerGoals = Goal.where("user_id = ? and category = ?  and is_private = 0 ", current_user.id, :career)

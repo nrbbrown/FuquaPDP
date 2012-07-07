@@ -5,6 +5,7 @@ class ScoreentryController < ApplicationController
   def index
     @users = User.find(:all,:order=>"name")
     @uid = (params[:u] != nil) ? params[:u] : current_user.id
+    @isme = (current_user.id.to_i == @uid.to_i) ? true : false
 	@academicGoals = Goal.where("user_id = ? and category = ?", current_user.id, :academic)
 	@careerGoals = Goal.where("user_id = ? and category = ?", current_user.id, :career)
 	@personalGoals = Goal.where("user_id = ? and category = ?", current_user.id, :personal)

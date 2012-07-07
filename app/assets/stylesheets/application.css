@@ -349,20 +349,20 @@ div.field, div.actions {
     width:210px;
 }
 .submitgoal{
-	background:url('/images/submit_arrow_gray.png') 0 0 no-repeat;
+	background:url('/images/submitbutton.png') 0 0 no-repeat;
     width:150px;
-    height:160px;
+    height:50px;
     border:none;
     color:transparent;
 }
 .submitgoal:hover{
-	background:url('/images/clickarrow.png') 0 0 no-repeat;
-    cursor:pointer;
+    background:url('/images/submitbuttonon.png') 0 0 no-repeat;
+	cursor:pointer;
 }
 #submitgoalbox{
-    position:absolute;
-    margin-left:550px;
-    margin-top:-55px;
+    margin-left: 506px;
+    margin-top: -12px;
+    position: absolute;
 }
 #mimitem{
     position:fixed;
@@ -654,7 +654,7 @@ span.form-item{
     left:0px; 
 }
 #commentInnerDiv {
-	width:800px;
+	width:822px;
 	margin:0px auto 0 auto;
 	background: url('/images/white.png') repeat;
 	border: 1px solid #DDDDDD;

@@ -8,12 +8,8 @@
 
 
 <div id="centercontainer">
-    <div id="largebird"></div>
     <div id="rightcontainer">
-        <div id="mimtitlelg">
-            <span>Fuqua PDP</span>
-			<span class="mimsubtitle mimsubtitle2">Become a leader of consequence!</span>
-        </div>
+        <div id="updateSignContainer">
         <div id="signincontainer">
             <div id="signinarea">
                 <div class="bluetext">update my account</div>
@@ -31,36 +27,35 @@
 
                     <p><%= f.password_field :current_password, :placeholder => 'current password' %></p>
 
-                      <div class="ilelabelDiv"><%= f.label 'ILE Team' %>&nbsp;&nbsp;
-                        <%= f.select(:ileteam, options_for_select([[1,1],[2,2],[3,3],[4,4],[5,5],[6,6]])) %>
+                      <div class="ilelabelDiv">
+                        <label for="user_ILE Team">ILE Team</label>&nbsp;&nbsp;
+                        <%= f.text_field :ileteam, :class => 'ileteamInput' , :autocomplete => 'off', :onkeypress => 'return isNumberKey(event)' %>
                       </div>
 
-                      <div><%= f.label 'Section Number' %>&nbsp;&nbsp;
+                      <div><%= f.label 'Section' %>&nbsp;&nbsp;
                         <%= f.select(:section_number, options_for_select([[1,1],[2,2],[3,3],[4,4],[5,5],[6,6]])) %>
                       </div>
 
-                    <div><%= f.submit "Update", :class => 'formupdate' %></div>
+
+                      <div><%= f.submit "Update", :class => 'formupdate' %></div>
                     <% end %>
-                    <div class="forgotpassword">for assistance, please contact the admin: 
-						<a href="mailto:fuquapdp@gmail.com"><span class="bluehighlight">fuquapdp@gmail.com</span></a>
-                    </div>
+
                 </div>
             </div>
 
             <div id="signuparea">
-                <div class="redtext">cancel my account</div>
-                <div class="areaform">
 
-                    <p><%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure? This cannot be undone.", :method => :delete, :class => 'formsignin' %></p>
-
-
-                </div>
                 <div class="greentext">back to goals</div>
                 <div class="areaform">
                     <p><%= link_to "Back", goals_path, :class => 'formsignup' %></p>
                 </div>
+
+              <div class="forgotpassword">for assistance, please contact the admin:
+                <a href="mailto:fuquapdp@gmail.com"><span class="bluehighlight">fuquapdp@gmail.com</span></a>
+              </div>
             </div>
 
+        </div>
         </div>
     </div>
 </div>

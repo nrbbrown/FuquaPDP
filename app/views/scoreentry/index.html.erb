@@ -1,3 +1,21 @@
+<%if @isme %>
+    <style>
+        .tdownImage:hover {
+            background: url("/images/tu_on.png") no-repeat scroll 0 0 transparent;
+            cursor:pointer;
+        }
+        .tupImage:hover{
+            cursor: pointer;
+        }
+        .checkImageOff:hover {
+            background: url("/images/check_on.png") no-repeat scroll 0 0 transparent;
+            cursor:pointer;
+        }
+        .checkImageOn {
+            cursor: pointer;
+        }
+    </style>
+<% end %>
 <div id="outer-score-container">
 	<div class="instructionLink" >
 		<a onclick="openinstructions('instructionLink','scoreEntryInstruction')" class="instructionLinka">
@@ -9,7 +27,7 @@
 		<div class="">
 		<ul>
 			<li>
-				This page is designed to make it easier for you to self-rate your performance. This page defaults to current week and presents all current tasks for all goals across all domains. You can go through your current tasks and give them a Thumbs Up (if you feel satisfied with the effort you invested on that task that week) and/or mark them complete. Scores are 
+				This page is designed to make it easier for you to self-rate your performance. This page defaults to current week and presents all current tasks for all goals across all domains. You can go through your current tasks and give them a Thumbs Up (if you feel satisfied with the effort you invested on that task that week) and/or mark them complete.
 			</li>
 			<li>
 				If you want to edit your scores for past weeks you may do so by selecting the appropriate week from the drop down. 

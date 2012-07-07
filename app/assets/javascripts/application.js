@@ -205,6 +205,7 @@ function openinstructions(id1,id2){
 	if(dojo.byId(id2)){
 		dojo.removeClass('instructionOuterDiv','hidediv');
 		dojo.removeClass('instructionDiv','hidediv');
+        dojo.byId('mentor_field_box').style.position = 'inherit';
 		dojo.byId('instructionInnerDiv').innerHTML = dojo.byId(id2).innerHTML;
 	}
 }
@@ -212,18 +213,21 @@ function closeInstructionBox(){
 	if(dojo.byId('instructionDiv')){
 		dojo.addClass('instructionOuterDiv','hidediv');
 		dojo.addClass('instructionDiv','hidediv');
+        dojo.byId('mentor_field_box').style.position = 'relative';
 	}
 }
 function showUserList(){
 	var v = dojo.byId('search-input').value;
-	
+
 	if(v == ''){
 		dojo.addClass('userlistdiv','hidediv');
 		dojo.addClass('dimuser','hidediv');
+        dojo.byId('mentor_field_box').style.position = 'relative';
 	}else{
 		dojo.removeClass('userlistdiv','hidediv');
 		dojo.removeClass('dimuser','hidediv');
-		var allUsers = dojo.query('.userentry a');
+        dojo.byId('mentor_field_box').style.position = 'inherit';
+        var allUsers = dojo.query('.userentry a');
 		var count = 0;
 		allUsers.forEach(function(node) {	
 			var n = node.innerHTML.toUpperCase();
@@ -626,10 +630,6 @@ var Goals = {
             node && dojo.connect(node,'onfocus',{'taskrow':i+1},Goals.shownextTask);
         }
         Goals.showActiveComplete();
-        
-        
-        //dojo.connect(dojo.byId('searchdiv'),'onclick',{},Goals.showSearch);
-        //dojo.connect(dojo.byId('userdirectory'),'onclick',{},Goals.showSearch);
 
     },
 

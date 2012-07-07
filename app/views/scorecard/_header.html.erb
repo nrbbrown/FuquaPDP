@@ -24,7 +24,7 @@
 </div>
 <div class="scoreTitle">
   <div class="floatLeft">
-    Score Card for Week of <%=@dateOfEntry.strftime("%b %e")%>
+    <%=current_user.name%>'s Score Card for Week of <%=@dateOfEntry.strftime("%b %e")%>
     <%if @isCurrentWeek == true %>
         <span class="currentweekLabel">(current week)</span>
     <%end%>

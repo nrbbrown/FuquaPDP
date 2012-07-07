@@ -19,17 +19,19 @@
 												order by name ",current_user.id]
 
 		@notifications = UserComments.find_by_sql ["select distinct uc.comment,u.name,uc.created_at,
-													uc.task_id,uc.goal_id,uc.goal_user_id
+													uc.task_id,uc.goal_id,uc.goal_user_id,uu.name as goaluser
 													from user_comments uc (nolock)
 													join users u
 													on u.id = uc.comment_user_id
+													join users uu
+													on uu.id = uc.goal_user_id
 													where goal_user_id = ?
 													and is_read = 0 
 													order by created_at desc", current_user.id]
 													
 		@otherNotifications = UserComments.find_by_sql ["
 														select distinct uc.comment,u.name,uc.created_at,
-														uc.task_id,uc.goal_id,uc.goal_user_id 
+														uc.task_id,uc.goal_id,uc.goal_user_id ,uu.name as goaluser
 														from user_comments  uc (nolock)
 														join user_last_seen_comments ls (nolock)
 															on uc.goal_id = ls.goal_id
@@ -37,6 +39,8 @@
 															and ls.user_id = ?
 														join users u
 															on u.id = uc.comment_user_id
+													    join users uu
+													        on uu.id = uc.goal_user_id
 														where uc.task_id in (
 															select distinct task_id from user_comments
 															where comment_user_id = ?
@@ -108,8 +112,10 @@
 									<%=onenotification.name%> commented on 
 									<% if onenotification.goal_user_id ==  current_user.id%>
 									your
-									<%else %>
-									a
+									<%elsif onenotification.name == onenotification.goaluser %>
+                                        his own
+                                    <%else %>
+									    <%=onenotification.goaluser%>'s
 									<%end%> goal:
 								</div>
 								<div class="mainNotifiyDate">

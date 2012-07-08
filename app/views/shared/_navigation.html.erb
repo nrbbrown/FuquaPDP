@@ -2,6 +2,7 @@
 @users = User.find(:all,:order=>"name")
 	if current_user != nil
 		@uid = (params[:u] != nil) ? params[:u] : current_user.id
+
 		@isme = (current_user.id.to_i == @uid.to_i) ? true : false
 		
 		@myMentors = MentorUser.find_by_sql ["select distinct mentor_user_id as id, name 

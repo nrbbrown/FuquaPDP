@@ -1,33 +1,5 @@
 <div id="outer-score-container">
   <%= render 'header' %>
 
-  <div class="rankListing">
-    <div class="oneRankBox headRow">
-      <div class="oneRankNumber">
-        Rank
-      </div>
-      <div class="oneRankName">
-        Name
-      </div>
-      <div class="oneRankScore">
-        Overall Score
-      </div>
-    </div>
-    <%@userCount = 0%>
-    <%@userresult.each do |oneuser| %>
-        <%@userCount = @userCount + 1%>
-        <div class="oneRankBox <%if @userCount%2 == 1%>oneRankBox2<%else%>oneRankBox1<%end%>">
-          <div class="oneRankNumber">
-            <%= @userCount%>
-          </div>
-          <div class="oneRankName">
-            <%= oneuser.name %>
-          </div>
-          <div class="oneRankScore">
-            <%if oneuser.overallscore == '-1' %>N/A<%else%><%=oneuser.overallscore %>%<%end%>
-          </div>
-        </div>
-    <%end%>
 
-  </div>
 </div>

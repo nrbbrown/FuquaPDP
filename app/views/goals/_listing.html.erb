@@ -36,6 +36,10 @@ dojo.ready(Score.init);
 <div id="activecontainer">
 <div id="activecomplete0"><%= link_to 'active', :controller=>'goals', :action=>'index', :filter=>@filter, :u=>@uid %></div>
 <div id="activecomplete1"><%= link_to 'completed', :controller=>'goals', :action=>'index', :complete=>1, :filter=>@filter, :u=>@uid %></div>
+  <% if @isme %>
+  <% else %>
+      <div style="float: right;padding:0px 3px;"><a href="/scorecard?u=<%=@thisUser.id%>">View <%=@thisUser.name%>'s Scorecard</a></div>
+  <% end %>
 </div>
 
 <div class="categorylistcontainer">
@@ -48,6 +52,7 @@ dojo.ready(Score.init);
 </div>
 </div>
 <%@goalCount = 0%>
+
 <% @goals.each do |goal| %>
 <%@goalCount = @goalCount + 1%>
 <div class="goalitem goalcat<%= goal.category %>" style="display:none">

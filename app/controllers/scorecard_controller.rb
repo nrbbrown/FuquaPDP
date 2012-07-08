@@ -6,6 +6,11 @@ class ScorecardController < ApplicationController
     @activeTab = 1
     @users = User.where("1=1",:order=>"name")
   @uid = (params[:u] != nil) ? params[:u] : current_user.id
+    @thisUser = User.find_by_id(@uid)
+    if @thisUser == nil
+      @uid = current_user.id
+      @thisUser = User.find_by_id(@uid)
+    end
 	@thisWeek = (params[:week] != nil) ? params[:week] : Time.zone.today.cweek
 	@isCurrentWeek = (@thisWeek.to_i == Time.zone.today.cweek.to_i) ? true :	false
 	@dateOfEntry = Date.commercial(Time.zone.today.year.to_i, @thisWeek.to_i, 1)
@@ -18,7 +23,7 @@ class ScorecardController < ApplicationController
     end
     @taskDueMin = Task.maximum('due')
 
-    @AllGoals = Goal.where("user_id = ?  ", current_user.id)
+    @AllGoals = Goal.where("user_id = ?  ", @uid)
 	@overallScore = 0
 	@domainScore = Hash["academic",0,"career",0,"social",0,"personal",0,"physical",0]
 	@goalScore = Hash.new
@@ -97,85 +102,20 @@ class ScorecardController < ApplicationController
     end
     @overallScore = (@overallActiveDomains == 0) ? 'N/A' : (@overallScoreDomain*1.00/@overallActiveDomains).round(2)
 	
-	@academicGoals = Goal.where("user_id = ? and category = ? and is_private = 0 ", current_user.id, :academic)
-	@careerGoals = Goal.where("user_id = ? and category = ?  and is_private = 0 ", current_user.id, :career)
-	@personalGoals = Goal.where("user_id = ? and category = ?  and is_private = 0 ", current_user.id, :personal)
-	@physicalGoals = Goal.where("user_id = ? and category = ? and is_private = 0 ", current_user.id, :physical)
-	@socialGoals = Goal.where("user_id = ? and category = ? and is_private = 0 ", current_user.id, :social)
+	@academicGoals = Goal.where("user_id = ? and category = ? and is_private = 0 ", @uid, :academic)
+	@careerGoals = Goal.where("user_id = ? and category = ?  and is_private = 0 ", @uid, :career)
+	@personalGoals = Goal.where("user_id = ? and category = ?  and is_private = 0 ", @uid, :personal)
+	@physicalGoals = Goal.where("user_id = ? and category = ? and is_private = 0 ", @uid, :physical)
+	@socialGoals = Goal.where("user_id = ? and category = ? and is_private = 0 ", @uid, :social)
 
 
-    @academicPrivateGoals = Goal.where("user_id = ? and category = ? and is_private = 1 ", current_user.id, :academic)
-    @careerPrivateGoals = Goal.where("user_id = ? and category = ?  and is_private = 1 ", current_user.id, :career)
-    @personalPrivateGoals = Goal.where("user_id = ? and category = ?  and is_private = 1 ", current_user.id, :personal)
-    @physicalPrivateGoals = Goal.where("user_id = ? and category = ? and is_private = 1 ", current_user.id, :physical)
-    @socialPrivateGoals = Goal.where("user_id = ? and category = ? and is_private = 1 ", current_user.id, :social)
+    @academicPrivateGoals = Goal.where("user_id = ? and category = ? and is_private = 1 ", @uid, :academic)
+    @careerPrivateGoals = Goal.where("user_id = ? and category = ?  and is_private = 1 ", @uid, :career)
+    @personalPrivateGoals = Goal.where("user_id = ? and category = ?  and is_private = 1 ", @uid, :personal)
+    @physicalPrivateGoals = Goal.where("user_id = ? and category = ? and is_private = 1 ", @uid, :physical)
+    @socialPrivateGoals = Goal.where("user_id = ? and category = ? and is_private = 1 ", @uid, :social)
 
-  end
-
-  def ileteams
-    @activeTab = 2
-    @uid = (params[:u] != nil) ? params[:u] : current_user.id
-    @thisWeek = (params[:week] != nil) ? params[:week] : Time.zone.today.cweek
-    @dateOfEntry = Date.commercial(Time.zone.today.year.to_i, @thisWeek.to_i, 1)
-    @endDateEntry = @dateOfEntry + 6
-    @minDate = Time.zone.today
-    @maxDate = Time.zone.today
-    @taskStartMin = Task.minimum('startdue')
-    if @taskStartMin != nil
-      @minDate =  Date.parse(@taskStartMin.strftime("%d %b %Y"))
-    end
-    @taskDueMin = Task.maximum('due')
-
-    @activeTasks = Task.find_by_sql [" select count(distinct t.id) as active, u.ileteam  as ileteam
-                                        from tasks t
-                                        join goals g
-                                        on t.goal_id = g.id
-                                        join users u
-                                        on u.id = t.user_id
-                                        where g.is_private = 0
-                                        and t.startdue <= now()
-                                        and date_part('week',t.due) >= ?
-                                        group by u.ileteam
-                                        order by u.ileteam asc ",@thisWeek]
-    @teamActiveTasks = Hash.new
-    @activeTasks.each do |oneteam|
-        @teamActiveTasks[oneteam.ileteam] = oneteam.active
-    end
-
-    @doneTasks = Task.find_by_sql [" select count(distinct t.id) as done, u.ileteam  as ileteam
-                                        from tasks t
-                                        join goals g
-                                        on t.goal_id = g.id
-                                        join users u
-                                        on u.id = t.user_id
-                                        join tasksprogresses tp
-                                        on tp.task_id = t.id
-                                        where g.is_private = 0
-                                        and t.startdue <= now()
-                                        and date_part('week',t.due) >= ?
-                                        and date_part('week',tp.date) = ?
-                                        group by u.ileteam
-                                        order by u.ileteam asc  ",@thisWeek,@thisWeek]
-    @teamDoneTasks = Hash.new
-    @doneTasks.each do |onedteam|
-      @teamDoneTasks[onedteam.ileteam] = onedteam.done
-    end
-
-  end
-
-  def fullclass
-    @activeTab = 4
-    @uid = (params[:u] != nil) ? params[:u] : current_user.id
-    @thisWeek = (params[:week] != nil) ? params[:week] : Time.zone.today.cweek
-    @dateOfEntry = Date.commercial(Time.zone.today.year.to_i, @thisWeek.to_i, 1)
-    @endDateEntry = @dateOfEntry + 6
-    @minDate = Time.zone.today
-    @maxDate = Time.zone.today
-    @taskStartMin = Task.minimum('startdue')
-    if @taskStartMin != nil
-      @minDate =  Date.parse(@taskStartMin.strftime("%d %b %Y"))
-    end
-    @taskDueMin = Task.maximum('due')
+    @IleTeams = User.find_by_sql ["select distinct ileteam from users"]
 
     @userresult = User.find_by_sql ["
           select COALESCE(round(avg(domainScore),2),-1) as overallScore,u.id,u.name,u.ileteam,u.section_number
@@ -218,10 +158,11 @@ class ScorecardController < ApplicationController
           ) d
           on u.id = d.user_id
           group by u.id,u.name,u.ileteam,u.section_number
-          order by overallScore desc
+          order by overallScore desc,u.name asc
 
             ",@thisWeek,@thisWeek,@thisWeek,@thisWeek,@thisWeek]
 
 
   end
+
 end

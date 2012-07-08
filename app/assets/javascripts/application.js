@@ -205,6 +205,7 @@ function openinstructions(id1,id2){
 	if(dojo.byId(id2)){
 		dojo.removeClass('instructionOuterDiv','hidediv');
 		dojo.removeClass('instructionDiv','hidediv');
+        if(dojo.byId('mentor_field_box'))
         dojo.byId('mentor_field_box').style.position = 'inherit';
 		dojo.byId('instructionInnerDiv').innerHTML = dojo.byId(id2).innerHTML;
 	}
@@ -213,6 +214,7 @@ function closeInstructionBox(){
 	if(dojo.byId('instructionDiv')){
 		dojo.addClass('instructionOuterDiv','hidediv');
 		dojo.addClass('instructionDiv','hidediv');
+        if(dojo.byId('mentor_field_box'))
         dojo.byId('mentor_field_box').style.position = 'relative';
 	}
 }
@@ -222,10 +224,12 @@ function showUserList(){
 	if(v == ''){
 		dojo.addClass('userlistdiv','hidediv');
 		dojo.addClass('dimuser','hidediv');
+        if(dojo.byId('mentor_field_box'))
         dojo.byId('mentor_field_box').style.position = 'relative';
 	}else{
 		dojo.removeClass('userlistdiv','hidediv');
 		dojo.removeClass('dimuser','hidediv');
+        if(dojo.byId('mentor_field_box'))
         dojo.byId('mentor_field_box').style.position = 'inherit';
         var allUsers = dojo.query('.userentry a');
 		var count = 0;
@@ -387,16 +391,18 @@ function closeProgressBox(goalid) {
 	dojo.addClass('dim','hidediv');
 }
 function openScoreTab(tab){
-    var selIndex = dojo.byId('entry_week_change').selectedIndex;
-    var selValue = dojo.byId('entry_week_change').options[selIndex].value;
+    dojo.byId('personal-score-card').style.display = 'none';
+    dojo.byId('class-score-card').style.display = 'none';
+    dojo.removeClass('scorecard-tab1','active');
+    dojo.removeClass('scorecard-tab4','active');
     if(tab == 1){
-        window.location = "/scorecard?week="+selValue;
+        dojo.byId('personal-score-card').style.display = 'block';
+        dojo.addClass('scorecard-tab1','active');
     }else if(tab == 2){
-        window.location = "/scorecard/ileteams?week="+selValue;
     }else if(tab == 3){
-        window.location = "/scorecard/section?week="+selValue;
     }else if(tab == 4){
-        window.location = "/scorecard/fullclass?week="+selValue;
+        dojo.byId('class-score-card').style.display = 'block';
+        dojo.addClass('scorecard-tab4','active');
     }
 
 }

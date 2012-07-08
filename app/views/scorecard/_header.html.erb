@@ -25,7 +25,7 @@
 </div>
 <div class="scoreTitle">
   <div class="floatLeft">
-    <%=current_user.name%>'s Score Card for Week of <%=@dateOfEntry.strftime("%b %e")%>
+    <%=@thisUser.name%>'s Score Card for Week of <%=@dateOfEntry.strftime("%b %e")%>
     <%if @isCurrentWeek == true %>
         <span class="currentweekLabel">(current week)</span>
     <%end%>
@@ -48,22 +48,13 @@
 
 <div class="scorecardTabs">
   <ul id="scorecard_tabs_list">
-    <li class="<% if @activeTab == 1 %>active<%end%> ">
+    <li id="scorecard-tab1" class="<% if @activeTab == 1 %>active<%end%> ">
       <a href="javascript:openScoreTab(1)">
         Personal
       </a>
     </li>
-    <li class="<% if @activeTab == 2 %>active<%end%>">
-      <a href="javascript:openScoreTab(2)">
-        ILE Team
-      </a>
-    </li>
-    <li class="<% if @activeTab == 3 %>active<%end%>">
-      <a href="javascript:openScoreTab(3)">
-        Section
-      </a>
-    </li>
-    <li class="<% if @activeTab == 4 %>active<%end%>">
+
+    <li id="scorecard-tab4" class="<% if @activeTab == 4 %>active<%end%>">
       <a href="javascript:openScoreTab(4)">
         Class
       </a>

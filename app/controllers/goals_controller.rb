@@ -9,6 +9,11 @@ class GoalsController < ApplicationController
     @users = User.find(:all,:order=>"name")
 	
     @uid = (params[:u] != nil) ? params[:u] : current_user.id
+    @thisUser = User.find_by_id(@uid)
+    if @thisUser == nil
+      @uid = current_user.id
+      @thisUser = User.find_by_id(@uid)
+    end
     @isme = (current_user.id.to_i == @uid.to_i) ? true : false
 	@taskNotifications = UserComments.find_by_sql ["select count(1) as notifications, task_id
 													from user_comments

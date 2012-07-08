@@ -3,7 +3,7 @@ Epdp::Application.routes.draw do
   get "scorecard/ileteams"
 
   get "scorecard/section"
-  get "scorecard/class"
+  get "scorecard/fullclass"
 
   get "comments/index"
   get "comments/edit"

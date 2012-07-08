@@ -146,3 +146,44 @@
   cursor: default;
   font-weight: bold;
 }
+.rankListing {
+  float:left;
+  width:580px;
+  border:1px solid #7BBEE3;
+  margin-top:20px;
+}
+.oneRankBox:hover {
+  background:#FFFFFF;
+}
+.oneRankBox1 {
+  background:#CDE9FF;
+}
+.oneRankBox2 {
+  background:#DFFFE7;
+}
+.oneRankBox {
+  float: left;
+  font-size: 16px;
+  height: 30px;
+  padding: 5px 0px;
+  width: 100%;
+}
+.oneRankBox div {
+  float:left;
+  padding:5px 10px;
+}
+.oneRankNumber {
+  width:80px;
+  text-align: center;
+}
+.oneRankName {
+  width:300px;
+}
+.oneRankScore {
+  text-align: center;
+  width:135px;
+}
+.headRow {
+  font-weight: bold;
+  background: #CDE9FF;
+}

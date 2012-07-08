@@ -396,7 +396,7 @@ function openScoreTab(tab){
     }else if(tab == 3){
         window.location = "/scorecard/section?week="+selValue;
     }else if(tab == 4){
-        window.location = "/scorecard/class?week="+selValue;
+        window.location = "/scorecard/fullclass?week="+selValue;
     }
 
 }

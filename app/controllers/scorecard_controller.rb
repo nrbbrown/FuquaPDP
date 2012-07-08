@@ -4,7 +4,7 @@ class ScorecardController < ApplicationController
 
   def index
     @activeTab = 1
-    @users = User.find(:all,:order=>"name")
+    @users = User.where("1=1",:order=>"name")
   @uid = (params[:u] != nil) ? params[:u] : current_user.id
 	@thisWeek = (params[:week] != nil) ? params[:week] : Time.zone.today.cweek
 	@isCurrentWeek = (@thisWeek.to_i == Time.zone.today.cweek.to_i) ? true :	false
@@ -160,6 +160,68 @@ class ScorecardController < ApplicationController
     @doneTasks.each do |onedteam|
       @teamDoneTasks[onedteam.ileteam] = onedteam.done
     end
+
+  end
+
+  def fullclass
+    @activeTab = 4
+    @uid = (params[:u] != nil) ? params[:u] : current_user.id
+    @thisWeek = (params[:week] != nil) ? params[:week] : Time.zone.today.cweek
+    @dateOfEntry = Date.commercial(Time.zone.today.year.to_i, @thisWeek.to_i, 1)
+    @endDateEntry = @dateOfEntry + 6
+    @minDate = Time.zone.today
+    @maxDate = Time.zone.today
+    @taskStartMin = Task.minimum('startdue')
+    if @taskStartMin != nil
+      @minDate =  Date.parse(@taskStartMin.strftime("%d %b %Y"))
+    end
+    @taskDueMin = Task.maximum('due')
+
+    @userresult = User.find_by_sql ["
+          select COALESCE(round(avg(domainScore),2),-1) as overallScore,u.id,u.name,u.ileteam,u.section_number
+          from users u
+          left join
+          (
+            select round(avg(goalScore),4) as domainScore, c.category,c.user_id
+            from
+            (
+              select a.user_id,a.category,a.activetasks, COALESCE(b.completedTasks,0) as completed, ROUND(COALESCE(b.completedTasks,0)*1.00/a.activeTasks*100,4) as goalScore,a.id from
+              (
+                select count(distinct t.id) activetasks, g.id,g.category,g.user_id
+                from goals g
+                join tasks t
+                on t.goal_id = g.id
+                where 1=1
+                and date_part('week',t.due) >= ?
+                and date_part('week',t.startdue) <= ?
+                and g.is_private = 0
+                group by g.id,g.category,g.user_id
+              ) a
+              left join
+              (
+                select count(distinct t.id) completedTasks, g.id,g.category,g.user_id
+                from goals g
+                join tasks t
+                on t.goal_id = g.id
+                join tasksprogresses tp
+                on tp.task_id = t.id
+                where 1=1
+                and date_part('week',t.due) >= ?
+                and date_part('week',t.startdue) <= ?
+                and date_part('week',tp.date) = ?
+                and g.is_private = 0
+                group by g.id,g.category,g.user_id
+              ) b
+              on a.id = b.id
+            ) c
+            group by c.category,c.user_id
+          ) d
+          on u.id = d.user_id
+          group by u.id,u.name,u.ileteam,u.section_number
+          order by overallScore desc
+
+            ",@thisWeek,@thisWeek,@thisWeek,@thisWeek,@thisWeek]
+
 
   end
 end

@@ -320,7 +320,7 @@ div.field, div.actions {
     margin-right:5px;
 }
 .tasktext{
-    width:276px;
+    width:267px;
 }
 .taskarea,.displaytaskarea{
     background:#eee;
@@ -1164,7 +1164,7 @@ span.form-item{
 }
 .taskarea td select {
     font-size: 11px;
-    max-width:56px;
+    max-width:62px;
 }
 .privateGoalScore {
     color: #999999;

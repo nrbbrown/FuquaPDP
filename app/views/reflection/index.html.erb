@@ -15,7 +15,7 @@
 				Q<%=onequestion.qno%>: <%=CGI.unescape(CGI.escape(onequestion.question.sub( "&lt;b&gt;", "<b>" )))%>
 			</div>
 			<div class="answerClass" id="answer_<%=onequestion.qno%>">
-				<textarea autocomplete="off" name="ans_<%=onequestion.qno%>" class="anserInputText"><%@userQuestions.each do |oneanswer|%><%if oneanswer.question == onequestion.qno%><%=oneanswer.answer.strip%><%end%><%end%></textarea>
+				<textarea autocomplete="off" placeholder="Max 250 Characters" maxlength="250" name="ans_<%=onequestion.qno%>" class="anserInputText"><%@userQuestions.each do |oneanswer|%><%if oneanswer.question == onequestion.qno%><%=oneanswer.answer.strip%><%end%><%end%></textarea>
 			</div>
 		</div>
 	<%end%>

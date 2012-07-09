@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e0298d42-e474-4abe-8210-d83bd60bb6ff" name="Default" comment="">
+    <list default="true" id="e0298d42-e474-4abe-8210-d83bd60bb6ff" name="Default" comment="scorecard changes">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Nayan.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Nayan.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
@@ -14,6 +14,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/goals/_listing.html.erb" afterPath="$PROJECT_DIR$/app/views/goals/_listing.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/index.html.erb" afterPath="$PROJECT_DIR$/app/views/home/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reflection/index.html.erb" afterPath="$PROJECT_DIR$/app/views/reflection/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/scorecard/_fullclass.html.erb" afterPath="$PROJECT_DIR$/app/views/scorecard/_fullclass.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/scorecard/_header.html.erb" afterPath="$PROJECT_DIR$/app/views/scorecard/_header.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/scorecard/_personal.html.erb" afterPath="$PROJECT_DIR$/app/views/scorecard/_personal.html.erb" />
@@ -46,98 +47,7 @@
     <favorites_list name="epdp" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="scorecard_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/scorecard_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="7" selection-start="229" selection-end="363" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="231" column="40" selection-start="6896" selection-end="6896" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_header.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/scorecard/_header.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="16" selection-start="1506" selection-end="1506" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_personal.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/scorecard/_personal.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="11" selection-start="2126" selection-end="2126" vertical-scroll-proportion="-18.961538">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.css" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1166" column="16" selection-start="20099" selection-end="20099" vertical-scroll-proportion="0.45652175">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="scorecard.css.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/scorecard.css.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="191" column="10" selection-start="3525" selection-end="3525" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_navigation.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/shared/_navigation.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="16" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="goals_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/goals_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="7" selection-start="405" selection-end="405" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_listing.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/goals/_listing.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="30" selection-start="1205" selection-end="1205" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/goals/index.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="20" selection-start="209" selection-end="209" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -153,7 +63,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/spec/views/scorecard/class.html.erb_spec.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/spec/views/scorecard/fullclass.html.erb_spec.rb" />
         <option value="$PROJECT_DIR$/app/views/scorecard/fullclass.html.erb" />
@@ -168,6 +77,7 @@
         <option value="$PROJECT_DIR$/app/views/goals/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/goals/_listing.html.erb" />
         <option value="$PROJECT_DIR$/app/views/scorecard/_personal.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/reflection/index.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
       </list>
     </option>
@@ -550,17 +460,22 @@
       <created>1341774009296</created>
       <updated>1341774009296</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="scorecard changes">
+      <created>1341800403164</created>
+      <updated>1341800403164</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32847896" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.51941746" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.48058254" sideWeight="0.4969651" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48058254" sideWeight="0.4969651" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25417298" sideWeight="0.32524273" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16995448" sideWeight="0.51941746" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -571,7 +486,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32847896" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -646,11 +560,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/scorecard/ileteams.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="64" vertical-scroll-proportion="-0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="61" selection-start="33" selection-end="33" vertical-scroll-proportion="0.0" />
@@ -693,27 +602,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/scorecard.css.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="191" column="10" selection-start="3525" selection-end="3525" vertical-scroll-proportion="0.0" />
+        <state line="191" column="10" selection-start="3525" selection-end="3525" vertical-scroll-proportion="0.3693086">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/shared/_navigation.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="16" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0" />
+        <state line="8" column="16" selection-start="280" selection-end="280" vertical-scroll-proportion="0.029982364">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/goals_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="7" selection-start="405" selection-end="405" vertical-scroll-proportion="0.0" />
+        <state line="15" column="7" selection-start="405" selection-end="405" vertical-scroll-proportion="0.02866779">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/goals/_listing.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="30" selection-start="1205" selection-end="1205" vertical-scroll-proportion="0.0" />
+        <state line="40" column="30" selection-start="1205" selection-end="1205" vertical-scroll-proportion="0.03068592">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/goals/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="20" selection-start="209" selection-end="209" vertical-scroll-proportion="0.0" />
+        <state line="8" column="20" selection-start="209" selection-end="209" vertical-scroll-proportion="0.23985891">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/scorecard/_personal.html.erb">
@@ -723,9 +642,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/reflection/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="81" selection-start="805" selection-end="805" vertical-scroll-proportion="0.5216606">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1166" column="16" selection-start="20099" selection-end="20099" vertical-scroll-proportion="0.45652175">
+        <state line="1166" column="16" selection-start="20099" selection-end="20099" vertical-scroll-proportion="0.6559865">
           <folding />
         </state>
       </provider>

@@ -46,9 +46,6 @@
   <div class="personalRow">
     <div class="socreName">Overall Personal Score:</div>
     <div class=""><%=@overallScore%><%if @overallScore != 'N/A'%>%<%end%></div>
-    <%if @overallScore != 'N/A'%>
-        <div class="yourRank">(<%= @thisUser.name %>'s Rank: <%=@currentUserRank%>)</div>
-    <%end%>
   </div>
   <div class="personalRow">
     <div class="socreName">Avg. ILE Team Score:</div>
@@ -58,6 +55,9 @@
   <div class="personalRow">
     <div class="socreName">Avg. Class Score:</div>
     <div class=""><%=@classAverage%>%</div>
+    <%if @overallScore != 'N/A'%>
+        <div class="yourRank">(<%= @thisUser.name %>'s Rank: <%=@currentUserRank%>)</div>
+    <%end%>
   </div>
 </div>
 

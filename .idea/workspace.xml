@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e0298d42-e474-4abe-8210-d83bd60bb6ff" name="Default" comment="scorecard changes">
+    <list default="true" id="e0298d42-e474-4abe-8210-d83bd60bb6ff" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Nayan.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Nayan.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
@@ -14,7 +14,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/goals/_listing.html.erb" afterPath="$PROJECT_DIR$/app/views/goals/_listing.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/index.html.erb" afterPath="$PROJECT_DIR$/app/views/home/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reflection/index.html.erb" afterPath="$PROJECT_DIR$/app/views/reflection/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/scorecard/_fullclass.html.erb" afterPath="$PROJECT_DIR$/app/views/scorecard/_fullclass.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/scorecard/_header.html.erb" afterPath="$PROJECT_DIR$/app/views/scorecard/_header.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/scorecard/_personal.html.erb" afterPath="$PROJECT_DIR$/app/views/scorecard/_personal.html.erb" />
@@ -47,7 +46,17 @@
     <favorites_list name="epdp" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="_form.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/goals/_form.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="113" column="151" selection-start="5438" selection-end="5438" vertical-scroll-proportion="0.06614786">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -63,7 +72,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/spec/views/scorecard/fullclass.html.erb_spec.rb" />
         <option value="$PROJECT_DIR$/app/views/scorecard/fullclass.html.erb" />
         <option value="$PROJECT_DIR$/app/views/scorecard/_fullclass.html.erb" />
@@ -79,6 +87,7 @@
         <option value="$PROJECT_DIR$/app/views/scorecard/_personal.html.erb" />
         <option value="$PROJECT_DIR$/app/views/reflection/index.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
+        <option value="$PROJECT_DIR$/app/views/goals/_form.html.erb" />
       </list>
     </option>
   </component>
@@ -464,18 +473,22 @@
       <created>1341800403164</created>
       <updated>1341800403164</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="scorecard changes">
+      <created>1341801117250</created>
+      <updated>1341801117250</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32847896" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.51941746" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48058254" sideWeight="0.4969651" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.48058254" sideWeight="0.4969651" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25417298" sideWeight="0.32524273" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16995448" sideWeight="0.51941746" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -560,11 +573,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="61" selection-start="33" selection-end="33" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/scorecard/fullclass.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="2" selection-start="59" selection-end="59" vertical-scroll-proportion="0.08994709" />
@@ -652,6 +660,13 @@
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1166" column="16" selection-start="20099" selection-end="20099" vertical-scroll-proportion="0.6559865">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/goals/_form.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="113" column="151" selection-start="5438" selection-end="5438" vertical-scroll-proportion="0.06614786">
           <folding />
         </state>
       </provider>

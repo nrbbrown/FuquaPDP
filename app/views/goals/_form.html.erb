@@ -111,7 +111,7 @@
         <%= f.fields_for :tasks do |t| %>
             <tr class="taskrow<%=r%>">
                 <td><span class="tasksubtitle">task</span></td>
-                <td><%= t.text_field :task, :allow_blank => true, :class => 'tasktext', :id => 'taskrow'+s.to_s(), :placeholder => 'break it down into concrete tasks (max 50 chars.)',:MAXLENGTH => '50' %></td>
+                <td><%= t.text_field :task, :allow_blank => true, :class => 'tasktext', :id => 'taskrow'+s.to_s(), :placeholder => 'break it down into tasks (max 50 chars.)',:MAXLENGTH => '50' %></td>
                 <td><img src="/images/goal_clock.png"/></td>
                 <td>
                     <%= t.date_select :startdue, :use_month_numbers => true, :order => [:month, :day, :year] %> -

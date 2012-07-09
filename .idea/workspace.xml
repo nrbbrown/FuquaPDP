@@ -8,6 +8,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/home.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/home.css.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/scorecard.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/scorecard.css.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/goals_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/goals_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/scorecard_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/scorecard_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/goals/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/goals/_form.html.erb" />
@@ -47,10 +48,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_form.html.erb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/goals/_form.html.erb">
+      <file leaf-file-name="goals_controller.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/goals_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="113" column="151" selection-start="5438" selection-end="5438" vertical-scroll-proportion="0.06614786">
+            <state line="62" column="8" selection-start="1982" selection-end="1982" vertical-scroll-proportion="-1.5649241">
               <folding />
             </state>
           </provider>
@@ -81,13 +82,13 @@
         <option value="$PROJECT_DIR$/app/controllers/scorecard_controller.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
         <option value="$PROJECT_DIR$/app/views/shared/_navigation.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/goals_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/goals/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/goals/_listing.html.erb" />
         <option value="$PROJECT_DIR$/app/views/scorecard/_personal.html.erb" />
         <option value="$PROJECT_DIR$/app/views/reflection/index.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
         <option value="$PROJECT_DIR$/app/views/goals/_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/goals_controller.rb" />
       </list>
     </option>
   </component>
@@ -477,7 +478,11 @@
       <created>1341801117250</created>
       <updated>1341801117250</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="scorecard changes">
+      <created>1341801371109</created>
+      <updated>1341801371109</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -488,7 +493,7 @@
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.51941746" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.48058254" sideWeight="0.4969651" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48058254" sideWeight="0.4969651" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25417298" sideWeight="0.32524273" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16995448" sideWeight="0.51941746" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -622,13 +627,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/goals_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="7" selection-start="405" selection-end="405" vertical-scroll-proportion="0.02866779">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/goals/_listing.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="40" column="30" selection-start="1205" selection-end="1205" vertical-scroll-proportion="0.03068592">
@@ -667,6 +665,13 @@
     <entry file="file://$PROJECT_DIR$/app/views/goals/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="113" column="151" selection-start="5438" selection-end="5438" vertical-scroll-proportion="0.06614786">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/goals_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="8" selection-start="1982" selection-end="1982" vertical-scroll-proportion="-1.5649241">
           <folding />
         </state>
       </provider>

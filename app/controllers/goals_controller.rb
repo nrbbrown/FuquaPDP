@@ -59,7 +59,8 @@ class GoalsController < ApplicationController
         @isedit = true
         @users = User.find(:all,:order=>"name")  
         @uid = current_user.id
-        
+        @thisUser = User.find_by_id(@uid)
+
         @goal = Goal.find(params[:id])
         @filter = @goal.category
         @complete = '0'

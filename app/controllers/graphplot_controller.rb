@@ -23,7 +23,7 @@ class GraphplotController < ApplicationController
                             (
                               select a.user_id,a.category,a.activetasks, COALESCE(b.completedTasks,0) as completed, ROUND(COALESCE(b.completedTasks,0)*1.00/a.activeTasks*100,4) as goalScore,a.id from
                               (
-                                select count(distinct t.id) activetasks, g.id,g.category,g.user_id
+                                select count(distinct t.id) as activetasks, g.id,g.category,g.user_id
                                 from goals g
                                 join tasks t
                                 on t.goal_id = g.id

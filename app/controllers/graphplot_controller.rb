@@ -36,7 +36,7 @@ class GraphplotController < ApplicationController
                               ) a
                               left join
                               (
-                                select count(distinct t.id) completedTasks, g.id,g.category,g.user_id
+                                select count(distinct t.id) as completedTasks, g.id,g.category,g.user_id
                                 from goals g
                                 join tasks t
                                 on t.goal_id = g.id

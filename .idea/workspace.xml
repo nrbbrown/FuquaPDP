@@ -2,57 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e0298d42-e474-4abe-8210-d83bd60bb6ff" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/graph.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/graph.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/sb.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/sb1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/graphplot.js.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/graphplot.css.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/graphplot_controller.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/helpers/graphplot_helper.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/graphplot/ileteam.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/graphplot/section.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/graphplot/user.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/scorecard/_ileteam.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/scorecard/_section.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/adapters/mootools-adapter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/adapters/mootools-adapter.src.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/adapters/prototype-adapter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/adapters/prototype-adapter.src.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/highcharts-more.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/highcharts.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/highcharts.src.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/modules/canvas-tools.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/modules/canvas-tools.src.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/modules/exporting.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/modules/exporting.src.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/themes/dark-blue.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/themes/dark-green.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/themes/gray.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/themes/grid.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/themes/skies.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/controllers/graphplot_controller_spec.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/helpers/graphplot_helper_spec.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spec/views/graphplot/user.html.erb_spec.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Nayan.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Nayan.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/home.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/home.css.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/scorecard.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/scorecard.css.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/graphplot_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/graphplot_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/scorecard_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/scorecard_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/scoreentry_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/scoreentry_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" afterPath="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/goals/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/goals/_form.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/goals/_listing.html.erb" afterPath="$PROJECT_DIR$/app/views/goals/_listing.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/help/index.html.erb" afterPath="$PROJECT_DIR$/app/views/help/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/index.html.erb" afterPath="$PROJECT_DIR$/app/views/home/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/scorecard/_fullclass.html.erb" afterPath="$PROJECT_DIR$/app/views/scorecard/_fullclass.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/scorecard/_header.html.erb" afterPath="$PROJECT_DIR$/app/views/scorecard/_header.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/scorecard/_ileteam.html.erb" afterPath="$PROJECT_DIR$/app/views/scorecard/_ileteam.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/scorecard/_personal.html.erb" afterPath="$PROJECT_DIR$/app/views/scorecard/_personal.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/scorecard/_section.html.erb" afterPath="$PROJECT_DIR$/app/views/scorecard/_section.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/scorecard/fullclass.html.erb" afterPath="$PROJECT_DIR$/app/views/scorecard/fullclass.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/scorecard/index.html.erb" afterPath="$PROJECT_DIR$/app/views/scorecard/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/scoreentry/index.html.erb" afterPath="$PROJECT_DIR$/app/views/scoreentry/index.html.erb" />
@@ -84,10 +54,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="graphplot_controller.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="graphplot_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/graphplot_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="206" column="19" selection-start="10039" selection-end="10039" vertical-scroll-proportion="0.0">
+            <state line="23" column="63" selection-start="996" selection-end="996" vertical-scroll-proportion="0.53614455">
               <folding />
             </state>
           </provider>
@@ -135,10 +105,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="application.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="358" column="30" selection-start="6109" selection-end="6109" vertical-scroll-proportion="0.76449275">
+            <state line="352" column="35" selection-start="6000" selection-end="6000" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -156,7 +126,7 @@
       <file leaf-file-name="scorecard_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/scorecard_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="117" column="73" selection-start="6494" selection-end="6494" vertical-scroll-proportion="0.0">
+            <state line="119" column="73" selection-start="6582" selection-end="6582" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -182,18 +152,18 @@
         <option value="$PROJECT_DIR$/app/views/scoreentry/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/scorecard/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/scorecard/_header.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/scorecard_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/scorecard/_fullclass.html.erb" />
         <option value="$PROJECT_DIR$/app/views/graphplot/ileteam.html.erb" />
         <option value="$PROJECT_DIR$/app/views/scorecard/_ileteam.html.erb" />
         <option value="$PROJECT_DIR$/app/views/scorecard/_section.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/graphplot_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/graphplot/section.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/scorecard/_personal.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/scorecard.css.scss" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
+        <option value="$PROJECT_DIR$/app/controllers/scorecard_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/graphplot_controller.rb" />
       </list>
     </option>
   </component>
@@ -695,19 +665,32 @@
       <created>1341808764351</created>
       <updated>1341808764351</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="scorecard changes adding graphs">
+      <created>1342321145682</created>
+      <updated>1342321145682</updated>
+    </task>
+    <task id="LOCAL-00022" summary="scorecard changes adding graphs">
+      <created>1342321474566</created>
+      <updated>1342321474566</updated>
+    </task>
+    <task id="LOCAL-00023" summary="scorecard changes adding graphs">
+      <created>1342321801317</created>
+      <updated>1342321801317</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32847896" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852808" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.51941746" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.48058254" sideWeight="0.4969651" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48058254" sideWeight="0.4969651" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25417298" sideWeight="0.32524273" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18588771" sideWeight="0.51941746" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18588771" sideWeight="0.671521" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25417298" sideWeight="0.33333334" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23462783" sideWeight="0.49772382" order="10" side_tool="true" content_ui="tabs" />
@@ -716,7 +699,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32847896" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -759,7 +741,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="scorecard changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="scorecard changes adding graphs" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -786,6 +768,7 @@
     <MESSAGE value="review fixes 3" />
     <MESSAGE value="adding class scores" />
     <MESSAGE value="scorecard changes" />
+    <MESSAGE value="scorecard changes adding graphs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -815,13 +798,6 @@
     <entry file="file://$PROJECT_DIR$/app/views/graphplot/user.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="104" selection-start="104" selection-end="104" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/scorecard_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="117" column="73" selection-start="6494" selection-end="6494" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -857,13 +833,6 @@
     <entry file="file://$PROJECT_DIR$/app/views/graphplot/section.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="51" selection-start="440" selection-end="440" vertical-scroll-proportion="0.35978836">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/graphplot_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="206" column="19" selection-start="10039" selection-end="10039" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -904,7 +873,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="358" column="30" selection-start="6109" selection-end="6109" vertical-scroll-proportion="0.76449275">
+        <state line="352" column="35" selection-start="6000" selection-end="6000" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/scorecard_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="119" column="73" selection-start="6582" selection-end="6582" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/graphplot_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="63" selection-start="996" selection-end="996" vertical-scroll-proportion="0.53614455">
           <folding />
         </state>
       </provider>

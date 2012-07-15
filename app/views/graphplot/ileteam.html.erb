@@ -1,0 +1,57 @@
+<div id="containergraph" style="width: 600px; height: 400px; margin: 10px auto;border: 1px solid #DDDDDD"></div>
+
+
+<script type="text/javascript" id="graphscript">
+    function showFullChart() {
+            chart = new Highcharts.Chart({
+                chart: {
+                    renderTo: 'containergraph',
+                    type: 'line'
+
+                },
+                title: {
+                    text: 'Weekly Score for Team <%=@graphIle%>',
+                    x: -20 //center
+                },
+                xAxis: {
+                    title: {
+                        text: 'Week Number'
+                    },
+                    categories: <%=@userresult.keys%>
+                },
+                yAxis: {
+                    title: {
+                        text: 'Score (%)'
+                    },
+                    min : -20,
+                    max : 100,
+                    tickInterval: 20,
+                    plotLines: [{
+                        value: 0,
+                        width: 1,
+                        color: '#808080'
+                    }]
+                },
+                tooltip: {
+                    formatter: function() {
+                        return '<b>'+ this.series.name +'</b><br/> Week '+
+                                this.x +': '+ this.y +'%';
+                    }
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'top',
+                    x: -10,
+                    y: 100,
+                    borderWidth: 0
+                },
+                series: [{
+                    name: 'Score Graph',
+                    data: <%=@userresult.values%>
+
+                }]
+            });
+    }
+    showFullChart();
+</script>

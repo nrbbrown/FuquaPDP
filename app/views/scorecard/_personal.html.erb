@@ -1,10 +1,19 @@
 <%
+   @SectionTeamHash = Hash.new
+   @SectionTeamCount = Hash.new
+   @SectionScore = Hash.new
    @ILETeamHash = Hash.new
    @ILETeamCount = Hash.new
    @ILETeamScore = Hash.new
+
+   @SectionTeams.each do |onesectionteam|
+     @SectionTeamHash[onesectionteam.section_number] = 0
+     @SectionTeamCount[onesectionteam.section_number] = 0
+   end
    @IleTeams.each do |oneileteam|
      @ILETeamHash[oneileteam.ileteam] = -1
      @ILETeamCount[oneileteam.ileteam] = 0
+     @SectionTeamCount[oneileteam.section_number] = @SectionTeamCount[oneileteam.section_number] + 1
    end
 %>
 <% @counter = 0
@@ -40,17 +49,41 @@
        @userilerank = @ilerank
      end
    end
+   @IleTeams.each do |oneileteam|
+     @SectionTeamHash[oneileteam.section_number] = @SectionTeamHash[oneileteam.section_number] +   @ILETeamScore[oneileteam.ileteam]
+   end
+   @AvgSectionScore = 0
+   @SectionTeams.each do |onesectionteam|
+     @SectionScore[onesectionteam.section_number] = (@SectionTeamHash[onesectionteam.section_number]*1.0/@SectionTeamCount[onesectionteam.section_number]).round(2)
+     @AvgSectionScore =@AvgSectionScore + @SectionScore[onesectionteam.section_number]
+   end
+   @AvgSectionScore = (@AvgSectionScore*1.0/@SectionTeams.length).round(2)
+   @finalSectionScore = @SectionScore.sort_by{ |name, score| score }.reverse
+   @ssectionrank = 0
+   @finalSectionScore.each do |oneteam|
+     @ssectionrank = @ssectionrank + 1
+     if @thisUser.section_number == oneteam[0]
+       @usersectionrank = @ssectionrank
+     end
+   end
 %>
-
 <div class="personalStatsBox">
   <div class="personalRow">
     <div class="socreName">Overall Personal Score:</div>
     <div class=""><%=@overallScore%><%if @overallScore != 'N/A'%>%<%end%></div>
+    <div class="graphIconDiv" onclick="showUserGraph(<%= @thisUser.id%>,1)" ><img src="/images/graph.png" height="25px;" alt="Show Graph" title="Show Graph"></div>
   </div>
   <div class="personalRow">
     <div class="socreName">Avg. ILE Team Score:</div>
     <div class=""><%=@AvgILEScore%>%</div>
+    <div class="graphIconDiv" onclick="showUserGraph(<%= @thisUser.ileteam%>,2)" ><img src="/images/graph.png" height="25px;" alt="Show Graph" title="Show Graph"></div>
     <div class="yourRank">(<%= @thisUser.name %>'s Team Rank: <%=@userilerank%>)</div>
+  </div>
+  <div class="personalRow">
+    <div class="socreName">Avg. Section Score:</div>
+    <div class=""><%=@AvgSectionScore%>%</div>
+    <div class="graphIconDiv" onclick="showUserGraph(<%= @thisUser.section_number%>,3)" ><img src="/images/graph.png" height="25px;" alt="Show Graph" title="Show Graph"></div>
+    <div class="yourRank">(<%= @thisUser.name %>'s Section Rank: <%=@usersectionrank%>)</div>
   </div>
   <div class="personalRow">
     <div class="socreName">Avg. Class Score:</div>

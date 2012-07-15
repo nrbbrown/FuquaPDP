@@ -41,19 +41,7 @@
 				<%if @isCurrentWeek == true %>
 					<span class="currentweekLabel">(current week)</span>
 				<%end%></div>
-		<div class="floatRight weekSelect">
-			Select Week&nbsp;
-			<select id="entry_week_change" onchange="changeEntryWeek()" autocomplete="off">
-				<%
-				@startWeek = @minDate.cweek
-				@endWeek = @maxDate.cweek
-				while @startWeek <= @endWeek
-				%>
-					<option class="entryOption" <%if @dateOfEntry.cweek == @startWeek %>selected=""<%end%> value="<%=@startWeek%>">Week <%=@startWeek%></option>
-					<%@startWeek = @startWeek + 1%>
-				<%end%>
-			</select>
-		</div>
+
 	</div>
 	<div class="scoreBox">
 		<div class="scoreInnerBox" id="academicBox">

@@ -124,7 +124,41 @@ function submitComment(taskid, goalid, goaluserid){
 	};
 	new dojo.xhrGet(xhrArgs);
 }
+function showUserGraph(userid,type){
+    if(dojo.byId('commentOuterDiv')){
+        dojo.byId('commentInnerDiv').innerHTML = '';
+    }
+    if(dojo.byId('commentOuterDiv')){
+        dojo.removeClass('commentOuterDiv','hidediv');
+        dojo.removeClass('instructionDiv','hidediv');
+    }
+    if(type == 1){
+        furl = '/graphplot/user';
+    }else if(type == 2){
+        furl = '/graphplot/ileteam';
+    }else if(type == 3){
+        furl = '/graphplot/section';
+    }
+    var xhrArgs = {
+        url:furl,
+        content:{
+            id:userid
+        },
+        headers:{
+            'X-CSRF-Token':''
+        },
+        load:function(data){
+            dojo.byId('commentInnerDiv').innerHTML = data;
+            eval(dojo.byId('graphscript').innerHTML);
 
+
+        },
+        error:function(data) {
+            alert('failed to complete task');
+        }
+    };
+    new dojo.xhrGet(xhrArgs);
+}
 function openCommentsPopup (taskid, goalid, goaluserid){
 	if(dojo.byId('commentOuterDiv')){
 		dojo.removeClass('commentOuterDiv','hidediv');
@@ -393,13 +427,21 @@ function closeProgressBox(goalid) {
 function openScoreTab(tab){
     dojo.byId('personal-score-card').style.display = 'none';
     dojo.byId('class-score-card').style.display = 'none';
+    dojo.byId('section-score-card').style.display = 'none';
+    dojo.byId('ile-score-card').style.display = 'none';
     dojo.removeClass('scorecard-tab1','active');
+    dojo.removeClass('scorecard-tab2','active');
+    dojo.removeClass('scorecard-tab3','active');
     dojo.removeClass('scorecard-tab4','active');
     if(tab == 1){
         dojo.byId('personal-score-card').style.display = 'block';
         dojo.addClass('scorecard-tab1','active');
     }else if(tab == 2){
+        dojo.byId('ile-score-card').style.display = 'block';
+        dojo.addClass('scorecard-tab2','active');
     }else if(tab == 3){
+        dojo.byId('section-score-card').style.display = 'block';
+        dojo.addClass('scorecard-tab3','active');
     }else if(tab == 4){
         dojo.byId('class-score-card').style.display = 'block';
         dojo.addClass('scorecard-tab4','active');

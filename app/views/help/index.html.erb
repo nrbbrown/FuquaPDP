@@ -1,15 +1,79 @@
-<br><br><br> 
- <p> Time.zone <%= Time.zone %> </p>
-  <p> Time.now <%= Time.now %> </p>
-  <p> Time.now.utc <%= Time.now.utc %> </p>
-  <p> Time.zone.now <%= Time.zone.now %>  </p>
-  <p> Time.zone.today <%= Time.zone.today %> </p>
+<script src="/js/highcharts.js"></script>
+<script src="/js/modules/exporting.js"></script>
+
+<div id="container" style="width: 400px; height: 200px; margin: 50px auto"></div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var chart;
+        $(document).ready(function() {
+            chart = new Highcharts.Chart({
+                chart: {
+                    renderTo: 'container',
+                    type: 'line',
+                    marginRight: 130,
+                    marginBottom: 25
+                },
+                title: {
+                    text: 'Monthly Average Temperature',
+                    x: -20 //center
+                },
+                subtitle: {
+                    text: 'Source: WorldClimate.com',
+                    x: -20
+                },
+                xAxis: {
+                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                },
+                yAxis: {
+                    title: {
+                        text: 'Temperature (°C)'
+                    },
+                    plotLines: [{
+                        value: 0,
+                        width: 1,
+                        color: '#808080'
+                    }]
+                },
+                tooltip: {
+                    formatter: function() {
+                        return '<b>'+ this.series.name +'</b><br/>'+
+                                this.x +': '+ this.y +'°C';
+                    }
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'top',
+                    x: -10,
+                    y: 100,
+                    borderWidth: 0
+                },
+                series: [{
+                    name: 'Tokyo',
+                    data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+
+                }]
+            });
+        });
+
+    });
+</script>
+
+<br><br><br>
+<p> Time.zone <%= Time.zone %> </p>
+<p> Time.now <%= Time.now %> </p>
+<p> Time.now.utc <%= Time.now.utc %> </p>
+<p> Time.zone.now <%= Time.zone.now %>  </p>
+<p> Time.zone.today <%= Time.zone.today %> </p>
 
 <p> Date.today <%= Date.today %> </p>
 
 <%
-time = Time.new
-  %>
+   time = Time.new
+%>
 # Here is the interpretation
 <p>time.zone  <%= time.zone %></p>
 <p>time.utc_offset  <%= time.utc_offset %></p>

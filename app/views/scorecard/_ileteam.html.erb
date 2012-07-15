@@ -1,29 +1,33 @@
+
 <div class="rankListing">
   <div class="oneRankBox headRow">
     <div class="oneRankNumber">
       Rank
     </div>
     <div class="oneRankName">
-      Name
+      ILE Team
     </div>
     <div class="oneRankScore">
       Overall Score
     </div>
   </div>
   <%@userCount = 0%>
-  <%@userresult.each do |oneuser| %>
+  <%@finalILEScore.each do |oneteam| %>
+
       <%@userCount = @userCount + 1%>
       <div class="oneRankBox <%if @userCount%2 == 1%>oneRankBox2<%else%>oneRankBox1<%end%>">
         <div class="oneRankNumber">
           <%= @userCount%>
         </div>
         <div class="oneRankName">
-          <%= oneuser.name %>
+          Team <%= oneteam[0] %>
         </div>
         <div class="oneRankScore">
-          <%if oneuser.overallscore == '-1' %>N/A<%else%><%=oneuser.overallscore %>%<%end%>
+          <%if oneteam[1] == '-1' %>N/A<%else%><%=oneteam[1] %>%<%end%>
         </div>
-        <div class="graphIconDiv" onclick="showUserGraph(<%= oneuser.id%>,1)"><img src="/images/graph.png" height="25px;" alt="Show Graph" title="Show Graph"></div>
+        <div class="graphIconDiv" onclick="showUserGraph(<%= oneteam[0]%>,2)">
+           <img src="/images/graph.png" height="25px;" alt="Show Graph" title="Show Graph">
+        </div>
       </div>
   <%end%>
 

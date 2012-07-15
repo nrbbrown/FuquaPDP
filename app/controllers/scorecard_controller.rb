@@ -115,7 +115,9 @@ class ScorecardController < ApplicationController
     @physicalPrivateGoals = Goal.where("user_id = ? and category = ? and is_private = 1 ", @uid, :physical)
     @socialPrivateGoals = Goal.where("user_id = ? and category = ? and is_private = 1 ", @uid, :social)
 
-    @IleTeams = User.find_by_sql ["select distinct ileteam from users"]
+    @IleTeams = User.find_by_sql ["select distinct ileteam,section_number from users"]
+
+    @SectionTeams = User.find_by_sql ["select count(distinct ileteam) total, section_number from users group by section_number "]
 
     @userresult = User.find_by_sql ["
           select COALESCE(round(avg(domainScore),2),-1) as overallScore,u.id,u.name,u.ileteam,u.section_number

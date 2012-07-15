@@ -349,14 +349,14 @@ div.field, div.actions {
     width:210px;
 }
 .submitgoal{
-	background:url('/images/submitbutton.png') 0 0 no-repeat;
-    width:150px;
-    height:50px;
+	background:url('/images/sb1.png') 0 0 no-repeat;
+    width:190px;
+    height:53px;
     border:none;
     color:transparent;
 }
 .submitgoal:hover{
-    background:url('/images/submitbuttonon.png') 0 0 no-repeat;
+    background:url('/images/sb.png') 0 0 no-repeat;
 	cursor:pointer;
 }
 #submitgoalbox{
@@ -1170,4 +1170,10 @@ span.form-item{
     color: #999999;
     font-size: 12px;
     font-style: italic;
+}
+.graphIconDiv {
+    float:left;
+    margin:1px 0px 0px 4px;
+    padding:0px !important;
+    cursor:pointer !important;
 }

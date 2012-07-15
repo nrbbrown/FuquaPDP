@@ -11,7 +11,7 @@ class ScoreentryController < ApplicationController
 	@personalGoals = Goal.where("user_id = ? and category = ?", current_user.id, :personal)
 	@physicalGoals = Goal.where("user_id = ? and category = ?", current_user.id, :physical)
 	@socialGoals = Goal.where("user_id = ? and category = ?", current_user.id, :social)
-	@thisWeek = (params[:week] != nil) ? params[:week] : Time.zone.today.cweek
+	@thisWeek = Time.zone.today.cweek
 	@isCurrentWeek = (@thisWeek.to_i == Time.zone.today.cweek.to_i) ? true :	false
 	@dateOfEntry = Date.commercial(Time.zone.today.year.to_i, @thisWeek.to_i, 1)
     @minDate = Time.zone.today

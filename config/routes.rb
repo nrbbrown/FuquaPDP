@@ -1,5 +1,9 @@
 Epdp::Application.routes.draw do
 
+  get "graphplot/user"
+  get "graphplot/ileteam"
+  get "graphplot/section"
+
   get "scorecard/ileteams"
 
   get "scorecard/section"

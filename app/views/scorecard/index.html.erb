@@ -1,8 +1,17 @@
+<script src="/js/highcharts.js"></script>
+<script src="/js/modules/exporting.js"></script>
+
 <div id="outer-score-container">
   <%= render 'header' %>
 
   <div id="personal-score-card">
     <%= render 'personal' %>
+  </div>
+  <div id="ile-score-card">
+    <%= render 'ileteam' %>
+  </div>
+  <div id="section-score-card">
+    <%= render 'section' %>
   </div>
   <div id="class-score-card" style="display: none;">
     <%= render 'fullclass' %>

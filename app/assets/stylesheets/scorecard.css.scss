@@ -148,7 +148,7 @@
 }
 .rankListing {
   float:left;
-  width:627px;
+  width:785px;
   border:1px solid #7BBEE3;
   margin-top:20px;
   margin-left:30px;
@@ -165,9 +165,17 @@
 .oneRankBox {
   float: left;
   font-size: 16px;
-  height: 30px;
   padding: 5px 0px;
   width: 100%;
+}
+.innerOneBoxSub {
+  width:95%;
+}
+.innerOneBoxSub .oneRankBox {
+  font-size:14px !important;
+}
+.opencloseBox {
+  width:12px;
 }
 .oneRankBox div {
   float:left;
@@ -178,7 +186,7 @@
   text-align: center;
 }
 .oneRankName {
-  width:300px;
+  width:400px;
 }
 .oneRankScore {
   text-align: center;

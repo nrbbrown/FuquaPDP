@@ -12,7 +12,7 @@
     </div>
   </div>
   <%@userCount = 0%>
-  <%@finalSectionScore.each do |oneteam| %>
+  <%@finalSectionScore.each do |oneSectionteam| %>
 
       <%@userCount = @userCount + 1%>
       <div class="oneRankBox <%if @userCount%2 == 1%>oneRankBox2<%else%>oneRankBox1<%end%>">
@@ -20,14 +20,15 @@
           <%= @userCount%>
         </div>
         <div class="oneRankName">
-          Section <%= oneteam[0] %>
+          Section <%= oneSectionteam[0] %>
         </div>
         <div class="oneRankScore">
-          <%if oneteam[1] == '-1' %>N/A<%else%><%=oneteam[1] %>%<%end%>
+          <%if oneSectionteam[1] == '-1' %>N/A<%else%><%=oneSectionteam[1] %>%<%end%>
         </div>
-        <div class="graphIconDiv" onclick="showUserGraph(<%= oneteam[0]%>,3)">
+        <div class="graphIconDiv" onclick="showUserGraph(<%= oneSectionteam[0]%>,3)">
            <img src="/images/graph.png" height="25px;" alt="Show Graph" title="Show Graph">
         </div>
+
       </div>
   <%end%>
 

@@ -159,6 +159,17 @@ function showUserGraph(userid,type){
     };
     new dojo.xhrGet(xhrArgs);
 }
+function opencloseBox(boxname,boxid){
+    if(dojo.byId('openclosebox-'+boxname+boxid)){
+        if(dojo.byId('openclosebox-'+boxname+boxid).style.display == 'none'){
+            dojo.byId('openclosebox-'+boxname+boxid).style.display = 'block';
+            dojo.byId('openclose-'+boxname+boxid).innerHTML = '[-]';
+        }else{
+            dojo.byId('openclosebox-'+boxname+boxid).style.display = 'none';
+            dojo.byId('openclose-'+boxname+boxid).innerHTML = '[+]';
+        }
+    }
+}
 function openCommentsPopup (taskid, goalid, goaluserid){
 	if(dojo.byId('commentOuterDiv')){
 		dojo.removeClass('commentOuterDiv','hidediv');

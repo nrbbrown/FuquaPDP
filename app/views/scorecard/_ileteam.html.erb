@@ -1,6 +1,7 @@
 
 <div class="rankListing">
   <div class="oneRankBox headRow">
+    <div class="opencloseBox">&nbsp;&nbsp;&nbsp;&nbsp;</div>
     <div class="oneRankNumber">
       Rank
     </div>
@@ -15,7 +16,9 @@
   <%@finalILEScore.each do |oneteam| %>
 
       <%@userCount = @userCount + 1%>
-      <div class="oneRankBox <%if @userCount%2 == 1%>oneRankBox2<%else%>oneRankBox1<%end%>">
+      <div class="oneRankBox <%if @userCount%2 == 1%>oneRankBox2<%else%>oneRankBox1<%end%>"
+           onclick="javascript:opencloseBox('ile',<%=oneteam[0]%>)" style="cursor: pointer;">
+        <div class="opencloseBox" id="openclose-ile<%=oneteam[0]%>">[+]</div>
         <div class="oneRankNumber">
           <%= @userCount%>
         </div>
@@ -28,7 +31,31 @@
         <div class="graphIconDiv" onclick="showUserGraph(<%= oneteam[0]%>,2)">
            <img src="/images/graph.png" height="25px;" alt="Show Graph" title="Show Graph">
         </div>
+
+        <div class="innerOneBoxSub" style="display: none;" id="openclosebox-ile<%=oneteam[0]%>" >
+          <%@userCountc = 0%>
+          <%@userresult.each do |oneuser| %>
+              <%if oneuser.ileteam == oneteam[0]%>
+              <%@userCountc = @userCountc + 1%>
+              <div class="oneRankBox">
+                <div class="opencloseBox"></div>
+                <div class="oneRankNumber">
+                  <%= @userCount%>.<%= @userCountc%>
+                </div>
+                <div class="oneRankName">
+                  <%= oneuser.name %>
+                </div>
+                <div class="oneRankScore">
+                  <%if oneuser.overallscore == '-1' %>N/A<%else%><%=oneuser.overallscore %>%<%end%>
+                </div>
+                <div class="graphIconDiv" onclick="showUserGraph(<%= oneuser.id%>,1)"><img src="/images/graph.png" height="25px;" alt="Show Graph" title="Show Graph"></div>
+              </div>
+              <%end%>
+          <%end%>
+        </div>
+
       </div>
+
   <%end%>
 
 </div>

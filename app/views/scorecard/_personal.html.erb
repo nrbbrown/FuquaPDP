@@ -36,11 +36,19 @@
    end
    @AvgILEScore = 0
    @IleTeams.each do |oneileteam|
-     @ILETeamScore[oneileteam.ileteam] = (@ILETeamHash[oneileteam.ileteam]*1.0/@ILETeamCount[oneileteam.ileteam]).round(2)
+     if @ILETeamCount[oneileteam.ileteam] != 0
+        @ILETeamScore[oneileteam.ileteam] = (@ILETeamHash[oneileteam.ileteam]*1.0/@ILETeamCount[oneileteam.ileteam]).round(2)
+     else
+       @ILETeamScore[oneileteam.ileteam] = 0
+     end
      @AvgILEScore =@AvgILEScore + @ILETeamScore[oneileteam.ileteam]
    end
    @AvgILEScore = (@AvgILEScore*1.0/@IleTeams.length).round(2)
-   @classAverage = (@userTotal*1.00/@counter).round(2)
+   if @counter == 0
+     @classAverage = @counter.round(2)
+   else
+     @classAverage = (@userTotal*1.00/@counter).round(2)
+   end
    @finalILEScore = @ILETeamScore.sort_by{ |name, score| score }.reverse
    @ilerank = 0
    @finalILEScore.each do |oneteam|

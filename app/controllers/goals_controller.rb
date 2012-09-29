@@ -60,13 +60,13 @@ class GoalsController < ApplicationController
         @users = User.find(:all,:order=>"name")  
         @uid = current_user.id
         @thisUser = User.find_by_id(@uid)
-
+        @dontshowcardText = true
         @goal = Goal.find(params[:id])
         @filter = @goal.category
         @complete = '0'
-        
+
         @goals = Goal.where("user_id = ? and category = ?", current_user.id, @filter)
-        @fullgoals = Goal.where("user_id = ?", current_user.id);     
+        @fullgoals = Goal.where("user_id = ?", current_user.id);
         
         t = 10 - @goal.tasks.length
         

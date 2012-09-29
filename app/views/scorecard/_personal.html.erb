@@ -13,7 +13,6 @@
    @IleTeams.each do |oneileteam|
      @ILETeamHash[oneileteam.ileteam] = -1
      @ILETeamCount[oneileteam.ileteam] = 0
-     @SectionTeamCount[oneileteam.section_number] = @SectionTeamCount[oneileteam.section_number] + 1
    end
 %>
 <% @counter = 0
@@ -29,6 +28,9 @@
         @userTotal = @userTotal + @userscore
         @ILETeamHash[oneuser.ileteam] = @ILETeamHash[oneuser.ileteam] + @userscore
         @ILETeamCount[oneuser.ileteam] = @ILETeamCount[oneuser.ileteam] + 1
+
+        @SectionTeamHash[oneuser.section_number] = @SectionTeamHash[oneuser.section_number] + @userscore
+        @SectionTeamCount[oneuser.section_number] = @SectionTeamCount[oneuser.section_number] + 1
      end
      if oneuser.id == @thisUser.id
        @currentUserRank = @counter
@@ -57,9 +59,7 @@
        @userilerank = @ilerank
      end
    end
-   @IleTeams.each do |oneileteam|
-     @SectionTeamHash[oneileteam.section_number] = @SectionTeamHash[oneileteam.section_number] +   @ILETeamScore[oneileteam.ileteam]
-   end
+
    @AvgSectionScore = 0
    @SectionTeams.each do |onesectionteam|
      @SectionScore[onesectionteam.section_number] = (@SectionTeamHash[onesectionteam.section_number]*1.0/@SectionTeamCount[onesectionteam.section_number]).round(2)

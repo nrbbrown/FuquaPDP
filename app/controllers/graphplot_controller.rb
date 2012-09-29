@@ -164,9 +164,7 @@ class GraphplotController < ApplicationController
       @activeT = User.find_by_sql ["
                     select COALESCE(round(avg(overallScore),2),-1) as overallScore,section_number
                     from (
-                      select COALESCE(round(avg(overallScore),2),-1) as overallScore,ileteam,section_number
-                      from(
-                        select COALESCE(round(avg(domainScore),2),-1) as overallScore,u.id,u.name,u.ileteam,u.section_number
+		select COALESCE(round(avg(domainScore),2),-1) as overallScore,u.id,u.name,u.ileteam,u.section_number
                           from users u
                           left join
                           (
@@ -206,9 +204,7 @@ class GraphplotController < ApplicationController
                           ) d
                           on u.id = d.user_id
                           group by u.id,u.name,u.ileteam,u.section_number
-                            ) g
-                            group by ileteam,section_number
-                    ) h
+                          ) h
                     where section_number = ?
                     group by section_number
                     order by overallScore desc,section_number asc

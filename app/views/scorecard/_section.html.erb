@@ -11,11 +11,15 @@
       Overall Score
     </div>
   </div>
+
   <%@userCount = 0%>
+
   <%@finalSectionScore.each do |oneSectionteam| %>
 
       <%@userCount = @userCount + 1%>
-      <div class="oneRankBox <%if @userCount%2 == 1%>oneRankBox2<%else%>oneRankBox1<%end%>">
+      <div class="oneRankBox <%if @userCount%2 == 1%>oneRankBox2<%else%>oneRankBox1<%end%>"
+           onclick="javascript:opencloseBox('section',<%=oneSectionteam[0]%>)" style="cursor: pointer;">
+        <div class="opencloseBox" id="openclose-section<%=oneSectionteam[0]%>">[+]</div>
         <div class="oneRankNumber">
           <%= @userCount%>
         </div>
@@ -26,10 +30,33 @@
           <%if oneSectionteam[1] == '-1' %>N/A<%else%><%=oneSectionteam[1] %>%<%end%>
         </div>
         <div class="graphIconDiv" onclick="showUserGraph(<%= oneSectionteam[0]%>,3)">
-           <img src="/images/graph.png" height="25px;" alt="Show Graph" title="Show Graph">
+          <img src="/images/graph.png" height="25px;" alt="Show Graph" title="Show Graph">
+        </div>
+
+        <div class="innerOneBoxSub" style="display: none;" id="openclosebox-section<%=oneSectionteam[0]%>" >
+          <%@userCountc = 0%>
+          <%@userresult.each do |oneuser| %>
+              <%if oneuser.section_number == oneSectionteam[0]%>
+                  <%@userCountc = @userCountc + 1%>
+                  <div class="oneRankBox">
+                    <div class="opencloseBox"></div>
+                    <div class="oneRankNumber">
+                      <%= @userCount%>.<%= @userCountc%>
+                    </div>
+                    <div class="oneRankName">
+                      <%= oneuser.name %>
+                    </div>
+                    <div class="oneRankScore">
+                      <%if oneuser.overallscore == '-1' %>N/A<%else%><%=oneuser.overallscore %>%<%end%>
+                    </div>
+                    <div class="graphIconDiv" onclick="showUserGraph(<%= oneuser.id%>,1)"><img src="/images/graph.png" height="25px;" alt="Show Graph" title="Show Graph"></div>
+                  </div>
+              <%end%>
+          <%end%>
         </div>
 
       </div>
+
   <%end%>
 
 </div>

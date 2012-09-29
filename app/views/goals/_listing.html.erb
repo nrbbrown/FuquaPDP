@@ -36,7 +36,7 @@ dojo.ready(Score.init);
 <div id="activecontainer">
 <div id="activecomplete0"><%= link_to 'active', :controller=>'goals', :action=>'index', :filter=>@filter, :u=>@uid %></div>
 <div id="activecomplete1"><%= link_to 'completed', :controller=>'goals', :action=>'index', :complete=>1, :filter=>@filter, :u=>@uid %></div>
-  <% if @isme %>
+  <% if @isme || @dontshowcardText%>
   <% else %>
       <div style="float: right;padding:0px 3px;"><a href="/scorecard?u=<%=@thisUser.id%>">View <%=@thisUser.name%>'s Scorecard</a></div>
   <% end %>

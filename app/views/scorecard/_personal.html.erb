@@ -62,7 +62,11 @@
 
    @AvgSectionScore = 0*1.0
    @SectionTeams.each do |onesectionteam|
-     @SectionScore[onesectionteam.section_number] = (@SectionTeamHash[onesectionteam.section_number]*1.0/@SectionTeamCount[onesectionteam.section_number]).round(2)
+     if @SectionTeamCount[onesectionteam.section_number] == 0
+       @SectionScore[onesectionteam.section_number] = 0
+     else
+       @SectionScore[onesectionteam.section_number] = (@SectionTeamHash[onesectionteam.section_number]*1.0/@SectionTeamCount[onesectionteam.section_number]).round(2)
+     end
      @AvgSectionScore =@AvgSectionScore + @SectionScore[onesectionteam.section_number]
    end
    @AvgSectionScore = (@AvgSectionScore*1.0/@SectionTeams.length).round(2)

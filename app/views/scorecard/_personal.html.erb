@@ -53,10 +53,12 @@
    end
    @finalILEScore = @ILETeamScore.sort_by{ |name, score| score }.reverse
    @ilerank = 0
+   @userIleScore = 0
    @finalILEScore.each do |oneteam|
      @ilerank = @ilerank + 1
      if @thisUser.ileteam == oneteam[0]
        @userilerank = @ilerank
+       @userIleScore = oneteam[1]
      end
    end
 
@@ -72,33 +74,35 @@
    @AvgSectionScore = (@AvgSectionScore*1.0/@SectionTeams.length).round(2)
    @finalSectionScore = @SectionScore.sort_by{ |name, score| score }.reverse
    @ssectionrank = 0
+   @usersectionScore = 0
    @finalSectionScore.each do |oneteam|
      @ssectionrank = @ssectionrank + 1
      if @thisUser.section_number == oneteam[0]
        @usersectionrank = @ssectionrank
+       @usersectionScore = oneteam[1]
      end
    end
 %>
 <div class="personalStatsBox">
   <div class="personalRow">
-    <div class="socreName">Overall Personal Score:</div>
+    <div class="socreName"><%= @thisUser.name%>'s Score:</div>
     <div class=""><%=@overallScore%><%if @overallScore != 'N/A'%>%<%end%></div>
     <div class="graphIconDiv" onclick="showUserGraph(<%= @thisUser.id%>,1)" ><img src="/images/graph.png" height="25px;" alt="Show Graph" title="Show Graph"></div>
   </div>
   <div class="personalRow">
-    <div class="socreName">Avg. ILE Team Score:</div>
-    <div class=""><%=@AvgILEScore%>%</div>
+    <div class="socreName"><%= @thisUser.name%>'s Team Score:</div>
+    <div class=""><%=@userIleScore%>%</div>
     <div class="graphIconDiv" onclick="showUserGraph(<%= @thisUser.ileteam%>,2)" ><img src="/images/graph.png" height="25px;" alt="Show Graph" title="Show Graph"></div>
     <div class="yourRank">(<%= @thisUser.name %>'s Team Rank: <%=@userilerank%>)</div>
   </div>
   <div class="personalRow">
-    <div class="socreName">Avg. Section Score:</div>
-    <div class=""><%=@AvgSectionScore%>%</div>
+    <div class="socreName"><%= @thisUser.name%>'s Section Score:</div>
+    <div class=""><%=@usersectionScore%>%</div>
     <div class="graphIconDiv" onclick="showUserGraph(<%= @thisUser.section_number%>,3)" ><img src="/images/graph.png" height="25px;" alt="Show Graph" title="Show Graph"></div>
     <div class="yourRank">(<%= @thisUser.name %>'s Section Rank: <%=@usersectionrank%>)</div>
   </div>
   <div class="personalRow">
-    <div class="socreName">Avg. Class Score:</div>
+    <div class="socreName"><%= @thisUser.name%>'s Class Score:</div>
     <div class=""><%=@classAverage%>%</div>
     <%if @overallScore != 'N/A'%>
         <div class="yourRank">(<%= @thisUser.name %>'s Rank: <%=@currentUserRank%>)</div>
